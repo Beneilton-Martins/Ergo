@@ -1,0 +1,54 @@
+diff --git a/node_modules/viewerjs/dist/viewer.esm.js b/node_modules/viewerjs/dist/viewer.esm.js
+index fbb881c..9f6686c 100644
+--- a/node_modules/viewerjs/dist/viewer.esm.js
++++ b/node_modules/viewerjs/dist/viewer.esm.js
+@@ -1079,7 +1079,7 @@ var render = {
+     setStyle(this.list, assign({
+       width: outerWidth * this.length - gutter
+     }, getTransforms({
+-      translateX: (this.viewerData.width - offsetWidth) / 2 - outerWidth * index
++      translateX: 0
+     })));
+   },
+   resetList: function resetList() {
+@@ -1087,7 +1087,7 @@ var render = {
+     list.innerHTML = '';
+     removeClass(list, CLASS_TRANSITION);
+     setStyle(list, getTransforms({
+-      translateX: 0
++      translateX: (this.viewerData.width - offsetWidth) / 2 - outerWidth * index
+     }));
+   },
+   initImage: function initImage(done) {
+diff --git a/node_modules/viewerjs/dist/viewer.js b/node_modules/viewerjs/dist/viewer.js
+index e1381dc..77186ee 100644
+--- a/node_modules/viewerjs/dist/viewer.js
++++ b/node_modules/viewerjs/dist/viewer.js
+@@ -378,7 +378,8 @@
+   var REGEXP_SPACES = /\s\s*/;
+ 
+   // Misc
+-  var BUTTONS = ['zoom-in', 'zoom-out', 'one-to-one', 'reset', 'prev', 'play', 'next', 'rotate-left', 'rotate-right', 'flip-horizontal', 'flip-vertical'];
++  var BUTTONS = ['zoom-in', 'zoom-out', 'one-to-one', 'reset', 'prev', 'play', 'next', 
++  'rotate-left', 'rotate-right', 'flip-horizontal', 'flip-vertical'];
+ 
+   /**
+    * Check if the given value is a string.
+@@ -1085,7 +1086,7 @@
+       setStyle(this.list, assign({
+         width: outerWidth * this.length - gutter
+       }, getTransforms({
+-        translateX: (this.viewerData.width - offsetWidth) / 2 - outerWidth * index
++        translateX: 0
+       })));
+     },
+     resetList: function resetList() {
+@@ -1093,7 +1094,7 @@
+       list.innerHTML = '';
+       removeClass(list, CLASS_TRANSITION);
+       setStyle(list, getTransforms({
+-        translateX: 0
++        translateX: (this.viewerData.width - offsetWidth) / 2 - outerWidth * index
+       }));
+     },
+     initImage: function initImage(done) {
