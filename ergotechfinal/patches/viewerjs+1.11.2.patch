@@ -52,3 +52,6 @@ index e1381dc..77186ee 100644
        }));
      },
      initImage: function initImage(done) {
+diff --git a/node_modules/viewerjs/docs/examples/custom-toolbar.html b/node_modules/viewerjs/docs/examples/custom-toolbar.html
+new file mode 100644
+index 0000000..e69de29
