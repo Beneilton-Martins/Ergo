@@ -15,9 +15,9 @@
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(0, 0, 0, 0.66);
+  --vt-c-text-light-2: rgba(255, 255, 255, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(0, 0, 0, 0.64);
+  --vt-c-text-dark-2: rgba(255, 255, 255, 0.64);
 }
 
 :root {
@@ -60,7 +60,7 @@
 body {
   padding: 0;
   margin: 0;
-
+  background-color: rgba(58, 58, 58, 0.795);
   /* min-height: 100px; */
 
   /* color: var(--color-text);
@@ -78,4 +78,14 @@ body {
 .container  {
   display: grid;
   grid-template-columns: 75% 25%;
+  height: 100vh;
+}
+
+h5 {
+  text-align: center;
+  color: white;
+}
+
+p {
+  color: white;
 }

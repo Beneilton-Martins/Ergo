@@ -1,16 +1,16 @@
 <template>
-<div class="greetings">
-  <h2 class="green">{{ msg }}</h2>
-  <h3>
-    Landpage teste para aplicação web do projeto ErgoTech
-  </h3>
-</div>
+  <div class="greetings">
+    <h2 class="green">{{ msg }}</h2>
+    <h3>
+      Landpage teste para aplicação web do projeto ErgoTech
+    </h3>
+  </div>
 </template>
 
 <script setup lang="ts">
-defineProps<  {
-  msg: string;
-}>();
+  defineProps<  {
+    msg: string;
+  }>();
 
 </script>
 

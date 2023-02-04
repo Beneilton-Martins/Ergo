@@ -1,135 +1,13 @@
-<template>
-  <div class="linha">
-    <div class="coluna1">
-      <div class="field">
-        <div id="div-input" class="methods"> 
-          Tempo:
-          <input placeholder="Digite o tempo inical (segundos)" 
-            v-model="Tinicial" 
-            class="input" 
-            type="text"
-            style="width: 210px"
-          >
-          <input placeholder="Digite o tempo final (segundos)" 
-            v-model="Tfinal" 
-            class="input" 
-            type="text"
-            style="width: 210px"
-          >
-          <button class="submit" @click="atualizarImagens()"> Atualizar</button>
-        </div>
-      </div>
-      <div class="viewer-wrapper">
-        <viewer ref="viewer" :options="options" 
-          :images="images" class="viewer" @inited="inited"> 
-          <template #default="scope">
-            <div v-for="{ source, thumbnail, alt} in scope.images" 
-              key="source" class="image-wrapper">
-              <img class="image" 
-                :src="getImageURL(thumbnail)" 
-                :data-source="getImageURL(source)"
-                :alt="alt"
-              >
-            </div>
-          </template>
-        </viewer>
-      </div> 
-        <div class="columns">
-          <p>Movimento</p>
-          <div class="column" >
-            <MovimentButton v-for="(i, idx) in images" :image="idx*15"/>
-          </div>
-        </div>
-        <div class="columns">
-          <p>Carga</p>
-          <div class="column" >
-            <CargaButton v-for="(i, idx) in images" :image="idx"/>
-         </div>
-        </div>
-        <div class="columns">
-          <p>Braco</p>
-          <div class="column" >
-            <BracoButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
-        <div class="columns">
-          <p>Dorso</p>
-          <div class="column" >
-            <DorsoButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
-        <div class="columns">
-          <p>Perna</p>
-          <div class="column" >
-          <PernaButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
-    </div>
-    <div class="coluna2">
-      <!-- <router-link to="/about"> 
-        <button class="submit">RELATORIO</button> 
-      </router-link> -->
-      <!-- <div class="legendas"> 
-        <div>
-          <h1>Legendas</h1>
-          <hr/>
-          <br/>
-          <div class="pai">
-              <p>Movimento</p>
-              <div><button style='background-color:rgb(1,40,146)'>Sem Movimento</button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Com Movimento</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-              <p>Carga</p>
-              <div><button style='background-color:rgb(1,40,146)'>10kg &lt; Carga &lt; 20kg</button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Carga &lt; 10kg</button></div>
-              <div><button style='background-color:rgb(195,189,55)'>Carga > 20kg</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-              <p>Bracos</p>
-              <div><button style='background-color:rgb(1,40,146)'>Nenhum Braço Levantado </button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Um Braço Levantado</button></div>
-              <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-            <p>Dorso</p>
-            <div><button style='background-color:rgb(1,40,146)'>Dorso Reto</button></div>
-            <div><button style='background-color:rgb(225,165,25)'>Dorso Inclinado</button></div>
-            <div><button style='background-color:rgb(195,189,55)'>Dorso Reto e Torcido</button></div>
-            <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div>
-          </div>
-          <br/>
-          <div class="pai">
-            <p>Pernas</p>
-            <div><button style='background-color:rgb(1,40,146)'>Duas Pernas Retas</button></div>
-            <div><button style='background-color:rgb(225,165,25)'>Uma Perna Reta</button></div>
-            <div><button style='background-color:rgb(195,189,55)'>Duas Pernas Flexionadas</button></div>
-            <div><button style='background-color:rgb(195,55,185)'>Uma Perna Flexionada </button></div>
-            <div><button style='background-color:rgb(195,169,255)'>Uma Perna Ajoelhada</button></div>
-            <div><button style='background-color:rgb(195,117,55)'>Em Movimento</button></div>
-            <div><button style='background-color:rgb(1,146,174)'>Duas Pernas Suspensas</button></div>
-          </div>
-          <br/>
-        </div>
-      </div> -->
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
-import type  Viewer  from "viewerjs"
+import { defineComponent, reactive, toRefs, ref } from 'vue'
 import VueViewer, { component } from "v-viewer"
+import type  Viewer  from "viewerjs"
+
 import MovimentButton from "./Buttons/MovimentButton.vue"
 import CargaButton from "./Buttons/CargaButton.vue"
 import BracoButton2 from "./Buttons/BracoButton.vue"
 import DorsoButton2 from "./Buttons/DorsoButton.vue"
 import PernaButton2 from "./Buttons/PernaButton.vue"
-import { defineComponent, reactive, toRefs, ref } from 'vue'
-
-
 
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
@@ -139,8 +17,8 @@ VueViewer.setDefaults({
 })
 
 export default defineComponent({
-  name: 'ComponentExample',
-  el: '#app',
+  name: "Home",
+  el: "#player-app",
   components: {
     Viewer: component,
     MovimentButton,
@@ -400,38 +278,186 @@ export default defineComponent({
 })
 </script>
 
+<template>
+  <div class="linha">
+    <div class="viewer-wrapper">
+        <viewer ref="viewer" 
+          :options="options" 
+          :images="images" 
+          rebuild
+          class="viewer" 
+          @inited="inited">
+          <template #default="scope">
+            <div v-for="{ source, thumbnail, alt} in scope.images" 
+              key="source" class="image-wrapper">
+              <img class="image" 
+                :src="getImageURL(thumbnail)" 
+                :data-source="getImageURL(source)"
+                :alt="alt"
+              >
+            </div>
+          </template>
+        </viewer>
+    </div>
+    <div class="coluna1">
+  <!--<div class="field">
+        <div id="div-input" class="methods">
+          Tempo:
+          <input placeholder="Digite o tempo inical (s)" 
+            v-model="Tinicial" 
+            class="input" 
+            type="text"
+            style="width: 210px"
+          >
+          <input placeholder="Digite o tempo final (s)" 
+            v-model="Tfinal" 
+            class="input" 
+            type="text"
+            style="width: 210px"
+          >
+          <button class="submit" @click="atualizarImagens()"> Atualizar</button>
+        </div>
+      </div> --> 
+        <div class="columns">
+          <p>Movimento</p>
+          <div class="column" >
+            <MovimentButton v-for="(i, idx) in images" :image="idx*15"/>
+          </div>
+        </div>
+        <div class="columns">
+          <p>Carga</p>
+          <div class="column" >
+            <CargaButton v-for="(i, idx) in images" :image="idx"/>
+         </div>
+        </div>
+        <div class="columns">
+          <p>Braco</p>
+          <div class="column" >
+            <BracoButton2 v-for="(i, idx) in images" :image="idx"/>
+          </div>
+        </div>
+        <div class="columns">
+          <p>Dorso</p>
+          <div class="column" >
+            <DorsoButton2 v-for="(i, idx) in images" :image="idx"/>
+          </div>
+        </div>
+        <div class="columns">
+          <p>Perna</p>
+          <div class="column" >
+          <PernaButton2 v-for="(i, idx) in images" :image="idx"/>
+          </div>
+        </div>
+    </div>
+    <div class="coluna2">
+      <!-- <router-link to="/about"> 
+        <button class="submit">RELATORIO</button> 
+      </router-link> -->
+      <!-- <div class="legendas"> 
+        <div>
+          <h1>Legendas</h1>
+          <hr/>
+          <br/>
+          <div class="pai">
+              <p>Movimento</p>
+              <div><button style='background-color:rgb(1,40,146)'>Sem Movimento</button></div>
+              <div><button style='background-color:rgb(225,165,25)'>Com Movimento</button></div>
+          </div>
+          <br/>
+          <div class="pai">
+              <p>Carga</p>
+              <div><button style='background-color:rgb(1,40,146)'>10kg &lt; Carga &lt; 20kg</button></div>
+              <div><button style='background-color:rgb(225,165,25)'>Carga &lt; 10kg</button></div>
+              <div><button style='background-color:rgb(195,189,55)'>Carga > 20kg</button></div>
+          </div>
+          <br/>
+          <div class="pai">
+              <p>Bracos</p>
+              <div><button style='background-color:rgb(1,40,146)'>Nenhum Braço Levantado </button></div>
+              <div><button style='background-color:rgb(225,165,25)'>Um Braço Levantado</button></div>
+              <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div>
+          </div>
+          <br/>
+          <div class="pai">
+            <p>Dorso</p>
+            <div><button style='background-color:rgb(1,40,146)'>Dorso Reto</button></div>
+            <div><button style='background-color:rgb(225,165,25)'>Dorso Inclinado</button></div>
+            <div><button style='background-color:rgb(195,189,55)'>Dorso Reto e Torcido</button></div>
+            <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div>
+          </div>
+          <br/>
+          <div class="pai">
+            <p>Pernas</p>
+            <div><button style='background-color:rgb(1,40,146)'>Duas Pernas Retas</button></div>
+            <div><button style='background-color:rgb(225,165,25)'>Uma Perna Reta</button></div>
+            <div><button style='background-color:rgb(195,189,55)'>Duas Pernas Flexionadas</button></div>
+            <div><button style='background-color:rgb(195,55,185)'>Uma Perna Flexionada </button></div>
+            <div><button style='background-color:rgb(195,169,255)'>Uma Perna Ajoelhada</button></div>
+            <div><button style='background-color:rgb(195,117,55)'>Em Movimento</button></div>
+            <div><button style='background-color:rgb(1,146,174)'>Duas Pernas Suspensas</button></div>
+          </div>
+          <br/>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</template>
+
 <style scoped lang="scss" >
+.viewer-wrapper {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.viewer {
+  border-radius: 20px;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  height: 100vh;
+  background: rgb(23, 23, 23);
+  .images {
+    display: flex;
+    border-radius: 20px;
+  }
+  .image {
+    display: none;
+  }
+}
 .linha  {
   display: flex;
   flex-flow: row wrap;
+  height: 100%;
 }
-.coluna1  { //altera espaco ocupado pelo viewer na tela
+.coluna1  { 
+  display: flex;
   width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(58, 58, 58);
+  border-radius: 20px;
+  text-align: center;
 }
-
 .coluna2  {
   position: absolute;
   float: right;
-
+  overflow: hidden;
 }
 .field  {
   text-align: center;
 }
-
 .column {
   display: inline-flex;
   overflow-x: scroll;
   width: 100%;
 }
-#methods  {
-  display: flex;
-  padding-left: 90px;
-
-}
 .div-input  {
   text-align: center;
 }
-
 .input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -441,7 +467,6 @@ export default defineComponent({
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 .input[type=submit] {
   width: 100%;
   background-color: #4CAF50;
@@ -452,7 +477,6 @@ export default defineComponent({
   border-radius: 4px;
   cursor: pointer;
 }
-/* CSS - button*/ 
 .submit {
   appearance: none;
   background-color: #2ea44f;
@@ -481,43 +505,18 @@ export default defineComponent({
   box-shadow: none;
   outline: none;
 }
-.viewer-wrapper {
-  display: flex;
-  width: 100%;
-  max-height: 50%;
-  align-items: center;
-
-}
-.viewer {
-  align-items: center;
-  align-content: center;
-  display: flex;
-  height: 100vh;
-  background: rgb(23, 23, 23);
-  
-  .images{
-    display: flex;
-  }
-  .image{
-    display: none;
-    
-  }
-
-}
 .legendas {
-    
-    right: 0px;
-    background-color: rgb(255, 255, 255);
-    width: 280px;
-    height: 100%;
-    padding: 25px;
-    border: 1px solid rgb(218, 218, 218);
-    // margin: 25px;
-    position: fixed;
-    top: 1px;
-    bottom: 1px;
+  right: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 280px;
+  height: 100%;
+  padding: 25px;
+  border: 1px solid rgb(218, 218, 218);
+  // margin: 25px;
+  position: fixed;
+  top: 1px;
+  bottom: 1px;
 }
-
 .pai>div>button {
   appearance: none;
   background-color: #2ea44f;

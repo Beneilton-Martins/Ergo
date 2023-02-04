@@ -1,9 +1,5 @@
 <template>    
-    <!-- <div class="seperator"> -->
-        <!-- <h5><span>{{image}}</span></h5> -->
-            <div class="div-dorso"
-    ></div>
-<!-- </div> -->
+    <div class="div-dorso"></div>
 </template>
 
 <script>
@@ -45,34 +41,14 @@ mounted(){
 </script>
 
 <style scoped>
-.div-dorso{
-display:flex;
-flex-direction: row;
-margin-right:1px;
-border-radius: 2px;
-margin-top: 5px;
-background-color: v-bind(color);
-min-width: 30px;
-min-height: 25px;
+.div-dorso {
+  display:flex;
+  flex-direction: row;
+  margin-right:1px;
+  margin-top: 5px;
+  background-color: v-bind(color);
+  border-radius: 5px;
+  min-width: 30px;
+  min-height: 15px;
 }
-
-.separator h5{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1em;
-  }
-
-  .seperator h5::before,
-  .seperator h5::after {
-    content: "";
-    display: block;
-    flex-grow: 1;
-    height: 1px;
-    background: #ccc;
-  }
-
-  .seperator h5 span {
-  padding: 0 2em;
-  }
 </style>

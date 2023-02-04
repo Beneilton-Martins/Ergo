@@ -1,65 +1,48 @@
 <template>
 <div class="solid">
   <h5><span>{{image}}</span></h5>
-    <div @mouseenter="changecolor()" class="div-movimento"
-      :class="{ 'div-hover-movimento': hover }"
-    ></div>
+  <div @mouseenter="changecolor" class="div-movimento"
+    :class="{ 'div-hover-movimento': hover }"
+  ></div>
 </div>
-    
-  </template>
+
+</template>
   
-  <script>
-  export default {
-    
-    data() {
-      return {
-        hover: false,
-      }
-    },
-    props:{
-        image: Number
-    },
-    methods: {
-        changecolor() {
-            this.hover = !this.hover
-        }
+<script>
+export default {
+  data() {
+    return {
+      hover: false,
+      color:"#012892",
     }
-  };
-  </script>
+  },
+  props:{
+    image: Number
+  },
+  methods: {
+    changecolor(e) {
+      if(e.buttons == 1){
+        if(this.color=="#012892") {
+          this.color="#FFA519"
+        }else {
+          this.color="#C3BD19"
+        }
+        this.hover = !this.hover
+      }
+    }
+  }
+}
+</script>
   
-  <style>
-  .div-movimento {
-    display:flex;
-    flex-direction: row;
-    margin-right:1px;
-    border-radius: 2px;
-    border-color: black;
-    margin-top: 5px;
-    background-color: #012892;
-    min-width: 30px;
-    min-height: 25px;
-  }
-  
-  .div-hover-movimento {
-    background-color: #FFA519;
-  }
-
-  .solid{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .seperator h5::before,
-  .seperator h5::after {
-    content: "";
-    display: block;
-    flex-grow: 1;
-    height: 1px;
-    background: #ccc;
-  }
-
-  .seperator h5 span {
-  padding: 0 2em;
-  }
-  </style>
+<style scoped>
+.div-movimento {
+  display:flex;
+  flex-direction: row;
+  margin-right:1px;
+  margin-top: 5px;
+  background-color: v-bind(color);
+  border-radius: 5px;
+  min-width: 30px;
+  min-height: 15px;
+}
+</style>

@@ -2,7 +2,6 @@
   <VueAwesomeSideBar
     vueRouterEnabel
     menuType="simple"
-
     white
     :menu="testMenu"
     :miniMenu="miniMenu"

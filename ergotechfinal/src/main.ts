@@ -1,7 +1,8 @@
+import "./assets/main.css";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 
-import "./assets/main.css";
+
 
 import MainApp from "./MainApp.vue";
 import PlayerApp from "./PlayerApp.vue";
