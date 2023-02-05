@@ -114,10 +114,10 @@ h5 {
   color: white;
   background-color: rgba(24,25,27,255);
   overflow: hidden;
+  user-select: none;
 }
 
-p {
-  color: white;
+button {
   text-align: start;
   margin-left: 12px;
   overflow:hidden;

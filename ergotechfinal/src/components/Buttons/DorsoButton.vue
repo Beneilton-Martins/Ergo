@@ -42,14 +42,13 @@ mounted(){
 
 <style scoped>
 .div-dorso {
-    display:flex;
+  display:flex;
   flex-direction: row;
-  margin-right:1px;
-  margin-top: 5px;
+  margin-top: 1px;
   background-color: v-bind(color);
   border-radius: 3px;
-  min-width: 30px;
+  min-width: 29px;
   min-height: 15px;
-  box-shadow: 0px 0px 0px 1px rgb(255, 255, 255);
+  border: solid 1px white;
 }
 </style>

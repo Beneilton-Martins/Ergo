@@ -319,31 +319,31 @@ export default defineComponent({
         </div>
       </div> --> 
         <div class="columns">
-          <p>Movimento</p>
+          <button class="movimento">Movimento</button>
           <div class="column" >
             <MovimentButton v-for="(i, idx) in images" :image="idx*15"/>
           </div>
         </div>
         <div class="columns">
-          <p>Carga</p>
+          <button>Carga</button>
           <div class="column" >
             <CargaButton v-for="(i, idx) in images" :image="idx"/>
          </div>
         </div>
         <div class="columns">
-          <p>Braco</p>
+          <button>Braco</button>
           <div class="column" >
             <BracoButton2 v-for="(i, idx) in images" :image="idx"/>
           </div>
         </div>
         <div class="columns">
-          <p>Dorso</p>
+          <button>Dorso</button>
           <div class="column" >
             <DorsoButton2 v-for="(i, idx) in images" :image="idx"/>
           </div>
         </div>
         <div class="columns">
-          <p>Perna</p>
+          <button>Perna</button>
           <div class="column" >
           <PernaButton2 v-for="(i, idx) in images" :image="idx"/>
           </div>
@@ -404,6 +404,9 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss" >
+.movimento{
+  margin-top: 10px;
+}
 .viewer-wrapper {
   display: flex;
   width: 100%;
@@ -439,10 +442,10 @@ export default defineComponent({
   width: 100%;
   overflow: hidden;
   flex-direction: column;
-  justify-content: space-evenly;
-  background-color: rgba(58, 58, 58);
+  justify-content: space-between;
+  background-color: rgb(43, 43, 43);
   border-radius: 20px;
-  text-align: center;
+  text-align: start;
   overflow-x: scroll;
 }
 .coluna2  {

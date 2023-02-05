@@ -9,9 +9,13 @@ export default {
     return {
       hover: false,
       color:"#012892",
-      json: [1, 1, 2, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 3, 2, 2, 2, 2, 1,
-      1, 1, 1, 2, 1, 1, 1, 1, 3, 3, 3, 3, 3, 2, 3, 2, 3, 2, 1, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1
-      , 3, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 1],
+      json: [1, 1, 2, 2, 3, 1, 1, 1, 1, 1, 1, 1,
+             1, 1, 1, 2, 1, 1, 1, 1, 2, 3, 2, 2, 
+             2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3, 
+             3, 3, 3, 3, 2, 3, 2, 3, 2, 1, 1, 3, 
+             3, 3, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1,
+             3, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1, 
+             1, 1, 3, 3, 3, 3, 1, 1],
     }
   },
   props:{
@@ -39,11 +43,11 @@ export default {
 .div-braco {
   display:flex;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 1px;
   background-color: v-bind(color);
   border-radius: 3px;
-  min-width: 30px;
+  min-width: 29px;
   min-height: 15px;
-  box-shadow: 0px 0px 0px 1px rgb(255, 255, 255);
+  border: solid 1px white;
 }
 </style>
