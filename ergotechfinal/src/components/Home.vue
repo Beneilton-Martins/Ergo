@@ -404,18 +404,18 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss" >
-.movimento{
-  margin-top: 10px;
-}
-.viewer-wrapper {
+
+.viewer-wrapper { //controla o viewer no geral
   display: flex;
   width: 100%;
   height: 60vh;
   align-items: center;
   border-radius: 20px;
-  overflow: hidden;
-  background-color: #00000000;
-
+  overflow:hidden;
+  background-color: rgb(58, 58, 58);
+  box-sizing: border-box;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 .viewer {
   border-radius: 20px;
@@ -423,8 +423,9 @@ export default defineComponent({
   align-content: center;
   display: flex;
   height: 100vh;
-  background-color: rgba(58, 58, 58, 0);
-  
+  background-color: rgb(58, 58, 58);
+  box-sizing: border-box;
+  overflow: hidden;
   .images {
     display: flex;
   }
@@ -447,6 +448,11 @@ export default defineComponent({
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
+  box-sizing: border-box;
+  border-left: solid 40px;
+  border-right: solid 40px;
+  border-color: rgb(43,43,43);
+
 }
 .coluna2  {
   position: absolute;

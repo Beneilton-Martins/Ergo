@@ -62,7 +62,7 @@
   scrollbar-color: rgba(58, 58, 58);;
 }
   
-/* Chrome, Edge, and Safari */
+/* Chrome, Edge, e Safari */
 *::-webkit-scrollbar {
   width: 10px;
 }
@@ -73,8 +73,6 @@
   
 *::-webkit-scrollbar-thumb {
   background-color: rgba(58, 58, 58);;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
   border-radius: 15px;
   border-bottom: solid 2px;
   border-left: solid 1px;
@@ -84,8 +82,7 @@
 }
 
 *::-webkit-scrollbar-track{
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   background-color: rgba(58, 58, 58);
   
@@ -119,7 +116,7 @@ h5 {
 
 button {
   text-align: start;
-  margin-left: 12px;
+  margin-left: 0px;
   overflow:hidden;
 
 }
