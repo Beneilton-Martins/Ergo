@@ -407,10 +407,12 @@ export default defineComponent({
 .viewer-wrapper {
   display: flex;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   align-items: center;
   border-radius: 20px;
   overflow: hidden;
+  background-color: #00000000;
+
 }
 .viewer {
   border-radius: 20px;
@@ -418,10 +420,10 @@ export default defineComponent({
   align-content: center;
   display: flex;
   height: 100vh;
-  background: rgb(23, 23, 23);
+  background-color: rgba(58, 58, 58, 0);
+  
   .images {
     display: flex;
-    border-radius: 20px;
   }
   .image {
     display: none;
@@ -441,6 +443,7 @@ export default defineComponent({
   background-color: rgba(58, 58, 58);
   border-radius: 20px;
   text-align: center;
+  overflow-x: scroll;
 }
 .coluna2  {
   position: absolute;
@@ -452,7 +455,6 @@ export default defineComponent({
 }
 .column {
   display: inline-flex;
-  overflow-x: scroll;
   width: 100%;
 }
 .div-input  {
