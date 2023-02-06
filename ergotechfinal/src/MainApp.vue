@@ -1,9 +1,10 @@
 <script setup>
-
+import Menu from './components/Menu.vue';
 </script>
 
+
 <template>
-  <div class="field">
+  <div class="time-field">
         <div class="div-input">
             <button>Tempo</button>
             <input placeholder="Digite o tempo inical (s)" 
@@ -24,7 +25,9 @@
             <button class="submit" @click="atualizarImages()">Relatório</button>
         </div>
   </div>
-  <div class="menu"></div>
+  <div class="menubar">
+    <!-- <Menu></Menu> -->
+  </div>
 </template>
 
 <style scoped>
@@ -46,12 +49,12 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   box-shadow: none;
   outline: none;
 }
-.menu {
+.menubar {
   display: flex;
   box-shadow: 0px 0px 0px 1px green;
   height: 100%;
 }
-.field {
+.time-field {
   display: flex;
   box-shadow: 0px 0px 0px 1px green;
   padding-top: 7px;

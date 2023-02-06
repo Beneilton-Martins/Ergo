@@ -409,17 +409,18 @@ export default defineComponent({
 .resize {
   display: flex;
   width: 100%;
-  height: 60vh;
+  height: transform();
   align-items: center;
   border-radius: 20px;
   overflow:hidden;
   box-sizing: border-box;
-  resize: vertical;
+  margin-bottom: 5px;
+  /* resize: vertical; */
 }
 .viewer-wrapper { //controla o viewer no geral
   display: flex;
   width: 100%;
-  height: 60vh;
+  height: 100%;
   align-items: center;
   border-radius: 20px;
   overflow:hidden;
@@ -427,14 +428,14 @@ export default defineComponent({
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
-  box-shadow: 0px 0px 0px 1px green;
+  /* box-shadow: 0px 0px 0px 1px green; */
 }
 .viewer {
   border-radius: 20px;
   align-items: center;
   align-content: center;
   display: flex;
-  height: 100vh;
+  height: 60vh;
   background-color: rgb(58, 58, 58);
   box-sizing: border-box;
   overflow: hidden;
@@ -456,16 +457,15 @@ export default defineComponent({
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(40, 40, 40,0.90);
+  background-color: rgb(43, 43, 43);
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: rgb(40, 40, 40,0.90);
-  box-shadow: 0px 0px 0px 1px green;
-
+  border-color: rgb(43, 43, 43);
+  /* box-shadow: 0px 0px 0px 1px green; */
 }
 .coluna2  {
   position: absolute;

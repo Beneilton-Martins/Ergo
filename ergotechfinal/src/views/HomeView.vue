@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Menu from "../components/Menu.vue";
+import HomeVue from "@/components/Home.vue"
+import MainAppVue from "@/MainApp.vue"
 
 </script>
 
 <template>
-   <div class="linha">
-      <div class="coluna-menu"><Menu /></div>
-   </div>
+   <HomeVue />
+   <MainAppVue/>
 </template>
 
 <style scoped>

@@ -15,7 +15,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "apexcharts": "^3.36.3",
     "patch-package": "^6.5.1",
     "pinia": "^2.0.28",
     "sass": "^1.57.1",
