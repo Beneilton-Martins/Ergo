@@ -44,5 +44,6 @@ export default {
   min-width: 29px;
   min-height: 15px;
   border: solid 1px white;
+  margin-bottom: 4px;
 }
 </style>

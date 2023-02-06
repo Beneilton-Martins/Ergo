@@ -285,7 +285,7 @@ export default defineComponent({
           :options="options" 
           :images="images" 
           rebuild
-          class="viewer" 
+          class="viewer"
           @inited="inited">
           <template #default="scope">
             <div v-for="{ source, thumbnail, alt} in scope.images" 
@@ -416,7 +416,9 @@ export default defineComponent({
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
+  resize:vertical;  
 }
+
 .viewer {
   border-radius: 20px;
   align-items: center;
@@ -443,7 +445,7 @@ export default defineComponent({
   width: 100%;
   overflow: hidden;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: rgb(43, 43, 43);
   border-radius: 20px;
   text-align: start;

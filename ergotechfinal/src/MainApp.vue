@@ -41,7 +41,7 @@ div {
     align-items: center;
     justify-content: flex-end;
 }
-.button-3:focus:not(:focus-visible):not(.focus-visible) {
+button:focus:not(:focus-visible):not(.focus-visible) {
   box-shadow: none;
   outline: none;
 }

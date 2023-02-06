@@ -14,6 +14,7 @@ import 'viewerjs/dist/viewer.css'
 
 import vueAwesomeSidebar from 'vue-awesome-sidebar'
 import 'vue-awesome-sidebar/dist/vue-awesome-sidebar.css'
+
 const mainapp = createApp(MainApp);
 mainapp.use(VueViewer)
 mainapp.use(vueAwesomeSidebar)

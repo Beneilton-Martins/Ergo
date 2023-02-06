@@ -1,6 +1,8 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../components/Home.vue"
-import RelatorioRouter from "@/components/RelatorioView.vue";
+import RelatorioRouter from "@/components/RelatorioView.vue"
+import LoginView from "@/views/LoginView.vue"
+import SignUpView from "@/views/SignUpView.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +20,16 @@ const router = createRouter({
         // which is lazy-loaded when the route is visited.
         component: RelatorioRouter,
     },
+    /*     {
+      path: "/login",
+      name: "login",
+      component: LoginView,
+    },
+    {
+      path: "/signup",
+      name: "signup",
+      component: SignUpView,
+    }, */
   ],
 });
 
