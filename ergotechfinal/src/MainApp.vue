@@ -46,7 +46,8 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   outline: none;
 }
 .field {
-    display: flex;
+  display: flex;
+  box-shadow: 0px 0px 0px 1px green;
 }
 .buttons-flex {
   display: flex;

@@ -280,7 +280,8 @@ export default defineComponent({
 
 <template>
   <div class="linha">
-    <div class="viewer-wrapper">
+    <div class="resize">
+      <div class="viewer-wrapper">
         <viewer ref="viewer" 
           :options="options" 
           :images="images" 
@@ -298,6 +299,7 @@ export default defineComponent({
             </div>
           </template>
         </viewer>
+    </div>
     </div>
     <div class="coluna1">
   <!--<div class="field">
@@ -404,7 +406,16 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss" >
-
+.resize {
+  display: flex;
+  width: 100%;
+  height: 60vh;
+  align-items: center;
+  border-radius: 20px;
+  overflow:hidden;
+  box-sizing: border-box;
+  resize: vertical;
+}
 .viewer-wrapper { //controla o viewer no geral
   display: flex;
   width: 100%;
@@ -416,9 +427,8 @@ export default defineComponent({
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
-  resize:vertical;  
+  box-shadow: 0px 0px 0px 1px green;
 }
-
 .viewer {
   border-radius: 20px;
   align-items: center;
@@ -445,15 +455,16 @@ export default defineComponent({
   width: 100%;
   overflow: hidden;
   flex-direction: column;
-  justify-content: flex-end;
-  background-color: rgb(43, 43, 43);
+  justify-content: center;
+  background-color: rgb(40, 40, 40,0.90);
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: rgb(43,43,43);
+  border-color: rgb(40, 40, 40,0.90);
+  box-shadow: 0px 0px 0px 1px green;
 
 }
 .coluna2  {
