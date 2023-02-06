@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="field">
+  <div class="field">
         <div class="div-input">
             <button>Tempo</button>
             <input placeholder="Digite o tempo inical (s)" 
@@ -23,7 +23,8 @@
             <button class="submit" @click="atualizarImagens()"> Atualizar</button>
             <button class="submit" @click="atualizarImages()">Relatório</button>
         </div>
-    </div>
+  </div>
+  <div class="menu"></div>
 </template>
 
 <style scoped>
@@ -32,7 +33,7 @@ div {
     flex-direction: column;
     background-color: rgb(43, 43, 43);
     width: 100%;
-    height: 60vh;
+    height: auto;
     border-radius: 20px;
     max-width: 100%;
     min-width: 100%;
@@ -45,9 +46,16 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   box-shadow: none;
   outline: none;
 }
+.menu {
+  display: flex;
+  box-shadow: 0px 0px 0px 1px green;
+  height: 100%;
+}
 .field {
   display: flex;
   box-shadow: 0px 0px 0px 1px green;
+  padding-top: 7px;
+  margin-bottom: 10px;
 }
 .buttons-flex {
   display: flex;

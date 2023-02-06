@@ -25,7 +25,7 @@
 /* Contém o menu e etc..*/
 #main-app {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-right: 10px;
   padding-top: 1px;
   padding-left: 10px;
@@ -35,7 +35,6 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
-  /*background-color: rgba(58, 58, 58);*/
 }
 
 a,
