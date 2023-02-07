@@ -529,18 +529,7 @@ export default defineComponent({
   box-shadow: none;
   outline: none;
 }
-.legendas {
-  right: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 280px;
-  height: 100%;
-  padding: 25px;
-  border: 1px solid rgb(218, 218, 218);
-  // margin: 25px;
-  position: fixed;
-  top: 1px;
-  bottom: 1px;
-}
+
 .pai>div>button {
   appearance: none;
   background-color: #2ea44f;

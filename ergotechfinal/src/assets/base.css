@@ -20,6 +20,7 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(255, 255, 255, 0.64);
 }
+
 :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
@@ -33,6 +34,7 @@
 
   --section-gap: 160px;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
@@ -46,26 +48,30 @@
     --color-text: var(--vt-c-text-dark-2);
   }
 }
+
 *,
 *::before,
 *::after {
-  box-sizing:content-box;
+  box-sizing: content-box;
   margin: 0;
   position: relative;
   font-weight: normal;
 }
-*{
+
+* {
   scrollbar-width: auto;
-  scrollbar-color: rgba(58, 58, 58);;
+  scrollbar-color: rgba(58, 58, 58);
+  ;
 }
-  
+
 /* Chrome, Edge, e Safari , controle das scrollbars*/
 *::-webkit-scrollbar {
   width: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(58, 58, 58);;
+  background-color: rgba(58, 58, 58);
+  ;
   border-radius: 15px;
   border-bottom: solid 2px;
   border-left: solid 1px;
@@ -73,7 +79,8 @@
   border-top: groove 1px;
   overflow: hidden;
 }
-*::-webkit-scrollbar-track{
+
+*::-webkit-scrollbar-track {
   border-radius: 20px;
   overflow: hidden;
   background-color: rgba(43, 43, 43);
@@ -96,17 +103,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
+
 h5 {
   text-align: center;
   color: white;
-  background-color: rgba(24,25,27,255);
+  background-color: rgba(24, 25, 27, 255);
   overflow: hidden;
   user-select: none;
 }
-button {
+
+/* button {
   text-align: start;
   margin-left: 0px;
-  overflow:hidden;
+  overflow: hidden;
   padding: 0.6em 2em;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -122,7 +131,7 @@ button {
   -webkit-user-select: none;
   touch-action: manipulation;
   appearance: none;
-  background-color: #2ea44f;
+  background-color: rgb(34, 174, 255);
   border: 1px solid rgba(27, 31, 35, .15);
   border-radius: 20px;
   margin-left: 1px;
@@ -132,7 +141,7 @@ button {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -145,20 +154,19 @@ button {
   vertical-align: middle;
   white-space: nowrap;
 }
+
 button:before {
   content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -172,17 +180,21 @@ button:before {
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
+
 @keyframes glowing-button {
   0% {
     background-position: 0 0;
   }
+
   50% {
     background-position: 400% 0;
   }
+
   100% {
     background-position: 0 0;
   }
-}  
+}
+
 button:after {
   z-index: -1;
   content: "";
@@ -193,4 +205,12 @@ button:after {
   left: 0;
   top: 0;
   border-radius: 10px;
+} */
+
+p {
+  color: white;
+}
+
+h1 {
+  color: white;
 }
