@@ -79,7 +79,7 @@ export default defineComponent({
       },
       atividade: '',
       Tinicial: 1,
-      Tfinal: 600,
+      Tfinal: 700,
       images: sourceImages,
       Atividade: "",
       tempoiniTi:1,
@@ -302,9 +302,9 @@ export default defineComponent({
     </div>
     </div>
     <div class="coluna1">
-  <!--<div class="field">
+      <div class="field">
         <div id="div-input" class="methods">
-          Tempo:
+          <button>Tempo</button>
           <input placeholder="Digite o tempo inical (s)" 
             v-model="Tinicial" 
             class="input" 
@@ -319,7 +319,7 @@ export default defineComponent({
           >
           <button class="submit" @click="atualizarImagens()"> Atualizar</button>
         </div>
-      </div> --> 
+      </div>
         <div class="columns">
           <button class="movimento">Movimento</button>
           <div class="column" >
@@ -357,6 +357,20 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss" >
+.methods  {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  user-select: none;
+  .input{
+    margin-left: 10px;
+    margin-right: 10px;
+    user-select: none;
+  }
+}
 .resize {
   display: flex;
   width: 100%;
@@ -409,7 +423,7 @@ export default defineComponent({
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  background-color: #7f7f7f;
+  background-color: #f8f8f8;
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;

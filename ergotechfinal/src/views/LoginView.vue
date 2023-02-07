@@ -2,42 +2,9 @@
     <div class="container">
         <div class="columns">
             <div class="column is-4 is-offset-4">
-                <h1 class="title">Entrar</h1>
-                <form @submit.prevent="submitForm">
-                    <div class="field">
-                        <label>Email</label>
-                        <div class="control">
-                            <input type="email" placeholder="Digite o email" name="email" class="input"
-                                v-model="username">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label>Empresa</label>
-                        <div class="control">
-                            <input type="text" placeholder="Digite a empresa" name="empresa" class="input"
-                                v-model="empresa">
-                        </div>
-                    </div>
-
-                    <label>Senha</label>
-                    <div class="field">
-                        <div class="control is-expanded">
-                            <input type="password" placeholder="Digite sua senha" name="password" class="input"
-                                v-model="password">
-                        </div>
-                    </div>
-
-                    <div class="notification is-danger" v-if="errors.length">
-                        <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
-                    </div>
-
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-success">Entrar</button>
-                        </div>
-                    </div>
-                </form>
+                <div class="loggin" @click="submitForm()"> 
+                    {{ user }}
+                </div>
             </div>
         </div>
     </div>
@@ -52,47 +19,56 @@ export default ({
             username: '',
             password: '',
             empresa: '',
-            errors: []
+            errors: [],
+            user:"",
         }
     },
     methods: {
-        async submitForm() {
-            this.$store.commit('setIsLoading', true)
-
-            localStorage.removeItem('token')
-
+        submitForm() {
+            //this.$store.commit('setIsLoading', true)
+            
+            console.log("ENTREI")
             const instance = axios.create({
-                baseURL: 'http://127.0.0.1:8000'
+                baseURL: 'http://10.0.3.139:8000'
             });
 
-            const formData = {
-                username: this.username,
-                password: this.password,
-                empresa: this.empresa
-            }
-            await axios
-                .post('/api/v1/token/login/', formData)
+
+            axios.get('http://10.0.3.139:8000/Funcionario/GetFuncionario/',{
+                    params:{nome:"Beneilton Martins"}
+                })
                 .then(response => {
 
-                    this.$store.commit('setToken', response.data.auth_token)
-
-                    axios.defaults.headers.common['Authorization'] = response.data.auth_token
-
-                    localStorage.setItem('token', response.data.auth_token)
-
-                    this.$router.push('/dashboard/my-account')
+                    this.user = response.data.data
                 })
                 .catch(error => {
-                    if (error.response) {
-                        for (const property in error.response.data) {
-                            this.errors.push(`${property}: ${error.response.data[property]}`)
-                        }
-                    }
+                    console.log(error)
+                    this.errored = true
                 })
 
-            this.$store.commit('setIsLoading', false)
+            // this.$store.commit('setIsLoading', false)
 
         }
-    }
+    },
+    computed: {
+        axiosParams() {
+            const params = new URLSearchParams();
+            params.append('nome', 'Beneilton Martins');
+            return params;
+        }
+}
 })
 </script>
+
+<style>
+.loggin {
+  display:flex;
+  flex-direction: row;
+  margin-top: 1px;
+  background-color: greenyellow;
+  border-radius: 3px;
+  min-width: 29px;
+  min-height: 15px;
+  border: solid 1px white;
+  user-select: none;
+}
+</style>

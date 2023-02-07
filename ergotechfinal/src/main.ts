@@ -18,6 +18,7 @@ mainapp.mount("#main-app");
 const playerapp = createApp(PlayerApp);
 playerapp.use(VueViewer)
 playerapp.use(createPinia());
+playerapp.use(router);
 playerapp.mount("#player-app");
 
 

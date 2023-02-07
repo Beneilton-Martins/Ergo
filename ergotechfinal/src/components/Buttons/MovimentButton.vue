@@ -45,5 +45,6 @@ export default {
   min-height: 15px;
   border: solid 1px white;
   margin-bottom: 4px;
+  user-select: none;
 }
 </style>

@@ -1,5 +1,8 @@
 <script setup>
-import Menu from './components/Menu.vue';
+import LegendaButton from './components/Buttons/LegendaButton.vue';
+
+const spacer = "."
+const colorSubtitle = "#012892"
 </script>
 
 <template>
@@ -10,7 +13,7 @@ import Menu from './components/Menu.vue';
       <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
     <div class="buttons-flex">
-      <button class="submit" @click="atualizarImagens()"> Atualizar</button>
+      <button class="submit" @click="atualizarImagens()">Atualizar</button>
       <button class="submit" @click="atualizarImages()">Relatório</button>
     </div>
   </div>
@@ -20,8 +23,12 @@ import Menu from './components/Menu.vue';
       <div class="dropdown">
         <button>Movimento</button>
         <div class="dropdown-content">
-          <div><button style='background-color:rgb(1,40,146)'>Sem Movimento</button></div>
-          <div><button style='background-color:rgb(225,165,25)'>Com Movimento</button></div>
+          <LegendaButton :color="colorSubtitle" :subtitle="spacer"/>
+          <button class="text-subtitle"> Sem Movimento </button>
+          <br>
+          <LegendaButton :color="colorSubtitle" :subtitle="spacer"/>
+          <button class="text-subtitle"> Com Movimento </button>
+          <br>
         </div>
       </div>
       <div class="dropdown">
@@ -66,40 +73,37 @@ import Menu from './components/Menu.vue';
 </template>
 
 <style scoped>
-.dropdown>button {
-  color: rgb(0, 0, 0);
-}
-
-.pai {
-  box-shadow: 0px 0px 0px 1px rgb(34, 174, 255);
-  padding-bottom: 20px;
-}
-
-h1 { 
-  text-align: center;
-  padding-bottom: 5px;
-  color: black;
-}
-
-button {
-  background-color: #fff;
-  border: 1px solid #d5d9d9;
+.text-subtitle {
+  background-color: #ffff;
   border-radius: 8px;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #030303;
   cursor: pointer;
   display: inline-block;
-  font-family: "Amazon Ember",sans-serif;
+  font-family: "Amazon Ember", sans-serif;
   font-size: 15px;
   line-height: 29px;
-  padding: 0 10px 0 11px;
+  padding: 0 15px 0 15px;
   position: relative;
   text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+.dropdown>button {
+  color: rgb(0, 0, 0);
+}
+
+.pai {
+  display: flex;
+}
+
+h1 { 
+  text-align: center;
+  padding-bottom: 5px;
+  color: black;
+  background-color: #f8f8f8;
 }
 
 .dropdown-content {

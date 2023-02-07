@@ -65,7 +65,7 @@
 }
 
 /* Chrome, Edge, e Safari , controle das scrollbars*/
-/* *::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 10px;
 }
 

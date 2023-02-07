@@ -50,5 +50,6 @@ mounted(){
   min-width: 29px;
   min-height: 15px;
   border: solid 1px white;
+  user-select: none;
 }
 </style>

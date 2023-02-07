@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../components/Home.vue"
 import RelatorioRouter from "@/components/RelatorioView.vue"
+import LoginViewVue from "@/views/LoginView.vue";
 
 /* import LoginView from "@/views/LoginView.vue"
 import SignUpView from "@/views/SignUpView.vue" */
@@ -21,6 +22,11 @@ const router = createRouter({
         // which is lazy-loaded when the route is visited.
       component: RelatorioRouter,
     },
+    {
+      path: "/login",
+      name: "login",
+      component: LoginViewVue,
+    }
   ],
 });
 

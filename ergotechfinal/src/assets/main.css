@@ -3,7 +3,7 @@
 /* Contém as outras divs da aplicação*/
 .container {
   display: grid;
-  grid-template-columns: 929px auto 12%;
+  grid-template-columns: 10% 74.245% auto;
   height: 100vh;
   background-color: #f7f7f7;
 }
