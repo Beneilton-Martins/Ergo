@@ -5,7 +5,7 @@ import Menu from './components/Menu.vue';
 <template>
   <div class="time-field">
     <div class="div-input">
-      <button>Tempo</button>
+      <button class="tempo">Tempo</button>
       <input placeholder="Digite o tempo inical (s)" v-model="Tinicial" class="input" type="text" style="width: 210px">
       <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
@@ -66,26 +66,47 @@ import Menu from './components/Menu.vue';
 </template>
 
 <style scoped>
+.dropdown>button {
+  color: rgb(0, 0, 0);
+}
+
+.pai {
+  box-shadow: 0px 0px 0px 1px rgb(34, 174, 255);
+  padding-bottom: 20px;
+}
+
 h1 { 
   text-align: center;
   padding-bottom: 5px;
+  color: black;
 }
 
 button {
-  padding-right: 5px;
-  padding-left: 5px;
-  margin-bottom: 5px;
-  
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 15px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
+
 .dropdown-content {
   display: none;
   position: relative;
-  background-color: #f9f9f900;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 0;
-  z-index: 1;
-  border-radius: 0;
+  
 }
 
 .dropdown:hover .dropdown-content {
@@ -95,7 +116,7 @@ button {
 div {
   display: flex;
   flex-direction: column;
-  background-color: rgb(43, 43, 43);
+  background-color: rgb(255, 255, 255);
   height: auto;
   border-radius: 20px;
 }
@@ -134,34 +155,17 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   align-items: center;
 }
 
-.submit {
-  appearance: none;
-  border: 1px solid rgba(27, 31, 35, .15);
-  border-radius: 20px;
-  margin-left: 1px;
-  margin-right: 1px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 6px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
+.div-input,.tempo { 
+  color: black;
 }
 
-.input[type=text],
-select {
+.submit { /*butoes relatorio e atualizar*/
+  margin-left: 20px;
+  margin-right: 20px;
+  color: black;
+}
+
+.input[type=text],select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 10px;
@@ -188,5 +192,6 @@ select {
   min-width: 100%;
   flex-direction: column;
   align-items: stretch;
+  
 }
 </style>

@@ -352,55 +352,6 @@ export default defineComponent({
         </div>
     </div>
     <div class="coluna2">
-      <!-- <router-link to="/about"> 
-        <button class="submit">RELATORIO</button> 
-      </router-link> -->
-      <!-- <div class="legendas"> 
-        <div>
-          <h1>Legendas</h1>
-          <hr/>
-          <br/>
-          <div class="pai">
-              <p>Movimento</p>
-              <div><button style='background-color:rgb(1,40,146)'>Sem Movimento</button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Com Movimento</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-              <p>Carga</p>
-              <div><button style='background-color:rgb(1,40,146)'>10kg &lt; Carga &lt; 20kg</button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Carga &lt; 10kg</button></div>
-              <div><button style='background-color:rgb(195,189,55)'>Carga > 20kg</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-              <p>Bracos</p>
-              <div><button style='background-color:rgb(1,40,146)'>Nenhum Braço Levantado </button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Um Braço Levantado</button></div>
-              <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-            <p>Dorso</p>
-            <div><button style='background-color:rgb(1,40,146)'>Dorso Reto</button></div>
-            <div><button style='background-color:rgb(225,165,25)'>Dorso Inclinado</button></div>
-            <div><button style='background-color:rgb(195,189,55)'>Dorso Reto e Torcido</button></div>
-            <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div>
-          </div>
-          <br/>
-          <div class="pai">
-            <p>Pernas</p>
-            <div><button style='background-color:rgb(1,40,146)'>Duas Pernas Retas</button></div>
-            <div><button style='background-color:rgb(225,165,25)'>Uma Perna Reta</button></div>
-            <div><button style='background-color:rgb(195,189,55)'>Duas Pernas Flexionadas</button></div>
-            <div><button style='background-color:rgb(195,55,185)'>Uma Perna Flexionada </button></div>
-            <div><button style='background-color:rgb(195,169,255)'>Uma Perna Ajoelhada</button></div>
-            <div><button style='background-color:rgb(195,117,55)'>Em Movimento</button></div>
-            <div><button style='background-color:rgb(1,146,174)'>Duas Pernas Suspensas</button></div>
-          </div>
-          <br/>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -424,7 +375,7 @@ export default defineComponent({
   align-items: center;
   border-radius: 20px;
   overflow:hidden;
-  background-color: rgb(58, 58, 58);
+  background-color: #ffffff00;
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
@@ -436,7 +387,7 @@ export default defineComponent({
   align-content: center;
   display: flex;
   height: 60vh;
-  background-color: rgb(58, 58, 58);
+  background-color:#ffffff00;
   box-sizing: border-box;
   overflow: hidden;
   .images {
@@ -457,14 +408,14 @@ export default defineComponent({
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(43, 43, 43);
+  background-color: #cccccc;
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: rgb(43, 43, 43);
+  border-color: #cccccc;
   /* box-shadow: 0px 0px 0px 1px green; */
 }
 .coluna2  {
@@ -479,79 +430,24 @@ export default defineComponent({
   display: inline-flex;
   width: 100%;
 }
-.div-input  {
-  text-align: center;
-}
-.input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 10px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+button {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
   box-sizing: border-box;
-}
-.input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.submit {
-  appearance: none;
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-  box-sizing: border-box;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 6px 16px;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 15px;
   position: relative;
   text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.button-3:focus:not(:focus-visible):not(.focus-visible) {
-  box-shadow: none;
-  outline: none;
 }
 
-.pai>div>button {
-  appearance: none;
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 6px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-}
 </style>

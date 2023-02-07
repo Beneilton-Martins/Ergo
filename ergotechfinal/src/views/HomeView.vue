@@ -5,7 +5,6 @@ import HomeVue from "@/components/Home.vue"
 
 <template>
    <HomeVue />
-   
 </template>
 
 <style scoped>
