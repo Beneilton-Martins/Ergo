@@ -360,13 +360,14 @@ export default defineComponent({
 .resize {
   display: flex;
   width: 100%;
-  height: transform();
+  height: auto;
   align-items: center;
   border-radius: 20px;
   overflow:hidden;
   box-sizing: border-box;
   margin-bottom: 5px;
   /* resize: vertical; */
+  border-color: #7f7f7f;
 }
 .viewer-wrapper { //controla o viewer no geral
   display: flex;
@@ -408,14 +409,14 @@ export default defineComponent({
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  background-color: #cccccc;
+  background-color: #7f7f7f;
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: #cccccc;
+  border-color: #7f7f7f;
   /* box-shadow: 0px 0px 0px 1px green; */
 }
 .coluna2  {
@@ -449,5 +450,4 @@ button {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-
 </style>
