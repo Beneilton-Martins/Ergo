@@ -1,26 +1,21 @@
 <template>
-
-<!-- <div class="seperator"> -->
-  <!-- <h5><span>{{image}}</span></h5> -->
-    <div @mouseenter="changecolor()" class="div-carga"
-    ></div>
-<!-- </div> -->
+  <div @mouseenter="changecolor" class="div-carga"></div>
 </template>
 
 <script>
 export default {
-
-data() {
-  return {
-    hover: false,
-    color:"#012892",
-  }
-},
-props:{
+  data() {
+    return {
+      hover: false,
+      color:"#012892",
+    }
+  },
+  props:{
     image: Number
-},
-methods: {
-    changecolor() {
+  },
+  methods: {
+    changecolor(e) {
+      if(e.buttons == 1){
         if(this.color=="#012892"){
             this.color="#FFA519"
         }else if(this.color=="#FFA519"){
@@ -29,8 +24,9 @@ methods: {
             this.color="#012892"
         }
         this.hover = !this.hover
+      }
     }
-}
+  }
 };
 </script>
 

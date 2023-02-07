@@ -9,7 +9,6 @@ export default {
         link:"RelatorioBracos.png",
         link2:"RelatorioDorso.png",
         link3:"RelatorioPernas.png"
-
     }
   },
   props: {
