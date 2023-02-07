@@ -66,16 +66,16 @@
 
 /* Chrome, Edge, e Safari , controle das scrollbars*/
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(58, 58, 58);
+  background-color: #f8f8f8
   ;
   border-radius: 15px;
   border-bottom: solid 2px;
   border-left: solid 1px;
-  border-right: groove 1px;
+  border-right: solid 1px;
   border-top: groove 1px;
   overflow: hidden;
 }
@@ -83,7 +83,7 @@
 *::-webkit-scrollbar-track {
   border-radius: 20px;
   overflow: hidden;
-  background-color: rgba(43, 43, 43);
+  background-color: rgba(255, 255, 255, 0);
 } */
 
 /* Elementos do corpo do HTML*/

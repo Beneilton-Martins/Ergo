@@ -1,8 +1,7 @@
 <script setup>
-import LegendaButton from './components/Buttons/LegendaButton.vue';
+import SubtitleButtons from './components/Buttons/SubtitleButtons.vue';
 
 const spacer = "."
-const colorSubtitle = "#012892"
 </script>
 
 <template>
@@ -19,14 +18,14 @@ const colorSubtitle = "#012892"
   </div>
   <div class="pai">
     <h1>Legendas</h1>
-    <div class="legendas">
+    <div class="subtitles">
       <div class="dropdown">
         <button>Movimento</button>
         <div class="dropdown-content">
-          <LegendaButton :color="colorSubtitle" :subtitle="spacer"/>
+          <SubtitleButtons :color="'#012892'" :subtitle="spacer" />
           <button class="text-subtitle"> Sem Movimento </button>
           <br>
-          <LegendaButton :color="colorSubtitle" :subtitle="spacer"/>
+          <SubtitleButtons :color="'#E1A519'" :subtitle="spacer" />
           <button class="text-subtitle"> Com Movimento </button>
           <br>
         </div>
@@ -34,38 +33,72 @@ const colorSubtitle = "#012892"
       <div class="dropdown">
         <button>Carga</button>
         <div class="dropdown-content">
-          <div><button style='background-color:rgb(1,40,146)'>10kg &lt; Carga &lt; 20kg</button></div>
-          <div><button style='background-color:rgb(225,165,25)'>Carga &lt; 10kg</button></div>
-          <div><button style='background-color:rgb(195,189,55)'>Carga > 20kg</button></div>
+          <SubtitleButtons :color="'#012892'" :subtitle="spacer" />
+          <button class="text-subtitle"> 10kg &lt; Carga &lt; 20kg </button>
+          <br>
+          <SubtitleButtons :color="'#E1A519'" :subtitle="spacer" />
+          <button class="text-subtitle"> Carga &lt; 10kg </button>
+          <br>
+          <SubtitleButtons :color="'#C3C637'" :subtitle="spacer" />
+          <button class="text-subtitle"> Carga > 20kg </button>
+          <br>
         </div>
       </div>
       <div class="dropdown">
-        <button>Bracos</button>
+        <button>Braços</button>
         <div class="dropdown-content">
-          <div><button style='background-color:rgb(1,40,146)'>Nenhum Braço Levantado </button></div>
-          <div><button style='background-color:rgb(225,165,25)'>Um Braço Levantado</button></div>
-          <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div> 
+          <SubtitleButtons :color="'#012892'" :subtitle="spacer" />
+          <button class="text-subtitle"> Nenhum Braço Levantado </button>
+          <br>
+          <SubtitleButtons :color="'#E1A519'" :subtitle="spacer" />
+          <button class="text-subtitle"> Um Braço Levantado </button>
+          <br>
+          <SubtitleButtons :color="'#C3C637'" :subtitle="spacer" />
+          <button class="text-subtitle"> Dois Braços Levantados </button>
+          <br>
         </div>
       </div>
       <div class="dropdown">
         <button>Dorso</button>
         <div class="dropdown-content">
-          <div><button style='background-color:rgb(1,40,146)'>Dorso Reto</button></div>
-          <div><button style='background-color:rgb(225,165,25)'>Dorso Inclinado</button></div>
-          <div><button style='background-color:rgb(195,189,55)'>Dorso Reto e Torcido</button></div>
-          <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div> 
+          <SubtitleButtons :color="'#012892'" :subtitle="spacer" />
+          <button class="text-subtitle"> Dorso Reto </button>
+          <br>
+          <SubtitleButtons :color="'#E1A519'" :subtitle="spacer" />
+          <button class="text-subtitle"> Dorso Inclinado </button>
+          <br>
+          <SubtitleButtons :color="'#C3C637'" :subtitle="spacer" />
+          <button class="text-subtitle"> Dorso Reto e Torcido </button>
+          <br>
+          <SubtitleButtons :color="'#C337B9'" :subtitle="spacer" />
+          <button class="text-subtitle"> Dorso Inclinado e Torcido </button>
+          <br>
         </div>
       </div>
       <div class="dropdown">
         <button>Pernas</button>
         <div class="dropdown-content">
-          <div><button style='background-color:rgb(1,40,146)'>Duas Pernas Retas</button></div>
-          <div><button style='background-color:rgb(225,165,25)'>Uma Perna Reta</button></div>
-          <div><button style='background-color:rgb(195,189,55)'>Duas Pernas Flexionadas</button></div>
-          <div><button style='background-color:rgb(195,55,185)'>Uma Perna Flexionada </button></div>
-          <div><button style='background-color:rgb(195,169,255)'>Uma Perna Ajoelhada</button></div>
-          <div><button style='background-color:rgb(195,117,55)'>Em Movimento</button></div>
-          <div><button style='background-color:rgb(1,146,174)'>Duas Pernas Suspensas</button></div>
+          <SubtitleButtons :color="'#012892'" :subtitle="spacer" />
+          <button class="text-subtitle"> Duas Pernas Retas </button>
+          <br>
+          <SubtitleButtons :color="'#E1A519'" :subtitle="spacer" />
+          <button class="text-subtitle"> Uma Perna Reta </button>
+          <br>
+          <SubtitleButtons :color="'#C3C637'" :subtitle="spacer" />
+          <button class="text-subtitle"> Duas Pernas Flexionadas </button>
+          <br>
+          <SubtitleButtons :color="'#C337B9'" :subtitle="spacer" />
+          <button class="text-subtitle"> Uma Perna Flexionada </button>
+          <br>
+          <SubtitleButtons :color="'#C3A9FF'" :subtitle="spacer" />
+          <button class="text-subtitle"> Uma Perna Ajoelhada </button>
+          <br>
+          <SubtitleButtons :color="'#C37537'" :subtitle="spacer" />
+          <button class="text-subtitle"> Em Movimento </button>
+          <br>
+          <SubtitleButtons :color="'#0192AE'" :subtitle="spacer" />
+          <button class="text-subtitle"> Duas Pernas Suspensas </button>
+          <br>
         </div>
       </div>
     </div>
@@ -74,32 +107,40 @@ const colorSubtitle = "#012892"
 
 <style scoped>
 .text-subtitle {
-  background-color: #ffff;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #030303;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Amazon Ember", sans-serif;
-  font-size: 15px;
-  line-height: 29px;
-  padding: 0 15px 0 15px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
 }
+
 .dropdown>button {
-  color: rgb(0, 0, 0);
+  font-weight: 250;
+  font-size: 15px;
+  color: #fff;
+  background-color: #48cae4;
+  padding: 10px 30px;
+  padding-right: 50px;
+  border: solid #48cae4 1px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 20px;
+  transition : 419ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.dropdown>button:hover{
+  transition : 419ms;
+  padding: 10px 21px;
+  transform : translateY(-0px);
+  background-color: #fff;
+  color: #00b4d8;
+  border: solid 1px #00b4d8;
 }
 
 .pai {
   display: flex;
 }
 
-h1 { 
+h1 {
   text-align: center;
   padding-bottom: 5px;
   color: black;
@@ -110,7 +151,8 @@ h1 {
   display: none;
   position: relative;
   min-width: 160px;
-  
+  background-color: #f8f8f800;
+
 }
 
 .dropdown:hover .dropdown-content {
@@ -120,7 +162,7 @@ h1 {
 div {
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   height: auto;
   border-radius: 20px;
 }
@@ -143,6 +185,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   padding-top: 7px;
   margin-bottom: 10px;
   align-items: center;
+  background-color: #ffff;
 }
 
 .buttons-flex {
@@ -159,17 +202,18 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   align-items: center;
 }
 
-.div-input,.tempo { 
+.div-input,.tempo {
   color: black;
 }
 
-.submit { /*butoes relatorio e atualizar*/
+.submit { /* Botoes relatorio e atualizar*/
   margin-left: 20px;
   margin-right: 20px;
   color: black;
 }
 
-.input[type=text],select {
+.input[type=text],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 10px;
@@ -190,12 +234,11 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   cursor: pointer;
 }
 
-.legendas {
+.subtitles {
   display: flex;
   max-width: 100%;
   min-width: 100%;
   flex-direction: column;
   align-items: stretch;
-  
 }
 </style>

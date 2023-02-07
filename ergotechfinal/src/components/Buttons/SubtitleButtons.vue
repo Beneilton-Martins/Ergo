@@ -18,7 +18,7 @@ const props = defineProps({
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     box-sizing: border-box;
     color: #ffffff;
-    cursor: pointer;
+    cursor: default;
     display: inline-block;
     font-family: "Amazon Ember", sans-serif;
     font-size: 15px;

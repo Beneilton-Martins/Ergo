@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, ref } from 'vue'
 import VueViewer, { component } from "v-viewer"
-import type  Viewer  from "viewerjs"
+import type Viewer from "viewerjs"
 
 import MovimentButton from "./Buttons/MovimentButton.vue"
 import CargaButton from "./Buttons/CargaButton.vue"
@@ -26,7 +26,7 @@ export default defineComponent({
     BracoButton2,
     DorsoButton2,
     PernaButton2,
-},
+  },
   setup() {
     let $viewer: Viewer
     const state = reactive({
@@ -49,20 +49,20 @@ export default defineComponent({
         inline: true,
         navbar: true,
         toolbar: {
-          prev: function() {
+          prev: function () {
             $viewer.prev(true);
           },
 
           play: true,
 
-          next: function() {
+          next: function () {
             $viewer.next(true);
           },
         },
         button: false,
         title: false,
         zoomable: false,
-        zIndexInline:0,
+        zIndexInline: 0,
         movable: false,
         transition: false,
         interval: 100,
@@ -82,26 +82,26 @@ export default defineComponent({
       Tfinal: 700,
       images: sourceImages,
       Atividade: "",
-      tempoiniTi:1,
-      tempofim:10,
+      tempoiniTi: 1,
+      tempofim: 10,
       selected: '',
       selected2: '',
       series: [{
-          name: 'Peso',
-          data: generateData(sourceImages.value.length, {
-            min: 0,
-            max: 90
-          })
-        }
+        name: 'Peso',
+        data: generateData(sourceImages.value.length, {
+          min: 0,
+          max: 90
+        })
+      }
       ],
     })
     function inited(viewer: Viewer) {
       $viewer = viewer
     }
-    function atualizarImagens(this: any){
-      const newsourceImages =[]
+    function atualizarImagens(this: any) {
+      const newsourceImages = []
 
-      if (this.Tinicial !== undefined){
+      if (this.Tinicial !== undefined) {
         for (let i = parseInt(this.Tinicial); i < parseInt(this.Tfinal); i = i + 15) {
           newsourceImages.push({
             thumbnail: `ImageCapture${i}.png`,
@@ -110,18 +110,18 @@ export default defineComponent({
           })
         }
 
-      sourceImages.value = newsourceImages
-      console.log(sourceImages.value.length)
+        sourceImages.value = newsourceImages
+        console.log(sourceImages.value.length)
       }
     }
-    function atualizarSeries(this:any){
+    function atualizarSeries(this: any) {
       const newserie = [{
-          name: 'Peso',
-          data: generateData(sourceImages.value.length, {
-            min: 0,
-            max: 90
-          })
-        }
+        name: 'Peso',
+        data: generateData(sourceImages.value.length, {
+          min: 0,
+          max: 90
+        })
+      }
 
       ]
       this.series.value = newserie
@@ -262,15 +262,15 @@ export default defineComponent({
       return series;
     }
   },
-  created(){
-    if (this.Tinicial !== undefined){
+  created() {
+    if (this.Tinicial !== undefined) {
       for (let i = this.Tinicial; i < this.Tfinal; i = i + 15) {
         sourceImages.value.push<[]>(
-        {
-          thumbnail: `ImageCapture${i}.png`,
-          source: `ImageCapture${i}.png`,
-          alt: `Image: ${base + i}`,
-        })
+          {
+            thumbnail: `ImageCapture${i}.png`,
+            source: `ImageCapture${i}.png`,
+            alt: `Image: ${base + i}`,
+          })
       }
     }
     console.log(sourceImages.value.length)
@@ -282,74 +282,46 @@ export default defineComponent({
   <div class="linha">
     <div class="resize">
       <div class="viewer-wrapper">
-        <viewer ref="viewer" 
-          :options="options" 
-          :images="images" 
-          rebuild
-          class="viewer"
-          @inited="inited">
+        <viewer ref="viewer" :options="options" :images="images" rebuild class="viewer" @inited="inited">
           <template #default="scope">
-            <div v-for="{ source, thumbnail, alt} in scope.images" 
-              key="source" class="image-wrapper">
-              <img class="image" 
-                :src="getImageURL(thumbnail)" 
-                :data-source="getImageURL(source)"
-                :alt="alt"
-              >
+            <div v-for="{ source, thumbnail, alt } in scope.images" key="source" class="image-wrapper">
+              <img class="image" :src="getImageURL(thumbnail)" :data-source="getImageURL(source)" :alt="alt">
             </div>
           </template>
         </viewer>
-    </div>
+      </div>
     </div>
     <div class="coluna1">
-      <div class="field">
-        <div id="div-input" class="methods">
-          <button>Tempo</button>
-          <input placeholder="Digite o tempo inical (s)" 
-            v-model="Tinicial" 
-            class="input" 
-            type="text"
-            style="width: 210px"
-          >
-          <input placeholder="Digite o tempo final (s)" 
-            v-model="Tfinal" 
-            class="input" 
-            type="text"
-            style="width: 210px"
-          >
-          <button class="submit" @click="atualizarImagens()"> Atualizar</button>
+      <div class="columns">
+        <button class="movimento">Movimento</button>
+        <div class="column">
+          <MovimentButton v-for="(i, idx) in images" :image="idx * 15" />
         </div>
       </div>
-        <div class="columns">
-          <button class="movimento">Movimento</button>
-          <div class="column" >
-            <MovimentButton v-for="(i, idx) in images" :image="idx*15"/>
-          </div>
+      <div class="columns">
+        <button>Carga</button>
+        <div class="column">
+          <CargaButton v-for="(i, idx) in images" :image="idx" />
         </div>
-        <div class="columns">
-          <button>Carga</button>
-          <div class="column" >
-            <CargaButton v-for="(i, idx) in images" :image="idx"/>
-         </div>
+      </div>
+      <div class="columns">
+        <button>Braco</button>
+        <div class="column">
+          <BracoButton2 v-for="(i, idx) in images" :image="idx" />
         </div>
-        <div class="columns">
-          <button>Braco</button>
-          <div class="column" >
-            <BracoButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
+      </div>
+      <div class="columns">
+        <button>Dorso</button>
+        <div class="column">
+          <DorsoButton2 v-for="(i, idx) in images" :image="idx" />
         </div>
-        <div class="columns">
-          <button>Dorso</button>
-          <div class="column" >
-            <DorsoButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
+      </div>
+      <div class="columns">
+        <button>Perna</button>
+        <div class="column">
+          <PernaButton2 v-for="(i, idx) in images" :image="idx" />
         </div>
-        <div class="columns">
-          <button>Perna</button>
-          <div class="column" >
-          <PernaButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
+      </div>
     </div>
     <div class="coluna2">
     </div>
@@ -430,7 +402,7 @@ export default defineComponent({
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: #7f7f7f;
+  border-color: #f8f8f8;
   /* box-shadow: 0px 0px 0px 1px green; */
 }
 .coluna2  {
@@ -453,7 +425,7 @@ button {
   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
   box-sizing: border-box;
   color: #000000;
-  cursor: pointer;
+  cursor: default;
   display: inline-block;
   font-family: "Amazon Ember",sans-serif;
   font-size: 15px;
