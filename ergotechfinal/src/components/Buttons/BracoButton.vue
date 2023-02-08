@@ -1,6 +1,6 @@
 <template>    
-<div class="div-braco"></div>
 
+<div class="div-braco"></div>
 </template>
 
 <script>

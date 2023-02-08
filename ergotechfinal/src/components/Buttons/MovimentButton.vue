@@ -33,7 +33,7 @@ export default {
   }
 }
 </script>
-  
+
 <style scoped>
 .div-movimento {
   display:flex;

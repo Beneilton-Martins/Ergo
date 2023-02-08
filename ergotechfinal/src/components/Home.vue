@@ -384,6 +384,7 @@ export default defineComponent({
     display: none;
   }
 }
+
 .linha  {
   display: flex;
   flex-flow: row wrap;
