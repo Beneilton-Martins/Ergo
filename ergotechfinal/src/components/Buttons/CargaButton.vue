@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       hover: false,
-      color:"#012892",
+      color: "#012892",
     }
   },
   props: {
@@ -15,13 +15,13 @@ export default {
   },
   methods: {
     changecolor(e) {
-      if(e.buttons == 1){
-        if(this.color=="#012892") {
-          this.color="#FFA519"
-        } else if(this.color=="#FFA519") {
-          this.color="#C3BD19"
+      if (e.buttons == 1) {
+        if (this.color == "#012892") {
+          this.color = "#FFA519"
+        } else if (this.color == "#FFA519") {
+          this.color = "#C3BD19"
         } else {
-          this.color="#012892"
+          this.color = "#012892"
         }
         this.hover = !this.hover
       }
@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .div-carga {
-  display:flex;
+  display: flex;
   flex-direction: row;
   margin-top: 1px;
   background-color: v-bind(color);

@@ -12,8 +12,8 @@ const spacer = "."
       <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
     <div class="buttons-flex">
-      <button class="submit" @click="atualizarImagens()"> Atualizar </button>
-      <button class="submit" @click="atualizarImages()"> Relatório </button>
+      <button class="submit-button" @click="atualizarImagens()"> Atualizar </button>
+      <button class="submit-button" @click="atualizarImages()"> Relatório </button>
     </div>
   </div>
   <div class="main-subtitles-div">
@@ -236,6 +236,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   background-color: #ffff;
   overflow: hidden;
   user-select:none;
+  
 }
 
 .buttons-flex {
@@ -260,11 +261,26 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   user-select:none;
 }
 
-.submit { /* Botoes relatorio e atualizar*/
-  margin-left: 20px;
-  margin-right: 20px;
+.submit-button { /* Botoes relatorio e atualizar*/
+  margin-left: 10px;
+  margin-right: 10px;
   color: black;
   user-select:none;
+  font-weight: normal;
+  font-size: 18px;
+  color: #ffff;
+  background-color: #0071bd;
+  border: solid #0071bd 1px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+  border-radius: 10px;
+  transition : 419ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: default;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .input[type=text],select {

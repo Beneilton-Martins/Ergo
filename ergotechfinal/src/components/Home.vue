@@ -354,23 +354,21 @@ export default defineComponent({
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 5px;
-  border-color: #7f7f7f;
+  border-color: #000000;
 
 }
 
-.viewer-wrapper {
-  //controla o viewer no geral
+.viewer-wrapper { //controla o viewer no geral
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   border-radius: 20px;
   overflow: hidden;
-  background: #eff8ff;
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
 }
 
 .viewer {
@@ -404,14 +402,14 @@ export default defineComponent({
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  background: #eff8ff;
+  background: #d9eeff;
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: #eff8ff;
+  border-color: #d9eeff;
 
 }
 
@@ -437,7 +435,7 @@ button {
   background-color: #0071bd;
   border: solid #0071bd 1px;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
-  border-radius: 20px;
+  border-radius: 10px;
   transition : 419ms;
   transform: translateY(0);
   display: flex;
