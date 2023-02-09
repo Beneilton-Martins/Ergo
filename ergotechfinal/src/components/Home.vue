@@ -279,7 +279,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="linha">
+  <div class="row">
     <div class="resize">
       <div class="viewer-wrapper">
         <viewer ref="viewer" :options="options" :images="images" rebuild class="viewer" @inited="inited">
@@ -291,7 +291,7 @@ export default defineComponent({
         </viewer>
       </div>
     </div>
-    <div class="coluna1">
+    <div class="column-one">
       <div class="columns">
         <button class="movimento">Movimento</button>
         <div class="column">
@@ -323,13 +323,13 @@ export default defineComponent({
         </div>
       </div>
     </div>
-    <div class="coluna2">
+    <div class="column-two">
     </div>
   </div>
 </template>
 
 <style scoped lang="scss" >
-.methods  {
+.methods {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -337,104 +337,116 @@ export default defineComponent({
   justify-content: center;
   justify-items: center;
   user-select: none;
-  .input{
+
+  .input {
     margin-left: 10px;
     margin-right: 10px;
     user-select: none;
   }
 }
+
 .resize {
   display: flex;
   width: 100%;
   height: auto;
   align-items: center;
   border-radius: 20px;
-  overflow:hidden;
+  overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 5px;
-  /* resize: vertical; */
   border-color: #7f7f7f;
+
 }
-.viewer-wrapper { //controla o viewer no geral
+
+.viewer-wrapper {
+  //controla o viewer no geral
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   border-radius: 20px;
-  overflow:hidden;
-  background-color: #ffffff00;
+  overflow: hidden;
+  background: #eff8ff;
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
-  /* box-shadow: 0px 0px 0px 1px green; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
+
 .viewer {
   border-radius: 20px;
   align-items: center;
   align-content: center;
   display: flex;
   height: 60vh;
-  background-color:#ffffff00;
+  background: #eff8ff;
   box-sizing: border-box;
   overflow: hidden;
+
   .images {
     display: flex;
   }
+
   .image {
     display: none;
   }
 }
 
-.linha  {
+.row {
   display: flex;
   flex-flow: row wrap;
   height: 100%;
 }
-.coluna1  { 
+
+.column-one {
   display: flex;
   width: 100%;
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  background-color: #f8f8f8;
+  background: #eff8ff;
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: #f8f8f8;
-  /* box-shadow: 0px 0px 0px 1px green; */
+  border-color: #eff8ff;
+
 }
-.coluna2  {
+
+.coluna2 {
   position: absolute;
   float: right;
   overflow: hidden;
 }
-.field  {
+
+.field {
   text-align: center;
 }
+
 .column {
   display: inline-flex;
   width: 100%;
 }
 
 button {
-  background-color: #fff;
-  border: 1px solid #d5d9d9;
-  border-radius: 8px;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  box-sizing: border-box;
-  color: #000000;
+  font-weight: normal;
+  font-size: 18px;
+  color: #ffff;
+  background-color: #0071bd;
+  border: solid #0071bd 1px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+  border-radius: 20px;
+  transition : 419ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   cursor: default;
-  display: inline-block;
-  font-family: "Amazon Ember",sans-serif;
-  font-size: 15px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  user-select:none;
 }
+
 </style>

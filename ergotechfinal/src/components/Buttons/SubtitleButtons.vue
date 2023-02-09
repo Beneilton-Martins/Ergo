@@ -15,7 +15,6 @@ const props = defineProps({
     background-color: v-bind(color);
     border: 1px solid #d5d9d9;
     border-radius: 50%;
-    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     box-sizing: border-box;
     color: #ffffff;
     cursor: default;

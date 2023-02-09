@@ -49,7 +49,7 @@ mounted(){
   border-radius: 3px;
   min-width: 29px;
   min-height: 15px;
-  border: solid 1px white;
+  border: solid 1px #ffffff;
   user-select: none;
 }
 </style>

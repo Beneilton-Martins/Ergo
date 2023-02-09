@@ -24,8 +24,8 @@ export default {
       if(e.buttons == 1){
         if(this.color=="#012892") {
           this.color="#FFA519"
-        }else {
-          this.color="#C3BD19"
+        } else {
+          this.color = "#012892"
         }
         this.hover = !this.hover
       }
@@ -45,6 +45,6 @@ export default {
   min-height: 15px;
   border: solid 1px white;
   margin-bottom: 4px;
-  user-select: none;
+  user-select:none;
 }
 </style>

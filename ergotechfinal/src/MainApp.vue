@@ -7,16 +7,16 @@ const spacer = "."
 <template>
   <div class="time-field">
     <div class="div-input">
-      <button class="tempo">Tempo</button>
+      <button class="time-corp"><h3 class="time"> Tempo </h3></button>
       <input placeholder="Digite o tempo inical (s)" v-model="Tinicial" class="input" type="text" style="width: 210px">
       <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
     <div class="buttons-flex">
-      <button class="submit" @click="atualizarImagens()">Atualizar</button>
-      <button class="submit" @click="atualizarImages()">Relatório</button>
+      <button class="submit" @click="atualizarImagens()"> Atualizar </button>
+      <button class="submit" @click="atualizarImages()"> Relatório </button>
     </div>
   </div>
-  <div class="pai">
+  <div class="main-subtitles-div">
     <h1>Legendas</h1>
     <div class="subtitles">
       <div class="dropdown">
@@ -106,18 +106,52 @@ const spacer = "."
 </template>
 
 <style scoped>
+.time-corp {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: 0px -10px ;
+  margin-top: -7px;
+  background-color:#005994;
+  border: none;
+  overflow: hidden;
+  text-transform: uppercase;
+  user-select:none;
+}
+.time {
+  color: white;
+  font-weight: bold;
+  user-select:none;
+}
+
 .text-subtitle {
+  background-color: white;
+  font-size: 1em;
+  margin-left: 3px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  color: #ffff;
+  background-color: #0071bd;
+  border: solid #0071bd 1px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+  border-radius: 20px;
+  transition : 419ms;
+  transform: translateY(0);
+  cursor: default;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .dropdown>button {
   font-weight: 250;
-  font-size: 15px;
-  color: #fff;
-  background-color: #48cae4;
+  font-size: 18px;
+  color: #ffff;
+  background-color: #0071bd;
   padding: 10px 30px;
-  padding-right: 50px;
-  border: solid #48cae4 1px;
-  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border: solid #0071bd 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   transition : 419ms;
   transform: translateY(0);
@@ -125,38 +159,49 @@ const spacer = "."
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  user-select:none;
 }
+
 .dropdown>button:hover{
   transition : 419ms;
   padding: 10px 21px;
   transform : translateY(-0px);
-  background-color: #fff;
-  color: #00b4d8;
-  border: solid 1px #00b4d8;
+  background-color: #ffff;
+  color: #0071bd;
+  border: solid 1px #0071bd;
+  user-select:none;
 }
 
-.pai {
+.main-subtitles-div {
   display: flex;
+  user-select:none;
 }
 
 h1 {
   text-align: center;
   padding-bottom: 5px;
-  color: black;
-  background-color: #f8f8f8;
+  padding-top: 5px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  margin-bottom: 5px;
+  background-color:#005994;
+  user-select:none;
 }
 
 .dropdown-content {
   display: none;
   position: relative;
   min-width: 160px;
-  background-color: #f8f8f800;
-
+  user-select:none;
+  /*background-color: #0071bd;*/
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  user-select:none;
 }
 
 div {
@@ -165,27 +210,32 @@ div {
   background-color: rgba(255, 255, 255, 0);
   height: auto;
   border-radius: 20px;
+  user-select:none;
 }
 
 button:focus:not(:focus-visible):not(.focus-visible) {
   box-shadow: none;
   outline: none;
+  user-select:none;
 }
 
 .menubar {
   display: flex;
-  box-shadow: 0px 0px 0px 1px rgb(34, 174, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   height: 100%;
   align-items: center;
+  user-select:none;
 }
 
 .time-field {
   display: flex;
-  box-shadow: 0px 0px 0px 1px rgb(34, 174, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   padding-top: 7px;
   margin-bottom: 10px;
   align-items: center;
   background-color: #ffff;
+  overflow: hidden;
+  user-select:none;
 }
 
 .buttons-flex {
@@ -194,33 +244,38 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   justify-content: center;
   height: auto;
   padding-bottom: 10px;
+  user-select:none;
 }
 
 .div-input {
   display: flex;
   text-align: center;
   align-items: center;
+  align-items: stretch;
+  user-select:none;
 }
 
 .div-input,.tempo {
   color: black;
+  user-select:none;
 }
 
 .submit { /* Botoes relatorio e atualizar*/
   margin-left: 20px;
   margin-right: 20px;
   color: black;
+  user-select:none;
 }
 
-.input[type=text],
-select {
+.input[type=text],select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 10px;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid #005994;
   border-radius: 4px;
   box-sizing: border-box;
+  user-select:none;
 }
 
 .input[type=submit] {
@@ -232,6 +287,7 @@ select {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  user-select:none;
 }
 
 .subtitles {
@@ -240,5 +296,6 @@ select {
   min-width: 100%;
   flex-direction: column;
   align-items: stretch;
+  user-select:none;
 }
 </style>
