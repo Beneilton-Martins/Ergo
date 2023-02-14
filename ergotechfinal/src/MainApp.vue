@@ -145,6 +145,8 @@ const spacer = "."
   color: white;
   font-weight: bold;
   user-select: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 .text-subtitle {
@@ -278,9 +280,10 @@ button:focus:not(:focus-visible):not(.focus-visible) {
 }
 
 .div-input,
-.tempo {
-  color: black;
+.time {
+  color: rgb(255, 255, 255);
   user-select: none;
+  padding: 0px;
 }
 
 .submit-button {
