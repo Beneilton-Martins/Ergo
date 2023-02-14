@@ -11,9 +11,11 @@ import PernaButton2 from "./Buttons/PernaButton.vue"
 
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
+const frameTimes = 2
+const frameTimes2 = 15
 
 VueViewer.setDefaults({
-  zIndexInline: 0,
+  zIndexInline: 10,
 })
 
 export default defineComponent({
@@ -65,7 +67,7 @@ export default defineComponent({
         zIndexInline: 0,
         movable: false,
         transition: false,
-        interval: 100,
+        interval: 50,
         /*
         tooltip: false,
         zoomable: false,
@@ -79,7 +81,7 @@ export default defineComponent({
       },
       atividade: '',
       Tinicial: 1,
-      Tfinal: 700,
+      Tfinal: 50,
       images: sourceImages,
       Atividade: "",
       tempoiniTi: 1,
@@ -100,9 +102,8 @@ export default defineComponent({
     }
     function atualizarImagens(this: any) {
       const newsourceImages = []
-
       if (this.Tinicial !== undefined) {
-        for (let i = parseInt(this.Tinicial); i < parseInt(this.Tfinal); i = i + 15) {
+        for (let i = parseInt(this.Tinicial); i < parseInt(this.Tfinal); i = i + frameTimes) {
           newsourceImages.push({
             thumbnail: `ImageCapture${i}.png`,
             source: `ImageCapture${i}.png`,
@@ -264,7 +265,7 @@ export default defineComponent({
   },
   created() {
     if (this.Tinicial !== undefined) {
-      for (let i = this.Tinicial; i < this.Tfinal; i = i + 15) {
+      for (let i = this.Tinicial; i < this.Tfinal; i = i + frameTimes) {
         sourceImages.value.push<[]>(
           {
             thumbnail: `ImageCapture${i}.png`,
@@ -291,58 +292,51 @@ export default defineComponent({
         </viewer>
       </div>
     </div>
-    <div class="column-one">
-      <div class="columns">
-        <button class="movimento">Movimento</button>
-        <div class="column">
-          <MovimentButton v-for="(i, idx) in images" :image="idx * 15" />
+    <div class="container-columns">
+      <div class="column-one">
+          <button class="buttons-icons">M</button>
+          <button class="buttons-icons">C</button>
+          <button class="buttons-icons">B</button>
+          <button class="buttons-icons">D</button>
+          <button class="buttons-icons">P</button>
+        </div>
+      <div class="column-two">
+        <div class="columns">
+          <div class="column">
+            <MovimentButton v-for="(i, idx) in images" :image="(idx + 1) * 15" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <CargaButton v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <BracoButton2 v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <DorsoButton2 v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <PernaButton2 v-for="(i, idx) in images" :image="idx" />
+          </div>
         </div>
       </div>
-      <div class="columns">
-        <button>Carga</button>
-        <div class="column">
-          <CargaButton v-for="(i, idx) in images" :image="idx" />
-        </div>
-      </div>
-      <div class="columns">
-        <button>Braco</button>
-        <div class="column">
-          <BracoButton2 v-for="(i, idx) in images" :image="idx" />
-        </div>
-      </div>
-      <div class="columns">
-        <button>Dorso</button>
-        <div class="column">
-          <DorsoButton2 v-for="(i, idx) in images" :image="idx" />
-        </div>
-      </div>
-      <div class="columns">
-        <button>Perna</button>
-        <div class="column">
-          <PernaButton2 v-for="(i, idx) in images" :image="idx" />
-        </div>
-      </div>
-    </div>
-    <div class="column-two">
     </div>
   </div>
 </template>
 
 <style scoped lang="scss" >
-.methods {
+.buttons-icons {
   display: flex;
   flex-direction: row;
-  align-content: center;
-  align-items: center;
   justify-content: center;
-  justify-items: center;
-  user-select: none;
-
-  .input {
-    margin-left: 10px;
-    margin-right: 10px;
-    user-select: none;
-  }
+  font-weight: bold;
 }
 
 .resize {
@@ -353,12 +347,11 @@ export default defineComponent({
   border-radius: 20px;
   overflow: hidden;
   box-sizing: border-box;
-  margin-bottom: 5px;
   border-color: #000000;
-
 }
 
-.viewer-wrapper { //controla o viewer no geral
+.viewer-wrapper {
+  //controla o viewer no geral
   display: flex;
   width: 100%;
   height: 100%;
@@ -368,15 +361,14 @@ export default defineComponent({
   box-sizing: border-box;
   margin-left: 40px;
   margin-right: 40px;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 
 .viewer {
   border-radius: 20px;
   align-items: center;
-  align-content: center;
   display: flex;
-  height: 60vh;
+  height: 70vh;
   background: #eff8ff;
   box-sizing: border-box;
   overflow: hidden;
@@ -396,27 +388,42 @@ export default defineComponent({
   height: 100%;
 }
 
-.column-one {
+.container-columns {
+  display: grid;
+}
+
+.column-two {
   display: flex;
+  max-height: 170.34px;
   width: 100%;
   overflow: hidden;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   background: #d9eeff;
   border-radius: 20px;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
+  border-bottom: solid 10px;
   border-left: solid 40px;
   border-right: solid 40px;
   border-color: #d9eeff;
-
+  position: relative;
 }
 
-.coluna2 {
+.column-one {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
   position: absolute;
-  float: right;
-  overflow: hidden;
+  z-index: 1;
+  left: 0;
+  top: 10%;
+}
+
+.column-one>button {
+  margin: 2px 10px;
 }
 
 .field {
@@ -430,21 +437,18 @@ export default defineComponent({
 
 button {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 15px;
   color: #ffff;
   background-color: #0071bd;
   border: solid #0071bd 1px;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border-radius: 10px;
-  transition : 419ms;
+  transition: 419ms;
   transform: translateY(0);
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: default;
-  margin-bottom: 3px;
-  margin-top: 3px;
-  user-select:none;
+  user-select: none;
 }
-
 </style>

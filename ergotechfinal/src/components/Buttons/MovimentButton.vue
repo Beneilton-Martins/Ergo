@@ -36,15 +36,14 @@ export default {
 
 <style scoped>
 .div-movimento {
-  display:flex;
+  display: flex;
   flex-direction: row;
-  margin-top: 0px;
+  margin-bottom: 3.5px;
   background-color: v-bind(color);
   border-radius: 3px;
   min-width: 29px;
   min-height: 15px;
   border: solid 1px white;
-  margin-bottom: 4px;
-  user-select:none;
+  user-select: none;
 }
 </style>

@@ -8,9 +8,9 @@
 </template>
 
 <script setup lang="ts">
-  defineProps<  {
-    msg: string;
-  }>();
+defineProps<{
+  msg: string;
+}>();
 
 </script>
 
@@ -23,13 +23,14 @@ div {
   align-content: center;
   border-radius: 5px;
   background-color: #ffffff;
-} 
+}
+
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
   top: -1;
   align-items: center;
-  color:black
+  color: black
 }
 
 h3 {
@@ -38,6 +39,7 @@ h3 {
 }
 
 @media (min-width: 2048px) {
+
   .greetings h1,
   .greetings h3 {
     text-align: center;

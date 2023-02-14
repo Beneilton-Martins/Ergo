@@ -3,11 +3,11 @@
 /* Contém as outras divs da aplicação*/
 .container {
   display: grid;
-  grid-template-columns: 15% 69.78% auto;
-  height:100vh;
+  grid-template-columns: 15% 65.703% auto;
+  height: 100vh;
   width: 100vw;
   background: #eff8ff;
-  user-select:none;
+  user-select: none;
 }
 
 #menu-app {
