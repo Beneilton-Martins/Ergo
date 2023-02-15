@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
-import HomeView from "../components/Home.vue"
-import RelatorioRouter from "@/components/RelatorioView.vue"
-import LoginViewVue from "@/views/LoginView.vue";
-import MainAppVue from "@/MainApp.vue";
+import HomeViewVue from "../components/Home.vue"
+import RightSideBarVue from "@/RightSidebar.vue"
+import LeftSideBarVue from "@/MenuApp.vue"
 
 /* import LoginView from "@/views/LoginView.vue"
 import SignUpView from "@/views/SignUpView.vue" */
@@ -14,9 +13,9 @@ const router = createRouter({
       path: "/",
       name: "home",
       components: {
-        default: ()=>import ("@/components/Home.vue"),
-        rightSidebar: ()=>import ("@/MainApp.vue"),
-        leftSidebar: ()=>import ("@/MenuApp.vue")
+        default: HomeViewVue,
+        rightSidebar: RightSideBarVue,
+        leftSidebar: LeftSideBarVue
       }
     },
     {

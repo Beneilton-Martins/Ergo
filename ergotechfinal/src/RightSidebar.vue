@@ -40,13 +40,13 @@ const spacer = "."
     <h1>Legendas</h1>
     <div class="subtitles">
       <div class="dropdown">
-        <button>Movimento</button>
+        <button>Deslocamento</button>
         <div class="dropdown-content">
           <SubtitleButtons :color="'#012892'" :subtitle="spacer" />
-          <button class="text-subtitle"> Sem Movimento </button>
+          <button class="text-subtitle"> Sem Deslocamento </button>
           <br>
           <SubtitleButtons :color="'#E1A519'" :subtitle="spacer" />
-          <button class="text-subtitle"> Com Movimento </button>
+          <button class="text-subtitle"> Em Deslocamento </button>
           <br>
         </div>
       </div>
@@ -112,9 +112,6 @@ const spacer = "."
           <br>
           <SubtitleButtons :color="'#C3A9FF'" :subtitle="spacer" />
           <button class="text-subtitle"> Uma Perna Ajoelhada </button>
-          <br>
-          <SubtitleButtons :color="'#C37537'" :subtitle="spacer" />
-          <button class="text-subtitle"> Em Movimento </button>
           <br>
           <SubtitleButtons :color="'#0192AE'" :subtitle="spacer" />
           <button class="text-subtitle"> Duas Pernas Suspensas </button>

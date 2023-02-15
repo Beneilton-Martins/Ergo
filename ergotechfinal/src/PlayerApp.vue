@@ -10,7 +10,7 @@
       <div id="player-app">
         <router-view class="main-player"></router-view>
       </div>
-      <div id="main-app">
+      <div id="rightsidebar">
         <router-view class="right-sidebar" name="rightSidebar"></router-view>
       </div>
   </div>
@@ -40,8 +40,8 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+/*   background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
 } 
 
 /* Contém o viwerjs*/
@@ -57,12 +57,12 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+/*   background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
 } 
 
 /* Contém o menu e etc..*/
- #main-app {
+ #rightsidebar {
   display: flex;
   flex-direction: column;
   padding-right: 10px;
@@ -75,7 +75,7 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-} 
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+}
 
 </style>

@@ -8,9 +8,6 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  msg: string;
-}>();
 
 </script>
 
@@ -39,7 +36,6 @@ h3 {
 }
 
 @media (min-width: 2048px) {
-
   .greetings h1,
   .greetings h3 {
     text-align: center;
