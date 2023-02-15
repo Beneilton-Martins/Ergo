@@ -26,11 +26,6 @@ function doRegister() {
 
 <template>
     <div class="login-page">
-        <transition name="fade">
-            <div v-if="!registerActive" class="wallpaper-login"></div>
-        </transition>
-        <div class="wallpaper-register"></div>
-
         <div class="container">
             <div class="row">
                 <div class="mx-auto">
@@ -40,9 +35,10 @@ function doRegister() {
                             <input v-model="emailLogin" type="email" class="form-control" placeholder="Email" required>
                             <input v-model="passwordLogin" type="password" class="form-control" placeholder="Senha"
                                 required>
-                            <input type="submit" class="btn" @click="doLogin">
-                            <p> Não tem uma conta? 
-                                <a href="#" @click="registerActive = !registerActive, emptyFields = false"> Faça uma conta aqui </a>
+                            <input type="submit" class="btn" value="Entrar" @click="doLogin">
+                            <p> Não tem uma conta?
+                                <a href="#" @click="registerActive = !registerActive, emptyFields = false">
+                                    Faça uma conta aqui </a>
                             </p>
                             <p> <a href="#">Esqueceu sua senha?</a> </p>
                         </form>
@@ -56,9 +52,10 @@ function doRegister() {
                                 required>
                             <input v-model="confirmReg" type="password" class="form-control"
                                 placeholder="Confirme a senha" required>
-                            <input type="submit" class="btn" @click="doRegister">
-                            <p> Já tem uma conta? 
-                                <a href="#" @click="registerActive = !registerActive, emptyFields = false"> Faça login aqui </a>
+                            <input type="submit" class="btn" value="Registrar" @click="doRegister">
+                            <p> Já tem uma conta?
+                                <a href="#" @click="registerActive = !registerActive, emptyFields = false">
+                                    Faça login aqui </a>
                             </p>
                         </form>
                     </div>
@@ -69,18 +66,16 @@ function doRegister() {
 </template>
  
 <style scoped lang="scss">
-
 p {
     line-height: 1rem;
     color: #000000;
-    display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: flex-start;
+    margin: 5px;
 }
 
 a {
     color: #000000;
-
 }
 
 .card {
@@ -91,11 +86,13 @@ a {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+
     input {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         display: flex;
         flex-wrap: wrap;
         width: auto;
+
     }
 }
 
@@ -106,13 +103,6 @@ a {
     display: flex;
     height: 100%;
 
-    .wallpaper-login {
-        background-size: cover;
-        height: 100%;
-        position: absolute;
-        width: 100%;
-    }
-
     .fade-enter-active,
     .fade-leave-active {
         transition: opacity .5s;
@@ -121,13 +111,6 @@ a {
     .fade-enter,
     .fade-leave-to {
         opacity: 0;
-    }
-
-    .wallpaper-register {
-        height: 100%;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
     }
 
     h1 {
@@ -166,13 +149,31 @@ a {
     display: flex;
     flex-direction: column;
 }
-.mx-auto { 
+
+.mx-auto {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-    width: 500px;
+    width: auto;
     height: auto;
+}
+
+.btn {
+    font-weight: normal;
+    font-size: 15px;
+    color: #ffff;
+    background-color: #0071bd;
+    border: solid #0071bd 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    transition: 419ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    max-width: min-content;
 }
 </style>
