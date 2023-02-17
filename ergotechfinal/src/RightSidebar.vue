@@ -1,5 +1,8 @@
 <script setup>
-import SubtitleButtons from './components/Buttons/SubtitleButtons.vue';
+import SubtitleButtons from "./components/Buttons/SubtitleButtons.vue"
+import { ref } from "vue"
+let Tinicial = ref()
+let Tfinal = ref()
 
 const spacer = "."
 </script>
