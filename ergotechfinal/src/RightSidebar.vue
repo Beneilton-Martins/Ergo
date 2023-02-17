@@ -1,8 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import SubtitleButtons from "./components/Buttons/SubtitleButtons.vue"
 import { ref } from "vue"
-let Tinicial = ref()
-let Tfinal = ref()
+
+let Tinicial = ref("1")
+let Tfinal = ref("50")
 
 const spacer = "."
 </script>
@@ -15,7 +16,7 @@ const spacer = "."
       </button>
       <input 
         placeholder="Digite o tempo inical (s)" 
-        v-model="Tinicial" 
+        v-model="Tinicial"
         class="input" 
         type="text" 
         style="width: 210px"

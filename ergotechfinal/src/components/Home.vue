@@ -9,8 +9,6 @@ import BracoButton2 from "./Buttons/BracoButton.vue"
 import DorsoButton2 from "./Buttons/DorsoButton.vue"
 import PernaButton2 from "./Buttons/PernaButton.vue"
 
-import TimerMenu from "@/RightSidebar.vue"
-
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
 const frameTimes = 2
@@ -30,11 +28,10 @@ export default defineComponent({
     BracoButton2,
     DorsoButton2,
     PernaButton2,
-    TimerMenu: component,
+    
   },
   setup() {
     let $viewer: Viewer
-    let $timermenu: typeof TimerMenu
     const state = reactive({
       form: {
         view: 2,
@@ -304,6 +301,37 @@ export default defineComponent({
         </viewer>
       </div>
     </div>
+    <div class="time-field">
+      <b-button class="time-corp">
+        <h3 class="time"> Tempo </h3>
+      </b-button>
+    <div class="div-input">
+      <input 
+        placeholder="Digite o tempo inical (s)" 
+        v-model="Tinicial"
+        class="input" 
+        type="text" 
+        style="width: 210px"
+      >
+      <input 
+        placeholder="Digite o tempo final (s)" 
+        v-model="Tfinal" 
+        class="input" 
+        type="text" 
+        style="width: 210px"
+      >
+    </div>
+    <div class="buttons-flex">
+      <b-button 
+        class="submit-button" 
+        @click="atualizarImagens()"> Atualizar 
+      </b-button>
+      <b-button 
+        class="submit-button" 
+        @click="atualizarImagens()"> Relatório 
+      </b-button>
+    </div>
+  </div>
     <div class="container-columns">
       <div class="column-one">
           <button class="buttons-icons">M</button>
@@ -398,6 +426,9 @@ export default defineComponent({
   display: flex;
   flex-flow: row wrap;
   height: 100%;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-columns {
@@ -462,5 +493,13 @@ button {
   align-items: center;
   cursor: default;
   user-select: none;
+}
+
+.time-field {
+  display: flex;
+}
+
+h3.time {
+  margin: 0;
 }
 </style>
