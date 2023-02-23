@@ -3,11 +3,11 @@
 /* Contém as outras divs da aplicação*/
 .container {
   display: grid;
-  grid-template-columns: 15% 65.703% auto;
-  height: 100vh;
+  grid-template-columns: 15% 69.78% auto;
+  height:100vh;
   width: 100vw;
   background: #eff8ff;
-  user-select: none;
+  user-select:none;
 }
 
 #menu-app {
@@ -23,8 +23,7 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  background-color: #eff8ff;
 }
 
 /* Contém o viwerjs*/
