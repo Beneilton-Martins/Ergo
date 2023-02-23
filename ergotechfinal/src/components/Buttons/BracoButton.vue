@@ -42,7 +42,7 @@ export default {
 .div-braco {
   display: flex;
   flex-direction: row;
-  margin-top: 1px;
+  margin-top: 0px;
   background-color: v-bind(color);
   border-radius: 3px;
   min-width: 29px;
