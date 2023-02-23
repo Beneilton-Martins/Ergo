@@ -9,10 +9,12 @@ import BracoButton2 from "./Buttons/BracoButton.vue"
 import DorsoButton2 from "./Buttons/DorsoButton.vue"
 import PernaButton2 from "./Buttons/PernaButton.vue"
 
+import TimerMenu from "@/RightSidebar.vue"
+
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
 const frameTimes = 2
-const frameTimes2 = 15
+/* const frameTimes2 = 15 */
 
 VueViewer.setDefaults({
   zIndexInline: 10,
@@ -28,9 +30,11 @@ export default defineComponent({
     BracoButton2,
     DorsoButton2,
     PernaButton2,
+    TimerMenu: component,
   },
   setup() {
     let $viewer: Viewer
+    let $timermenu: typeof TimerMenu
     const state = reactive({
       form: {
         view: 2,
@@ -84,8 +88,6 @@ export default defineComponent({
       Tfinal: 50,
       images: sourceImages,
       Atividade: "",
-      tempoiniTi: 1,
-      tempofim: 10,
       selected: '',
       selected2: '',
       series: [{
@@ -283,10 +285,20 @@ export default defineComponent({
   <div class="row">
     <div class="resize">
       <div class="viewer-wrapper">
-        <viewer ref="viewer" :options="options" :images="images" rebuild class="viewer" @inited="inited">
+        <viewer ref="viewer" 
+          :options="options"
+          :images="images" 
+          rebuild 
+          class="viewer" 
+          @inited="inited"
+        >
           <template #default="scope">
             <div v-for="{ source, thumbnail, alt } in scope.images" key="source" class="image-wrapper">
-              <img class="image" :src="getImageURL(thumbnail)" :data-source="getImageURL(source)" :alt="alt">
+              <img class="image" 
+                :src="getImageURL(thumbnail)"
+                :data-source="getImageURL(source)"
+                :alt="alt"
+              >
             </div>
           </template>
         </viewer>

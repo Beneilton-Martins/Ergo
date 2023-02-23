@@ -35,12 +35,12 @@ export default {
   </div>
   <div class="line">
     <div class="imgs" style="width 40%">
-      <img :src="getImageURL(link)" width="500" height="400" />
-      <img :src="getImageURL(link2)" width="500" height="400" />
+      <img :src="getImageURL(link)" width="400" height="300" />
+      <img :src="getImageURL(link2)" width="400" height="300" />
 
     </div>
     <div>
-      <img class="kkkk" :src="getImageURL(link3)" width="520" height="420" />
+      <img class="kkkk" :src="getImageURL(link3)" width="420" height="320" />
     </div>
   </div>
 </template>
@@ -51,8 +51,10 @@ export default {
 }
 
 .line {
+  display: flex;
   height: 90%;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .imgs {
