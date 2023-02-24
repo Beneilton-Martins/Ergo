@@ -29,9 +29,7 @@
 
 #menu-app {
   display: flex;
-  padding-right: 16.5px;
   padding-top: 5px;
-  padding-left: 16.5px;
   padding-bottom: 5px;
   max-width: 100%;
   margin: 5px;
@@ -40,8 +38,6 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
-/*   background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
 } 
 
 /* Contém o viwerjs*/
