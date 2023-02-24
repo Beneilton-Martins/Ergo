@@ -6,22 +6,17 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "login",
+      component: LoginVue
+    },
+    {
+      path: "/ergotech",
+      name: "ergotech",
       components: {
         default: ()=> import("@/views/HomeView.vue"),
         rightSidebar: ()=> import("@/RightSidebar.vue"),
         leftSidebar: ()=> import("@/MenuApp.vue")
       }
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: LoginVue
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: ()=>import ("@/views/SignUpView.vue")
     }
   ],
 });
