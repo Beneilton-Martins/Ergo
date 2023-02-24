@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { loginInform } from "@/main";
+import router from "@/router";
+import { mapActions } from "pinia";
 import { ref } from "vue"
-const registerActive = ref(false    )
+const registerActive = ref(false)
+const loginSucess = ref(false)
 const emailLogin = ref("")
 const passwordLogin = ref("")
 const emailReg = ref("")
@@ -8,6 +12,11 @@ const passwordReg = ref("")
 const confirmReg = ref("")
 const emptyFields = ref(false)
 const resposta = ref()
+
+const main = loginInform();
+
+const setLogin = mapActions(loginInform, ["setDados"])
+
 async function doLogin() {
        resposta.value = await( fetch(
             `http://192.168.200.73:8000/Login/verifyLogin/?`+ new URLSearchParams({
@@ -19,14 +28,17 @@ async function doLogin() {
                 const dados = response
                 console.log(response);
                 if(response.ok){
-                    return response.json(); //then consume it again, the error happens
+                    loginSucess.value = true
+                    return response.json(); //then consume it again, the error happens    
                 }
-            })
+            },
+            )
        )
 
-       console.log(resposta.value.data)
-
-
+        if(loginSucess.value==true){
+            setLogin(resposta.value)
+            router.push({ name: "ergotech" });
+        }
         
 }
 function doRegister() {
@@ -43,22 +55,22 @@ function doRegister() {
         <div class="container">
             <div class="row">
                 <div class="mx-auto">
-                    <div v-if="!registerActive" class="card login">
+                    <div v-if="!registerActive" class="card login"  v-bind:class="{ error: emptyFields }">
                         <h1>Entrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailLogin" type="nome" class="form-control" placeholder="Usuario" required>
                             <input v-model="passwordLogin" type="password" class="form-control" placeholder="Senha"
                                 required>
-                            <input type="button" class="btn" value="Entrar" @click="doLogin">
-                            <!-- <p> Não tem uma conta?
+                            <input type="button" class="btn" value="Entrar" @click="doLogin" >
+                            <p> Não tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça uma conta aqui </a>
                             </p>
-                            <p> <a href="#">Esqueceu sua senha?</a> </p> -->
+                            <p> <a href="#">Esqueceu sua senha?</a> </p>
                         </form>
                     </div>
 
-                    <div v-else class="card register">
+                    <div v-else class="card register"  v-bind:class="{ error: emptyFields }">
                         <h1>Registrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
@@ -67,10 +79,10 @@ function doRegister() {
                             <input v-model="confirmReg" type="password" class="form-control"
                                 placeholder="Confirme a senha" required>
                             <input type="submit" class="btn" value="Registrar" @click="doRegister">
-                            <!-- <p> Já tem uma conta?
+                            <p> Já tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça login aqui </a>
-                            </p> -->
+                            </p>
                         </form>
                     </div>
                 </div>

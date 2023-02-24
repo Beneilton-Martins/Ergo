@@ -1,22 +1,26 @@
 import "./assets/main.css"
 import { createApp } from "vue"
 import { createPinia } from "pinia"
-import vueAwesomeSidebar from 'vue-awesome-sidebar'
 import 'vue-awesome-sidebar/dist/vue-awesome-sidebar.css'
+import {defineStore} from "pinia";
 
-/*
- import MainApp from "./MainApp.vue" 
-*/
 import PlayerApp from "./PlayerApp.vue"
-/* 
-import MenuApp from "./MenuApp.vue" 
-*/
 
 import router from "./router"
 
 import VueViewer from "v-viewer"
 import 'viewerjs/dist/viewer.css'
 
+export const loginInform = defineStore("main",{
+    state:() =>({
+        dados: {}
+    }),
+    actions:{
+        setDados(valor: any){
+            this.dados =valor
+        }
+    }
+})
 /* 
 const mainapp = createApp(MainApp)
 mainapp.use(createPinia())
