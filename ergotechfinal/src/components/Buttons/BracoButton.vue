@@ -1,4 +1,4 @@
-<template>    
+<template>
   <div class="div-braco"></div>
 </template>
 
@@ -7,10 +7,14 @@ export default {
   data() {
     return {
       hover: false,
-      color:"#012892",
-      json: [1, 1, 2, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 3, 2, 2, 2, 2, 1,
-              1, 1, 1, 2, 1, 1, 1, 1, 3, 3, 3, 3, 3, 2, 3, 2, 3, 2, 1, 1, 3, 3, 3, 1, 1, 1, 1, 
-              1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 1],
+      color: "#012892",
+      json: [1, 1, 2, 2, 3, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 2, 1, 1, 1, 1, 2, 3, 2, 2,
+        2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3,
+        3, 3, 3, 3, 2, 3, 2, 3, 2, 1, 1, 3,
+        3, 3, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1,
+        3, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1,
+        1, 1, 3, 3, 3, 3, 1, 1],
     }
   },
   props: {
@@ -18,12 +22,12 @@ export default {
   },
   methods: {
     changecolor() {
-      if(this.json[this.image]==1) {      
-        this.color="#012892"
-      }else if(this.json[this.image]==2) {
-        this.color="#FFA519"
-      }else {
-        this.color="#C3BD19"      
+      if (this.json[this.image] == 1) {
+        this.color = "#012892"
+      } else if (this.json[this.image] == 2) {
+        this.color = "#FFA519"
+      } else {
+        this.color = "#C3BD19"
       }
       this.hover = !this.hover
     }
@@ -36,13 +40,14 @@ export default {
 
 <style scoped>
 .div-braco {
-  display:flex;
+  display: flex;
   flex-direction: row;
-  margin-right:1px;
-  border-radius: 2px;
-  margin-top: 5px;
+  margin-top: 0px;
   background-color: v-bind(color);
-  min-width: 30px;
-  min-height: 25px;
+  border-radius: 3px;
+  min-width: 29px;
+  min-height: 15px;
+  border: solid 1px white;
+  user-select: none;
 }
 </style>

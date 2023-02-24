@@ -1,23 +1,28 @@
 <script lang="ts">
-import type  Viewer  from "viewerjs"
+import { defineComponent, reactive, toRefs, ref } from 'vue'
 import VueViewer, { component } from "v-viewer"
+import type Viewer from "viewerjs"
+
 import MovimentButton from "./Buttons/MovimentButton.vue"
 import CargaButton from "./Buttons/CargaButton.vue"
 import BracoButton2 from "./Buttons/BracoButton.vue"
 import DorsoButton2 from "./Buttons/DorsoButton.vue"
 import PernaButton2 from "./Buttons/PernaButton.vue"
-import { defineComponent, reactive, toRefs, ref } from 'vue'
+
+import TimerMenu from "@/RightSidebar.vue"
 
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
+const frameTimes = 2
+/* const frameTimes2 = 15 */
 
 VueViewer.setDefaults({
-  zIndexInline: 0,
+  zIndexInline: 10,
 })
 
 export default defineComponent({
-  name: 'ComponentExample',
-  el: '#app',
+  name: "Home",
+  el: "#player-app",
   components: {
     Viewer: component,
     MovimentButton,
@@ -25,9 +30,11 @@ export default defineComponent({
     BracoButton2,
     DorsoButton2,
     PernaButton2,
-},
+    TimerMenu: component,
+  },
   setup() {
     let $viewer: Viewer
+    let $timermenu: typeof TimerMenu
     const state = reactive({
       form: {
         view: 2,
@@ -48,23 +55,23 @@ export default defineComponent({
         inline: true,
         navbar: true,
         toolbar: {
-          prev: function() {
+          prev: function () {
             $viewer.prev(true);
           },
 
           play: true,
 
-          next: function() {
+          next: function () {
             $viewer.next(true);
           },
         },
         button: false,
         title: false,
         zoomable: false,
-        zIndexInline:0,
+        zIndexInline: 0,
         movable: false,
         transition: false,
-        interval: 100,
+        interval: 50,
         /*
         tooltip: false,
         zoomable: false,
@@ -78,30 +85,27 @@ export default defineComponent({
       },
       atividade: '',
       Tinicial: 1,
-      Tfinal: 600,
+      Tfinal: 50,
       images: sourceImages,
       Atividade: "",
-      tempoiniTi:1,
-      tempofim:10,
       selected: '',
       selected2: '',
       series: [{
-          name: 'Peso',
-          data: generateData(sourceImages.value.length, {
-            min: 0,
-            max: 90
-          })
-        }
+        name: 'Peso',
+        data: generateData(sourceImages.value.length, {
+          min: 0,
+          max: 90
+        })
+      }
       ],
     })
     function inited(viewer: Viewer) {
       $viewer = viewer
     }
-    function atualizarImagens(this: any){
-      const newsourceImages =[]
-
-      if (this.Tinicial !== undefined){
-        for (let i = parseInt(this.Tinicial); i < parseInt(this.Tfinal); i = i + 15) {
+    function atualizarImagens(this: any) {
+      const newsourceImages = []
+      if (this.Tinicial !== undefined) {
+        for (let i = parseInt(this.Tinicial); i < parseInt(this.Tfinal); i = i + frameTimes) {
           newsourceImages.push({
             thumbnail: `ImageCapture${i}.png`,
             source: `ImageCapture${i}.png`,
@@ -109,18 +113,18 @@ export default defineComponent({
           })
         }
 
-      sourceImages.value = newsourceImages
-      console.log(sourceImages.value.length)
+        sourceImages.value = newsourceImages
+        console.log(sourceImages.value.length)
       }
     }
-    function atualizarSeries(this:any){
+    function atualizarSeries(this: any) {
       const newserie = [{
-          name: 'Peso',
-          data: generateData(sourceImages.value.length, {
-            min: 0,
-            max: 90
-          })
-        }
+        name: 'Peso',
+        data: generateData(sourceImages.value.length, {
+          min: 0,
+          max: 90
+        })
+      }
 
       ]
       this.series.value = newserie
@@ -261,15 +265,15 @@ export default defineComponent({
       return series;
     }
   },
-  created(){
-    if (this.Tinicial !== undefined){
-      for (let i = this.Tinicial; i < this.Tfinal; i = i + 15) {
+  created() {
+    if (this.Tinicial !== undefined) {
+      for (let i = this.Tinicial; i < this.Tfinal; i = i + frameTimes) {
         sourceImages.value.push<[]>(
-        {
-          thumbnail: `ImageCapture${i}.png`,
-          source: `ImageCapture${i}.png`,
-          alt: `Image: ${base + i}`,
-        })
+          {
+            thumbnail: `ImageCapture${i}.png`,
+            source: `ImageCapture${i}.png`,
+            alt: `Image: ${base + i}`,
+          })
       }
     }
     console.log(sourceImages.value.length)
@@ -278,247 +282,185 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="linha">
-    <div class="coluna1">
-      <div class="field">
-        <div id="div-input" class="methods"> 
-          <p>Tempo:</p>
-          <input placeholder="Digite o tempo inical (segundos)" 
-            v-model="Tinicial" 
-            class="input" 
-            type="text"
-            style="width: 210px"
-          >
-          <input placeholder="Digite o tempo final (segundos)" 
-            v-model="Tfinal" 
-            class="input" 
-            type="text"
-            style="width: 210px"
-          >
-          <button class="submit" @click="atualizarImagens()"> Atualizar</button>
-        </div>
-      </div>
+  <div class="row">
+    <div class="resize">
       <div class="viewer-wrapper">
-        <viewer ref="viewer" :options="options" 
-          :images="images" class="viewer" @inited="inited"> 
+        <viewer ref="viewer" 
+          :options="options"
+          :images="images" 
+          rebuild 
+          class="viewer" 
+          @inited="inited"
+        >
           <template #default="scope">
-            <div v-for="{ source, thumbnail, alt} in scope.images" 
-              key="source" class="image-wrapper">
+            <div v-for="{ source, thumbnail, alt } in scope.images" key="source" class="image-wrapper">
               <img class="image" 
-                :src="getImageURL(thumbnail)" 
+                :src="getImageURL(thumbnail)"
                 :data-source="getImageURL(source)"
                 :alt="alt"
               >
             </div>
           </template>
         </viewer>
-      </div> 
-        <div class="columns">
-          <p>Movimento</p>
-          <div class="column" >
-            <MovimentButton v-for="(i, idx) in images" :image="idx*15"/>
-          </div>
-        </div>
-        <div class="columns">
-          <p>Carga</p>
-          <div class="column" >
-            <CargaButton v-for="(i, idx) in images" :image="idx"/>
-         </div>
-        </div>
-        <div class="columns">
-          <p>Braco</p>
-          <div class="column" >
-            <BracoButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
-        <div class="columns">
-          <p>Dorso</p>
-          <div class="column" >
-            <DorsoButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
-        <div class="columns">
-          <p>Perna</p>
-          <div class="column" >
-          <PernaButton2 v-for="(i, idx) in images" :image="idx"/>
-          </div>
-        </div>
+      </div>
     </div>
-    <div class="coluna2">
-      <!-- <router-link to="/about"> 
-        <button class="submit">RELATORIO</button> 
-      </router-link> -->
-      <!-- <div class="legendas"> 
-        <div>
-          <h1>Legendas</h1>
-          <hr/>
-          <br/>
-          <div class="pai">
-              <p>Movimento</p>
-              <div><button style='background-color:rgb(1,40,146)'>Sem Movimento</button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Com Movimento</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-              <p>Carga</p>
-              <div><button style='background-color:rgb(1,40,146)'>10kg &lt; Carga &lt; 20kg</button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Carga &lt; 10kg</button></div>
-              <div><button style='background-color:rgb(195,189,55)'>Carga > 20kg</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-              <p>Bracos</p>
-              <div><button style='background-color:rgb(1,40,146)'>Nenhum Braço Levantado </button></div>
-              <div><button style='background-color:rgb(225,165,25)'>Um Braço Levantado</button></div>
-              <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div>
-          </div>
-          <br/>
-          <div class="pai">
-            <p>Dorso</p>
-            <div><button style='background-color:rgb(1,40,146)'>Dorso Reto</button></div>
-            <div><button style='background-color:rgb(225,165,25)'>Dorso Inclinado</button></div>
-            <div><button style='background-color:rgb(195,189,55)'>Dorso Reto e Torcido</button></div>
-            <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div>
-          </div>
-          <br/>
-          <div class="pai">
-            <p>Pernas</p>
-            <div><button style='background-color:rgb(1,40,146)'>Duas Pernas Retas</button></div>
-            <div><button style='background-color:rgb(225,165,25)'>Uma Perna Reta</button></div>
-            <div><button style='background-color:rgb(195,189,55)'>Duas Pernas Flexionadas</button></div>
-            <div><button style='background-color:rgb(195,55,185)'>Uma Perna Flexionada </button></div>
-            <div><button style='background-color:rgb(195,169,255)'>Uma Perna Ajoelhada</button></div>
-            <div><button style='background-color:rgb(195,117,55)'>Em Movimento</button></div>
-            <div><button style='background-color:rgb(1,146,174)'>Duas Pernas Suspensas</button></div>
-          </div>
-          <br/>
+    <div class="container-columns">
+      <div class="column-one">
+          <button class="buttons-icons">M</button>
+          <button class="buttons-icons">C</button>
+          <button class="buttons-icons">B</button>
+          <button class="buttons-icons">D</button>
+          <button class="buttons-icons">P</button>
         </div>
-      </div> -->
+      <div class="column-two">
+        <div class="columns">
+          <div class="column">
+            <MovimentButton v-for="(i, idx) in images" :image="(idx + 1) * 15" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <CargaButton v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <BracoButton2 v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <DorsoButton2 v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <PernaButton2 v-for="(i, idx) in images" :image="idx" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss" >
-.linha {
+.buttons-icons {
   display: flex;
-  flex-flow: row wrap;
-  background-color:rgba(28,27,32,255);
-  border-radius: 20px;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
 }
-.coluna2 {
-  position: absolute;
-  float: right;
-}
-.field {
-  text-align: center;
-}
-.column {
-  display: inline-flex;
-  overflow-x: scroll;
-  width: 100%;
-}
-.div-input {
-  text-align: center;
-}
-.input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 10px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.submit {
-  appearance: none;
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 6px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.button-3:focus:not(:focus-visible):not(.focus-visible) {
-  box-shadow: none;
-  outline: none;
-}
-.viewer-wrapper {
+
+.resize {
   display: flex;
-  height: 47%;
-}
-.viewer {
+  width: 100%;
+  height: auto;
   align-items: center;
-  align-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-color: #000000;
+}
+
+.viewer-wrapper {
+  //controla o viewer no geral
   display: flex;
-  height: 100vh;
-  background: rgb(23, 23, 23);
-  
-  .images{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-left: 40px;
+  margin-right: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.viewer {
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  height: 70vh;
+  background: #eff8ff;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .images {
     display: flex;
   }
-  .image{
+
+  .image {
     display: none;
   }
 }
-.legendas {
-  right: 0px;
-  background-color: rgb(255, 255, 255);
-  width: 280px;
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
   height: 100%;
-  padding: 25px;
-  border: 1px solid rgb(218, 218, 218);
-  // margin: 25px;
-  position: fixed;
-  top: 1px;
-  bottom: 1px;
 }
-.pai>div>button {
-  appearance: none;
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+
+.container-columns {
+  display: grid;
+}
+
+.column-two {
+  display: flex;
+  max-height: 170.34px;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #d9eeff;
+  border-radius: 20px;
+  text-align: start;
+  overflow-x: scroll;
   box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 6px 16px;
+  border-bottom: solid 10px;
+  border-left: solid 40px;
+  border-right: solid 40px;
+  border-color: #d9eeff;
   position: relative;
+}
+
+.column-one {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 10%;
+}
+
+.column-one>button {
+  margin: 2px 10px;
+}
+
+.field {
   text-align: center;
-  text-decoration: none;
+}
+
+.column {
+  display: inline-flex;
+  width: 100%;
+}
+
+button {
+  font-weight: normal;
+  font-size: 15px;
+  color: #ffff;
+  background-color: #0071bd;
+  border: solid #0071bd 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  transition: 419ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: default;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
 }
 </style>
