@@ -43,17 +43,16 @@ const items = ref([
 
 <style lang="scss" scoped>
 .menu-app {
+    background-color: #ffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    width: 100%;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    user-select: none;
-    background-color: #ffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-}
-ul {
+  ul {
         list-style: none;
         width: 150px;
 
@@ -64,4 +63,6 @@ ul {
         cursor: pointer;
         }
     }
+}
+
 </style>
