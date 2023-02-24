@@ -1,8 +1,6 @@
 import "./assets/main.css"
 import { createApp } from "vue"
 import { createPinia } from "pinia"
-import vueAwesomeSidebar from 'vue-awesome-sidebar'
-import 'vue-awesome-sidebar/dist/vue-awesome-sidebar.css'
 
 /*
  import MainApp from "./MainApp.vue" 

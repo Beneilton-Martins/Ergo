@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
-const registerActive = ref(false    )
+const registerActive = ref(false)
 const emailLogin = ref("")
 const passwordLogin = ref("")
 const emailReg = ref("")
@@ -8,26 +8,24 @@ const passwordReg = ref("")
 const confirmReg = ref("")
 const emptyFields = ref(false)
 const resposta = ref()
+
 async function doLogin() {
-       resposta.value = await( fetch(
-            `http://192.168.200.73:8000/Login/verifyLogin/?`+ new URLSearchParams({
-                usuario:emailLogin.value,
-                senha:passwordLogin.value}), {
-                method: "GET",
-            },
-            ).then(response => {
-                const dados = response
-                console.log(response);
-                if(response.ok){
-                    return response.json(); //then consume it again, the error happens
-                }
-            })
-       )
-
-       console.log(resposta.value.data)
-
-
-        
+    resposta.value = await (fetch(
+        `http://192.168.200.73:8000/Login/verifyLogin/?` + new URLSearchParams({
+            usuario: emailLogin.value,
+            senha: passwordLogin.value
+        }), {
+        method: "GET",
+    },
+    ).then(response => {
+        const dados = response
+        console.log(response);
+        if (response.ok) {
+            return response.json(); //then consume it again, the error happens
+        }
+    })
+    )
+    console.log(resposta.value.data)
 }
 function doRegister() {
     if (emailReg.value === "" || passwordReg.value === "" || confirmReg.value === "") {
@@ -50,7 +48,7 @@ function doRegister() {
                             <input v-model="passwordLogin" type="password" class="form-control" placeholder="Senha"
                                 required>
                             <input type="button" class="btn" value="Entrar" @click="doLogin">
-                            <!-- <p> Não tem uma conta?
+                            <!--<p> Não tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça uma conta aqui </a>
                             </p>
@@ -62,15 +60,14 @@ function doRegister() {
                         <h1>Registrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
-                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha"
+                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha" required>
+                            <input v-model="confirmReg" type="password" class="form-control" placeholder="Confirme a senha"
                                 required>
-                            <input v-model="confirmReg" type="password" class="form-control"
-                                placeholder="Confirme a senha" required>
                             <input type="submit" class="btn" value="Registrar" @click="doRegister">
                             <!-- <p> Já tem uma conta?
-                                <a href="#" @click="registerActive = !registerActive, emptyFields = false">
-                                    Faça login aqui </a>
-                            </p> -->
+                                    <a href="#" @click="registerActive = !registerActive, emptyFields = false">
+                                        Faça login aqui </a>
+                                </p> -->
                         </form>
                     </div>
                 </div>
@@ -106,7 +103,6 @@ a {
         display: flex;
         flex-wrap: wrap;
         width: auto;
-
     }
 }
 
