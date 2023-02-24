@@ -19,6 +19,9 @@ VueViewer.setDefaults({
 })
 
 export default defineComponent({
+  props: {
+    dados: String
+  },
   name: "Home",
   el: "#player-app",
   components: {

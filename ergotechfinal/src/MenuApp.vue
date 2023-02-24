@@ -5,11 +5,7 @@ import { ref } from 'vue'
 const header = ref('Shopping List App')
 
 const resposta = ref({})
-const json = ref({
-    "Empresa":"SESI",
-    "Tarefas":["Dançar","Varrer"],
-    
-})
+
 const items = ref([
     { id: 1, label: "New-Menu" },
     { id: 2, label: "#itens" },
@@ -22,10 +18,11 @@ const items = ref([
     { id: 9, label: "#itens" },
 ])
 
-// resposta.value= await (await fetch('http://192.168.200.73:8000/Empresa/', {
-// 	method: "GET",
-// })).json()
+resposta.value= await (await fetch('http://192.168.200.73:8000/CadastroCaptura/', {
+    method: "GET",
+})).json()
 
+console.log("resposta", resposta.value[0])
 </script>
 
 <template>
@@ -34,6 +31,7 @@ const items = ref([
             <ul>
                 <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
             </ul>
+            <!-- {{ resposta.value[0].atividade }} -->
         </div>
         <!-- <ul>
             <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
