@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { loginInform } from "@/main";
+import router from "@/router";
+import { mapActions } from "pinia";
 import { ref } from "vue"
 const registerActive = ref(false)
+const loginSucess = ref(false)
 const emailLogin = ref("")
 const passwordLogin = ref("")
 const emailReg = ref("")
@@ -9,23 +13,33 @@ const confirmReg = ref("")
 const emptyFields = ref(false)
 const resposta = ref()
 
+const main = loginInform();
+
+const setDados = mapActions(loginInform, ["setDados"])
+
 async function doLogin() {
-    resposta.value = await (fetch(
-        `http://192.168.200.73:8000/Login/verifyLogin/?` + new URLSearchParams({
-            usuario: emailLogin.value,
-            senha: passwordLogin.value
-        }), {
-        method: "GET",
-    },
-    ).then(response => {
-        const dados = response
-        console.log(response);
-        if (response.ok) {
-            return response.json(); //then consume it again, the error happens
+       resposta.value = await( fetch(
+            `http://192.168.200.73:8000/Login/verifyLogin/?`+ new URLSearchParams({
+                usuario:emailLogin.value,
+                senha:passwordLogin.value}), {
+                method: "GET",
+            },
+            ).then(response => {
+                const dados = response
+                console.log(response);
+                if(response.ok){
+                    loginSucess.value = true
+                    return response.json(); //then consume it again, the error happens    
+                }
+            },
+            )
+       )
+
+        if(loginSucess.value==true){
+            // setDados(resposta.value)
+            router.push({ name: "ergotech" });
         }
-    })
-    )
-    console.log(resposta.value.data)
+        
 }
 function doRegister() {
     if (emailReg.value === "" || passwordReg.value === "" || confirmReg.value === "") {
@@ -41,33 +55,34 @@ function doRegister() {
         <div class="container">
             <div class="row">
                 <div class="mx-auto">
-                    <div v-if="!registerActive" class="card login">
+                    <div v-if="!registerActive" class="card login"  v-bind:class="{ error: emptyFields }">
                         <h1>Entrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailLogin" type="nome" class="form-control" placeholder="Usuario" required>
                             <input v-model="passwordLogin" type="password" class="form-control" placeholder="Senha"
                                 required>
-                            <input type="button" class="btn" value="Entrar" @click="doLogin">
-                            <!--<p> Não tem uma conta?
+                            <input type="button" class="btn" value="Entrar" @click="doLogin" >
+                            <p> Não tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça uma conta aqui </a>
                             </p>
-                            <p> <a href="#">Esqueceu sua senha?</a> </p> -->
+                            <p> <a href="#">Esqueceu sua senha?</a> </p>
                         </form>
                     </div>
 
-                    <div v-else class="card register">
+                    <div v-else class="card register"  v-bind:class="{ error: emptyFields }">
                         <h1>Registrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
-                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha" required>
-                            <input v-model="confirmReg" type="password" class="form-control" placeholder="Confirme a senha"
+                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha"
                                 required>
+                            <input v-model="confirmReg" type="password" class="form-control"
+                                placeholder="Confirme a senha" required>
                             <input type="submit" class="btn" value="Registrar" @click="doRegister">
-                            <!-- <p> Já tem uma conta?
-                                    <a href="#" @click="registerActive = !registerActive, emptyFields = false">
-                                        Faça login aqui </a>
-                                </p> -->
+                            <p> Já tem uma conta?
+                                <a href="#" @click="registerActive = !registerActive, emptyFields = false">
+                                    Faça login aqui </a>
+                            </p>
                         </form>
                     </div>
                 </div>
@@ -103,6 +118,7 @@ a {
         display: flex;
         flex-wrap: wrap;
         width: auto;
+
     }
 }
 
