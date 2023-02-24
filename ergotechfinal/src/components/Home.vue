@@ -15,7 +15,7 @@ const frameTimes = 2
 /* const frameTimes2 = 15 */
 
 VueViewer.setDefaults({
-  zIndexInline: 10,
+  zIndexInline: 0,
 })
 
 export default defineComponent({
