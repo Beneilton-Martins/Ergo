@@ -29,7 +29,7 @@ const items = ref([
 </script>
 
 <template>
-    <div id="menu-app">
+    <div class="menu-app">
         <div class ="sidebar">
             <ul>
                 <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
@@ -49,11 +49,13 @@ const items = ref([
     justify-content: flex-start;
     align-content: flex-start;
     user-select: none;
+    background-color: #ffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
 }
 ul {
         list-style: none;
-        width: 200px;
-        padding-left: 40px;
+        width: 150px;
 
         li {
         color: #000000;

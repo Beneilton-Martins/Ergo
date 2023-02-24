@@ -260,7 +260,6 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   background-color: #ffff;
   overflow: hidden;
   user-select: none;
-
 }
 
 .buttons-flex {
