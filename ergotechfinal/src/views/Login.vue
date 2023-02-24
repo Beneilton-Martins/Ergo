@@ -36,7 +36,7 @@ async function doLogin() {
        )
 
         if(loginSucess.value==true){
-            // setDados(resposta.value)
+            main.setDados(resposta.value)
             router.push({ name: "ergotech" });
         }
         

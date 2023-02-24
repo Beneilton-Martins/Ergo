@@ -6,6 +6,9 @@ const header = ref('Shopping List App')
 
 const resposta = ref({})
 
+const main = loginInform();
+
+console.log(main.dados)
 const items = ref([
     { id: 1, label: "New-Menu" },
     { id: 2, label: "#itens" },
@@ -18,11 +21,11 @@ const items = ref([
     { id: 9, label: "#itens" },
 ])
 
-resposta.value= await (await fetch('http://192.168.200.73:8000/CadastroCaptura/', {
-    method: "GET",
-})).json()
+// resposta.value= await (await fetch('http://192.168.200.73:8000/CadastroCaptura/', {
+//     method: "GET",
+// })).json()
 
-console.log("resposta", resposta.value[0])
+// console.log("resposta", resposta.value[0])
 </script>
 
 <template>
