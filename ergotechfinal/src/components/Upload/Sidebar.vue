@@ -7,9 +7,9 @@
 					<span class="smaller">to add them</span>
 				</span>
 				<span v-else>
-					<span>Drag Your Files Here</span>
+					<span>Arraste seus arquivos</span>
 					<span class="smaller">
-						or <strong><em>click here</em></strong> to select files
+						ou <strong><em>Clique aqui</em></strong> para escolher os arquivos
 					</span>
 				</span>
 
