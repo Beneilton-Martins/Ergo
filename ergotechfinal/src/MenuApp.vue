@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-
+/* import SidebarVue from '@/components/Sidebar.vue' */
 
 const header = ref('Shopping List App')
 
@@ -26,6 +26,7 @@ console.log("resposta", resposta.value[0])
 </script>
 
 <template>
+
     <div class="menu-app">
         <div class ="sidebar">
             <ul>
@@ -50,15 +51,15 @@ console.log("resposta", resposta.value[0])
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-  ul {
+    ul {
         list-style: none;
         width: 150px;
 
         li {
-        color: #000000;
-        font-weight: bold;
-        margin-bottom: 20px;
-        cursor: pointer;
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 20px;
+            cursor: pointer;
         }
     }
 }

@@ -15,7 +15,7 @@ const resposta = ref()
 
 const main = loginInform();
 
-const setLogin = mapActions(loginInform, ["setDados"])
+const setDados = mapActions(loginInform, ["setDados"])
 
 async function doLogin() {
        resposta.value = await( fetch(
@@ -36,7 +36,7 @@ async function doLogin() {
        )
 
         if(loginSucess.value==true){
-            setLogin(resposta.value)
+            // setDados(resposta.value)
             router.push({ name: "ergotech" });
         }
         
