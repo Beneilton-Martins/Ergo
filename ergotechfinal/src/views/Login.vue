@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { loginInform } from "@/main";
-import router from "@/router";
-import { mapActions } from "pinia";
+import { loginInform } from "@/main"
+import router from "@/router"
+import { mapActions } from "pinia"
 import { ref } from "vue"
 const registerActive = ref(false)
 const loginSucess = ref(false)
@@ -13,7 +13,7 @@ const confirmReg = ref("")
 const emptyFields = ref(false)
 const resposta = ref()
 
-const main = loginInform();
+const main = loginInform()
 
 const setDados = mapActions(loginInform, ["setDados"])
 

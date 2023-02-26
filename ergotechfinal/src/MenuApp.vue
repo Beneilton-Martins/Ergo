@@ -1,11 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import { loginInform } from "@/main";
-/* import SidebarVue from '@/components/Sidebar.vue' */
-
-const header = ref('Shopping List App')
-
-const resposta = ref({})
 
 const main = loginInform();
 
@@ -23,24 +18,6 @@ console.log("Tarefa",dadosTarefa[0])
 console.log("Atividade",dadosAtividade[0])
 console.log("Captura",dadosCaptura[0])
 
-
-const items = ref([
-    { id: 1, label: "New-Menu" },
-    { id: 2, label: "#itens" },
-    { id: 3, label: "#itens" },
-    { id: 4, label: "#itens" },
-    { id: 5, label: "#itens" },
-    { id: 6, label: "#itens" },
-    { id: 7, label: "#itens" },
-    { id: 8, label: "#itens" },
-    { id: 9, label: "#itens" },
-])
-
-// resposta.value= await (await fetch('http://192.168.200.73:8000/CadastroCaptudra/', {
-//     method: "GET",
-// })).json()
-
-// console.log("resposta", resposta.value[0])
 </script>
 
 <template>
@@ -48,21 +25,19 @@ const items = ref([
     <div class="menu-app">
         <div class ="sidebar">
             <div class="p-3">
-             <router-link to="/">
-                  <a id="sidebar-no-header-title">{{dadosDepartamento[0].nome}}</a>
-            </router-link>
-            <h4 id="sidebar-no-header-title">{{dadosFuncionario[0].nome}}</h4>
-            <!-- <ul>
-                <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
-            </ul> -->
-            {{dadosEmpresa[0].nome}}
-
-            <!-- {{ resposta.value[0].atividade }} -->
+                <!-- <h3 id="sidebar-no-header-title"> {{ dadosDepartamento[0].nome }} </h3> -->
+                <h3 id="sidebar-no-header-title">{{ dadosFuncionario[0].nome }}</h3>
+                <ul> {{ dadosEmpresa[0].nome }} </ul>
+                <ul>
+                    <li v-for="{ idTarefa, nome} in dadosTarefa" :key="idTarefa" class="li-tasks">
+                        {{ nome }}
+                        <li v-for="{ idAtividade, nome} in dadosAtividade" :key="idAtividade" class="li-tasks-child">
+                            {{ nome }}
+                        </li>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- <ul>
-            <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
-        </ul> -->
     </div>
 </template>
 
@@ -79,14 +54,14 @@ const items = ref([
     align-content: flex-start;
     ul {
         list-style: none;
-        width: 150px;
+        padding-inline-start:10px;
+        overflow: hidden;
+        padding-bottom: 5px;
 
-        li {
-            color: #000000;
-            font-weight: bold;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
+    }
+    .li-tasks-child {
+        padding-inline-start: 10px;
+        padding-bottom: 5px;
     }
 }
 

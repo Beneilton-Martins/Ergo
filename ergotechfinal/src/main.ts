@@ -11,13 +11,15 @@ import router from "./router"
 import VueViewer from "v-viewer"
 import 'viewerjs/dist/viewer.css'
 
-export const loginInform = defineStore("main",{
-    state:() =>({
-        dados: {}
+export const loginInform = defineStore("main", {
+    state: () => ({
+        dados: {
+
+        }
     }),
-    actions:{
-        setDados(valor: any){
-            this.dados =valor
+    actions: {
+        setDados(valor: any) {
+            this.dados = valor
         }
     }
 })
