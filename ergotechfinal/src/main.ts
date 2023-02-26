@@ -2,7 +2,7 @@ import "./assets/main.css"
 import { createApp } from "vue"
 import { createPinia } from "pinia"
 import 'vue-awesome-sidebar/dist/vue-awesome-sidebar.css'
-import {defineStore} from "pinia";
+import { defineStore } from "pinia";
 
 import PlayerApp from "./PlayerApp.vue"
 
