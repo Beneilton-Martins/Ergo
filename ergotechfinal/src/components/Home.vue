@@ -20,7 +20,8 @@ VueViewer.setDefaults({
 
 export default defineComponent({
   props: {
-    dados: String
+    posturas: String,
+    imagens: String
   },
   name: "Home",
   el: "#player-app",

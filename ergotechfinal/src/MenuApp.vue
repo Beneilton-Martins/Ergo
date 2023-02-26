@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { loginInform } from "@/main";
 /* import SidebarVue from '@/components/Sidebar.vue' */
 
 const header = ref('Shopping List App')
@@ -8,7 +9,21 @@ const resposta = ref({})
 
 const main = loginInform();
 
-console.log(main.dados)
+const dadosFuncionario= JSON.parse(JSON.stringify(main.dados[0]))
+const dadosDepartamento= JSON.parse(JSON.stringify(main.dados[1]))
+const dadosEmpresa= JSON.parse(JSON.stringify(main.dados[2]))
+const dadosTarefa= JSON.parse(JSON.stringify(main.dados[3]))
+const dadosAtividade= JSON.parse(JSON.stringify(main.dados[4]))
+const dadosCaptura= JSON.parse(JSON.stringify(main.dados[5]))
+
+console.log("departamento",dadosDepartamento[0])
+console.log("Funcionario",dadosFuncionario[0])
+console.log("Empresa",dadosEmpresa[0])
+console.log("Tarefa",dadosTarefa[0])
+console.log("Atividade",dadosAtividade[0])
+console.log("Captura",dadosCaptura[0])
+
+
 const items = ref([
     { id: 1, label: "New-Menu" },
     { id: 2, label: "#itens" },
@@ -21,7 +36,7 @@ const items = ref([
     { id: 9, label: "#itens" },
 ])
 
-// resposta.value= await (await fetch('http://192.168.200.73:8000/CadastroCaptura/', {
+// resposta.value= await (await fetch('http://192.168.200.73:8000/CadastroCaptudra/', {
 //     method: "GET",
 // })).json()
 
@@ -32,10 +47,18 @@ const items = ref([
 
     <div class="menu-app">
         <div class ="sidebar">
-            <ul>
+            <div class="p-3">
+             <router-link to="/">
+                  <a id="sidebar-no-header-title">{{dadosDepartamento[0].nome}}</a>
+            </router-link>
+            <h4 id="sidebar-no-header-title">{{dadosFuncionario[0].nome}}</h4>
+            <!-- <ul>
                 <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
-            </ul>
+            </ul> -->
+            {{dadosEmpresa[0].nome}}
+
             <!-- {{ resposta.value[0].atividade }} -->
+            </div>
         </div>
         <!-- <ul>
             <li v-for="({ id, label }, index) in items" :key="id">{{ label }}</li>
