@@ -305,7 +305,7 @@ export default defineComponent({
         </viewer>
       </div>
     </div>
-    <div class="time-field">
+    <!-- <div class="time-field">
       <b-button class="time-corp">
         <h3 class="time"> Tempo </h3>
       </b-button>
@@ -335,7 +335,7 @@ export default defineComponent({
         @click="atualizarImagens()"> Relatório 
       </b-button>
     </div>
-  </div>
+  </div> -->
     <div class="container-columns">
       <div class="column-one">
           <button class="buttons-icons">M</button>
@@ -430,9 +430,9 @@ export default defineComponent({
   display: flex;
   flex-flow: row wrap;
   height: 100%;
-  align-content: space-between;
-  justify-content: center;
-  align-items: center;
+  align-content: stretch;
+  // justify-content: center;
+  align-items: stretch;
   background-color: #ffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border-radius: 20px;
@@ -440,6 +440,7 @@ export default defineComponent({
 
 .container-columns {
   display: grid;
+  align-content: stretch;
 }
 
 .column-two {

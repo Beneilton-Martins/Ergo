@@ -36,7 +36,7 @@ console.log("Captura",dadosCaptura[0])
         <div class ="sidebar">
             <div class="p-3">
                 <!-- <h3 id="sidebar-no-header-title"> {{ dadosDepartamento[0].nome }} </h3> -->
-                <h3 id="sidebar-no-header-title">{{ dadosFuncionario[0].nome }}</h3>
+                <h3 id="sidebar-no-header-title" class="user-name">{{ dadosFuncionario[0].nome }}</h3>
                 <ul> {{ dadosEmpresa[0].nome }} </ul>
                 <ul>
                     <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
@@ -57,17 +57,20 @@ console.log("Captura",dadosCaptura[0])
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
     border-radius: 20px;
     width: 100%;
-    padding-top: 30px;
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
+    .user-name {
+        padding: 15px;
+    }
+
     ul {
         list-style: none;
-        padding-inline-start:10px;
+        padding-inline-start:15px;
         overflow: hidden;
         padding-bottom: 5px;
-
     }
     .li-tasks-child {
         padding-inline-start: 10px;
