@@ -49,9 +49,9 @@ function dropdownContent() {
                 <ul> {{ dadosEmpresa[0].nome }} </ul>
                 <ul>
                     <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks" >
-                        <h4 @click="dropdownContent"> {{ Tarefas.nome }} </h4>
+                        <button @click="dropdownContent"> {{ Tarefas.nome }} </button>
                         <div v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
-                            <div class="li-tasks-child" id="li-task-dropdown" v-if="Atividades.tarefa === Tarefas.idTarefa"><h4>{{ Atividades.nome }}</h4></div>
+                            <div class="li-tasks-child" v-if="Atividades.tarefa === Tarefas.idTarefa"><button>{{ Atividades.nome }}</button></div>
                         </div>
                     </li>
                 </ul>
@@ -59,6 +59,7 @@ function dropdownContent() {
         </div>
     </div>
 </template>
+
 
 <style lang="scss" scoped>
 .menu-app {
@@ -95,9 +96,7 @@ function dropdownContent() {
     h4 {
         margin: 1px;
     }
-    .show {
-        display: block;
-    }
+  
 }
 
 template{
