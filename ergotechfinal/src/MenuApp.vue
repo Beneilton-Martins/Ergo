@@ -22,16 +22,21 @@ console.log("Captura", dadosCaptura[0])
 
 const displayValue = ref(true)
 const displayComp = ref("none")
+
 console.log("forte",displayComp)
+console.log("forte",displayValue)
 
 function dropdownContent() {
-    if(displayValue.value===true){
-        displayComp.value = "none"
+    if(displayValue.value === true){
+        displayComp.value = "block"
         console.log("boolean",displayValue.value)
+        displayValue.value = false
+    } else {
+        displayValue.value = true
+        displayComp.value = "none"
+        console.log("boolean2",displayValue.value)
     }
-    displayValue.value=false
-    displayComp.value = "block"
-    console.log("boolean2",displayValue.value)
+
 }
 
 </script>
