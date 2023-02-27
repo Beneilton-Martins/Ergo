@@ -18,6 +18,16 @@ console.log("Tarefa",dadosTarefa[0])
 console.log("Atividade",dadosAtividade[0])
 console.log("Captura",dadosCaptura[0])
 
+// function compareString(a, b){
+//     console.log("primeira",a)
+//     console.log("segunda",b)
+//     if(a===b){
+//         console.log("primeira",a)
+//         console.log("segunda",b)
+//         return true
+//     }
+//     return false
+// }
 </script>
 
 <template>
@@ -29,10 +39,10 @@ console.log("Captura",dadosCaptura[0])
                 <h3 id="sidebar-no-header-title">{{ dadosFuncionario[0].nome }}</h3>
                 <ul> {{ dadosEmpresa[0].nome }} </ul>
                 <ul>
-                    <li v-for="{ idTarefa, nome} in dadosTarefa" :key="idTarefa" class="li-tasks">
-                        {{ nome }}
-                        <li v-for="{ idAtividade, nome} in dadosAtividade" :key="idAtividade" class="li-tasks-child">
-                            {{ nome }}
+                    <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
+                        {{ Tarefas.nome }}s
+                        <li v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade" class="li-tasks-child">
+                            <div v-if="Atividades.tarefa===Tarefas.idTarefa"> {{ Atividades.nome }}</div>
                         </li>
                     </li>
                 </ul>
