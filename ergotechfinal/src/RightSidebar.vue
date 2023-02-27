@@ -341,4 +341,7 @@ select {
   align-items: stretch;
   user-select: none;
 }
+template{
+  user-select: none;
+}
 </style>

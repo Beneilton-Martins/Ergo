@@ -15,8 +15,6 @@ const resposta = ref()
 
 const main = loginInform()
 
-const setDados = mapActions(loginInform, ["setDados"])
-
 async function doLogin() {
        resposta.value = await( fetch(
             `http://192.168.200.73:8000/Login/verifyLogin/?`+ new URLSearchParams({
@@ -26,7 +24,7 @@ async function doLogin() {
             },
             ).then(response => {
                 const dados = response
-                console.log(response);
+                
                 if(response.ok){
                     loginSucess.value = true
                     return response.json(); //then consume it again, the error happens    

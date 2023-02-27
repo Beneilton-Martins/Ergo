@@ -484,6 +484,7 @@ export default defineComponent({
 .column {
   display: inline-flex;
   width: 100%;
+  user-select: none;
 }
 
 button {

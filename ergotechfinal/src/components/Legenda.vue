@@ -103,7 +103,6 @@ button {
   display: none;
   position: relative;
   min-width: 160px;
-  
 }
 
 .dropdown:hover .dropdown-content {

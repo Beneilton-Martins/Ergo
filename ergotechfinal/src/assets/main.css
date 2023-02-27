@@ -1,7 +1,8 @@
 @import './base.css';
 
 /* Contém as outras divs da aplicação*/
-/* .container {
+/*
+ .container {
   display: grid;
   grid-template-columns: 15% 69.78% auto;
   height:100vh;

@@ -5,10 +5,12 @@ import { loginInform } from "@/main";
 </script>
 
 <template>
-   <HomeVue/>
+   <HomeVue class="homevue"/>
 
 </template>
 
 <style scoped>
-
+.homevue {
+   user-select: none;
+}
 </style>

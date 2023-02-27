@@ -26,7 +26,17 @@
   background: #eff8ff;
   user-select: none;
 }
+.left-sidebar{
+  user-select: none;
 
+}
+.main-player{
+  user-select: none;
+
+}
+.right-sidebar{
+  user-select: none;
+}
 #menu-app {
   display: flex;
   padding-top: 5px;
@@ -38,6 +48,7 @@
   font-weight: normal;
   max-height: 100vh;
   border-radius: 20px;
+  user-select: none;
 } 
 
 /* Contém o viwerjs*/
@@ -55,6 +66,7 @@
   border-radius: 20px;
 /*   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+  user-select: none;
 } 
 
 /* Contém o menu e etc..*/
@@ -72,6 +84,10 @@
   max-height: 100vh;
   border-radius: 20px;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+}
+
+template{
+  user-select: none;
 }
 
 </style>
