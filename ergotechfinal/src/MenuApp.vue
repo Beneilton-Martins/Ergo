@@ -5,20 +5,13 @@ import { walkBlockDeclarations } from '@vue/compiler-core';
 
 const main = loginInform();
 
-const dadosFuncionario = JSON.parse(JSON.stringify(main.dados[0]))
-const dadosDepartamento = JSON.parse(JSON.stringify(main.dados[1]))
-const dadosEmpresa = JSON.parse(JSON.stringify(main.dados[2]))
-const dadosTarefa = JSON.parse(JSON.stringify(main.dados[3]))
-const dadosAtividade = JSON.parse(JSON.stringify(main.dados[4]))
-const dadosCaptura = JSON.parse(JSON.stringify(main.dados[5]))
+const dadosFuncionario= main.dados[0][0]
+const dadosDepartamento= main.dados[1][0]
+const dadosEmpresa=main.dados[2][0]
+const dadosTarefa= main.dados[3]
+const dadosAtividade= main.dados[4]
+const dadosCaptura= main.dados[5]
 
-console.log("dados", main.dados[0])
-console.log("departamento", dadosDepartamento[0])
-console.log("Funcionario", dadosFuncionario[0])
-console.log("Empresa", dadosEmpresa[0])
-console.log("Tarefa", dadosTarefa[0])
-console.log("Atividade", dadosAtividade[0])
-console.log("Captura", dadosCaptura[0])
 
 const displayValue = ref(true)
 const displayComp = ref("none")
@@ -39,19 +32,36 @@ function dropdownContent() {
 
 }
 
+
+
+// console.log("dadosFuncionario", dadosFuncionario)
+// console.log("main.dados[0]", main.dados[0])
+// console.log("main.dados[0][0]", main.dados[0][0].nome)
+// console.log("teste", dadosFuncionario==main.dados[0])
+
+// console.log("tipo", typeof(main.dados[0]))
+
+
+// console.log("departamento",dadosDepartamento)
+// console.log("Funcionario",dadosFuncionario)
+// console.log("Empresa",dadosEmpresa)
+// console.log("Tarefa",dadosTarefa)
+// console.log("Atividade",dadosAtividade)
+// console.log("Captura",dadosCaptura)
+
 </script>
 
 <template>
     <div class="menu-app">
         <div class="sidebar">
             <div class="p-3">
-                <h3 id="sidebar-no-header-title" class="user-name"> {{ dadosFuncionario[0].nome }} </h3>
-                <ul> {{ dadosEmpresa[0].nome }} </ul>
+                <h3 id="sidebar-no-header-title" class="user-name"> {{ dadosFuncionario.nome }} </h3>
+                <ul> {{ dadosEmpresa.nome }} </ul>
                 <ul>
                     <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks" >
                         <button @click="dropdownContent"> {{ Tarefas.nome }} </button>
                         <div v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
-                            <div class="li-tasks-child" v-if="Atividades.tarefa === Tarefas.idTarefa"><button>{{ Atividades.nome }}</button></div>
+                            <div class="li-tasks-child" :style="`display: ${displayValue ? 'none' : 'show'}`" v-if="Atividades.tarefa === Tarefas.idTarefa"><button>{{ Atividades.nome }}</button></div>
                         </div>
                     </li>
                 </ul>
@@ -88,7 +98,6 @@ function dropdownContent() {
     //dropdown css
     .li-tasks-child {
         padding-left: 10px;
-        display: v-bind(displayComp);
         position: relative;
         float: none;
         user-select: none;
