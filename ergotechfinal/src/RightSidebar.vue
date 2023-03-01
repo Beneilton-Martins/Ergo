@@ -213,6 +213,7 @@ h1 {
   margin-bottom: 0px;
   background-color: #005994;
   user-select: none;
+  margin-top: 5px;
 }
 
 .dropdown-content {
@@ -255,11 +256,11 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   display: flex;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   padding-top: 7px;
-  margin-bottom: 10px;
   align-items: center;
   background-color: #ffff;
   overflow: hidden;
   user-select: none;
+  margin-bottom: 5px;
 }
 
 .buttons-flex {
@@ -312,7 +313,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
 .input[type=text],
 select {
   width: 100%;
-  padding: 12px 20px;
+  padding: 8.5px 20px;
   margin: 8px 10px;
   display: inline-block;
   border: 1px solid #005994;

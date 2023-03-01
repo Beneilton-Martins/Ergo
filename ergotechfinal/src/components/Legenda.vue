@@ -1,9 +1,19 @@
 <script setup>
-
+function dropdownContent() {
+  if (displayValue.value === true) {
+    displayComp.value = "block"
+    console.log("boolean", displayValue.value)
+    displayValue.value = false
+  } else {
+    displayValue.value = true
+    displayComp.value = "none"
+    console.log("boolean2", displayValue.value)
+  }
+}
 </script>
 
 <template>
-    <div class="time-field">
+  <div class="time-field">
     <div class="div-input">
       <button class="tempo">Tempo</button>
       <input placeholder="Digite o tempo inical (s)" v-model="Tinicial" class="input" type="text" style="width: 210px">
@@ -37,7 +47,7 @@
         <div class="dropdown-content">
           <div><button style='background-color:rgb(1,40,146)'>Nenhum Braço Levantado </button></div>
           <div><button style='background-color:rgb(225,165,25)'>Um Braço Levantado</button></div>
-          <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div> 
+          <div><button style='background-color:rgb(195,189,55)'>Dois Braços Levantados</button></div>
         </div>
       </div>
       <div class="dropdown">
@@ -46,7 +56,7 @@
           <div><button style='background-color:rgb(1,40,146)'>Dorso Reto</button></div>
           <div><button style='background-color:rgb(225,165,25)'>Dorso Inclinado</button></div>
           <div><button style='background-color:rgb(195,189,55)'>Dorso Reto e Torcido</button></div>
-          <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div> 
+          <div><button style='background-color:rgb(195,55,185)'>Dorso Inclinado e Torcido </button></div>
         </div>
       </div>
       <div class="dropdown">
@@ -70,8 +80,7 @@
   color: rgb(0, 0, 0);
 }
 
-
-h1 { 
+h1 {
   text-align: center;
   padding-bottom: 5px;
   color: black;
@@ -87,7 +96,7 @@ button {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Amazon Ember",sans-serif;
+  font-family: "Amazon Ember", sans-serif;
   font-size: 15px;
   line-height: 29px;
   padding: 0 10px 0 11px;
@@ -151,17 +160,20 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   align-items: center;
 }
 
-.div-input,.tempo { 
+.div-input,
+.tempo {
   color: black;
 }
 
-.submit { /*butoes relatorio e atualizar*/
+.submit {
+  /*butoes relatorio e atualizar*/
   margin-left: 20px;
   margin-right: 20px;
   color: black;
 }
 
-.input[type=text],select {
+.input[type=text],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 10px;
@@ -188,6 +200,5 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   min-width: 100%;
   flex-direction: column;
   align-items: stretch;
-  
-}
-</style>
+
+}</style>

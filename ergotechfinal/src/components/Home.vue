@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, ref } from 'vue'
-import VueViewer, { component } from "v-viewer"
+import { component } from "v-viewer"
 import type Viewer from "viewerjs"
 
 import MovimentButton from "./Buttons/MovimentButton.vue"
@@ -12,11 +12,8 @@ import PernaButton2 from "./Buttons/PernaButton.vue"
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
 const frameTimes = 2
+const imgsValue = 50
 /* const frameTimes2 = 15 */
-
-VueViewer.setDefaults({
-  zIndexInline: 0,
-})
 
 export default defineComponent({
   props: {
@@ -32,7 +29,7 @@ export default defineComponent({
     BracoButton2,
     DorsoButton2,
     PernaButton2,
-    
+
   },
   setup() {
     let $viewer: Viewer
@@ -86,7 +83,7 @@ export default defineComponent({
       },
       atividade: '',
       Tinicial: 1,
-      Tfinal: 50,
+      Tfinal: imgsValue,
       images: sourceImages,
       Atividade: "",
       selected: '',
@@ -286,64 +283,16 @@ export default defineComponent({
   <div class="row">
     <div class="resize">
       <div class="viewer-wrapper">
-        <viewer ref="viewer" 
-          :options="options"
-          :images="images" 
-          rebuild 
-          class="viewer" 
-          @inited="inited"
-        >
+        <viewer ref="viewer" :options="options" :images="images" rebuild class="viewer" @inited="inited">
           <template #default="scope">
             <div v-for="{ source, thumbnail, alt } in scope.images" key="source" class="image-wrapper">
-              <img class="image" 
-                :src="getImageURL(thumbnail)"
-                :data-source="getImageURL(source)"
-                :alt="alt"
-              >
+              <img class="image" :src="getImageURL(thumbnail)" :data-source="getImageURL(source)" :alt="alt">
             </div>
           </template>
         </viewer>
       </div>
     </div>
-    <!-- <div class="time-field">
-      <b-button class="time-corp">
-        <h3 class="time"> Tempo </h3>
-      </b-button>
-    <div class="div-input">
-      <input 
-        placeholder="Digite o tempo inical (s)" 
-        v-model="Tinicial"
-        class="input" 
-        type="text" 
-        style="width: 210px"
-      >
-      <input 
-        placeholder="Digite o tempo final (s)" 
-        v-model="Tfinal" 
-        class="input" 
-        type="text" 
-        style="width: 210px"
-      >
-    </div>
-    <div class="buttons-flex">
-      <b-button 
-        class="submit-button" 
-        @click="atualizarImagens()"> Atualizar 
-      </b-button>
-      <b-button 
-        class="submit-button" 
-        @click="atualizarImagens()"> Relatório 
-      </b-button>
-    </div>
-  </div> -->
     <div class="container-columns">
-      <div class="column-one">
-          <button class="buttons-icons">M</button>
-          <button class="buttons-icons">C</button>
-          <button class="buttons-icons">B</button>
-          <button class="buttons-icons">D</button>
-          <button class="buttons-icons">P</button>
-        </div>
       <div class="column-two">
         <div class="columns">
           <div class="column">
@@ -385,9 +334,9 @@ export default defineComponent({
 
 .resize {
   display: flex;
+  position: relative;
   width: 100%;
-  height: auto;
-  align-items: center;
+  height: calc(100% - 170.35px);
   border-radius: 20px;
   overflow: hidden;
   box-sizing: border-box;
@@ -429,18 +378,22 @@ export default defineComponent({
 .row {
   display: flex;
   flex-flow: row wrap;
+  flex-direction: column;
   height: 100%;
-  align-content: stretch;
+  align-content: space-between;
   // justify-content: center;
   align-items: stretch;
   background-color: #ffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
+  
 }
 
 .container-columns {
   display: grid;
   align-content: stretch;
+  min-height: 170.34px;
+  background-color: #ffffff;
+  
 }
 
 .column-two {
@@ -449,18 +402,19 @@ export default defineComponent({
   width: 100%;
   overflow: hidden;
   flex-direction: column;
-  justify-content: flex-end;
-  background: #d9eeff;
-  border-radius: 20px;
+  background: #ffffff;
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
+  border-top: solid 10px; 
   border-bottom: solid 10px;
   border-left: solid 40px;
   border-right: solid 40px;
-  border-color: #d9eeff;
+  border-color: #ffffff;
   position: relative;
+  justify-content: space-between;
 }
+
 
 .column-one {
   display: flex;
@@ -506,6 +460,7 @@ button {
 
 .time-field {
   display: flex;
+  margin-bottom: 0px;
 }
 
 h3.time {
