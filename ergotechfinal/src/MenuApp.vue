@@ -61,7 +61,7 @@ function dropdownContent() {
                     <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
                         <button @click="dropdownContent">{{ Tarefas.nome }}</button>
                         <ul>
-                            <li v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
+                            <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
                                 <div class="li-tasks-child" :style="`display: ${displayValue ? 'none' : 'show'}`"
                                     v-if="Atividades.tarefa === Tarefas.idTarefa">
                                     <ul>
@@ -75,31 +75,41 @@ function dropdownContent() {
                 </ul>
             </div>
         </div>
-        
+
     </div>
     <div class="icons-timeline">
         <div class="column-one">
-        <button class="buttons-icons">D</button>
-        <button class="buttons-icons">C</button>
-        <button class="buttons-icons">B</button>
-        <button class="buttons-icons">D</button>
-        <button class="buttons-icons">P</button>
-      </div>
+            <button class="buttons-icons">D</button>
+            <button class="buttons-icons">C</button>
+            <button class="buttons-icons">B</button>
+            <button class="buttons-icons">D</button>
+            <button class="buttons-icons">P</button>
+        </div>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
 .icons-timeline {
-    display: flex;
+    display: grid;
+
+    .column-one {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
 
     //estilo
     z-index: 1;
     height: 170.34px;
-    background-color:#ffffff;
+    background-color: #ffffff;
     border-bottom-left-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
+
 .menu-app {
     z-index: 1;
     background-color: #ffffff;
@@ -116,12 +126,19 @@ function dropdownContent() {
     border-top-right-radius: 0px;
     border-top-left-radius: 20px;
 
+    .p-3 {
+        margin-left: 10px;
+    }
+
     .sidebar {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         height: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: column;
+
     }
+
     .user-name {
         padding-left: 0px;
         text-align: start;
@@ -133,10 +150,15 @@ function dropdownContent() {
         list-style: none;
         overflow: hidden;
         user-select: none;
+
         li {
             font-size: small;
             margin-left: 0px;
-            margin-left: 0px;
+
+            .atividades {
+                margin-left: 5px;
+            }
+
             .empresa {
                 margin-left: 0px;
             }
@@ -144,20 +166,23 @@ function dropdownContent() {
     }
 
     //dropdown css
+    .li-tasks {
+        margin-bottom: 5px;
+    }
+
     .li-tasks-child {
         padding-left: 0;
         position: relative;
         float: none;
         user-select: none;
     }
+
     h3 {
-        margin:10px 0px ;
+        margin: 10px 0px;
     }
+
     h4 {
         margin: 1px;
     }
 
-}
-
-
-</style>
+}</style>
