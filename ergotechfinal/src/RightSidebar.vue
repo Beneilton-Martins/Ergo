@@ -18,9 +18,9 @@ const spacer = "."
       <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
     <div class="buttons-flex">
-      <button class="submit-button" @click="atualizarImagens()"> Atualizar
+      <button class="submit-button" > Atualizar <!-- @click="atualizarImagens()" -->
       </button>
-      <button class="submit-button" @click="atualizarImages()"> Relatório
+      <button class="submit-button" > Relatório <!-- @click="atualizarImagens()" -->
       </button>
     </div>
   </div>

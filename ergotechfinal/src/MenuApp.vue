@@ -99,6 +99,10 @@ function dropdownContent() {
         justify-content: center;
         align-content: center;
         flex-wrap: wrap;
+
+        .buttons-icons {
+            margin: 1px;
+        }
     }
 
     //estilo

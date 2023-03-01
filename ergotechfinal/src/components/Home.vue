@@ -324,7 +324,7 @@ export default defineComponent({
   </div>
 </template>
 
-<style scoped lang="scss" >
+<style lang="scss" scoped>
 .buttons-icons {
   display: flex;
   flex-direction: row;
@@ -414,22 +414,6 @@ export default defineComponent({
   border-color: #ffffff;
   position: relative;
   justify-content: space-between;
-}
-
-
-.column-one {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 10%;
-}
-
-.column-one>button {
-  margin: 2px 10px;
 }
 
 .field {
