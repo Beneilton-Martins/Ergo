@@ -8,16 +8,14 @@
                     <div class="field">
                         <label>Email</label>
                         <div class="control">
-                            <input type="email" placeholder="Digite o email" name="email" class="input"
-                                v-model="username">
+                            <input type="email" placeholder="Digite o email" name="email" class="input" v-model="username">
                         </div>
                     </div>
 
                     <div class="field">
                         <label>Empresa</label>
                         <div class="control">
-                            <input type="text" placeholder="Digite a empresa" name="text" class="input"
-                                v-model="empresa">
+                            <input type="text" placeholder="Digite a empresa" name="text" class="input" v-model="empresa">
                         </div>
                     </div>
 

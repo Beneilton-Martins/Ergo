@@ -11,7 +11,7 @@ const props = defineProps({
 
 <style>
 .subtitle-button {
-    text-indent: -1000em; 
+    text-indent: -1000em;
     background-color: v-bind(color);
     border: 1px solid #d5d9d9;
     border-radius: 50%;
@@ -28,6 +28,6 @@ const props = defineProps({
     text-decoration: none;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: manipulation; 
+    touch-action: manipulation;
 }
 </style>

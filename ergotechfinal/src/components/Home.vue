@@ -386,7 +386,7 @@ export default defineComponent({
   align-items: stretch;
   background-color: #ffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  
+
 }
 
 .container-columns {
@@ -394,7 +394,7 @@ export default defineComponent({
   align-content: stretch;
   min-height: 170.34px;
   background-color: #ffffff;
-  
+
 }
 
 .column-two {
@@ -407,7 +407,7 @@ export default defineComponent({
   text-align: start;
   overflow-x: scroll;
   box-sizing: border-box;
-  border-top: solid 10px; 
+  border-top: solid 10px;
   border-bottom: solid 10px;
   border-left: solid 40px;
   border-right: solid 40px;

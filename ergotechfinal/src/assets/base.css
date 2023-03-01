@@ -75,8 +75,8 @@
   border-bottom: solid 1px #0071bd;
   border-top: solid 1px #0071bd;
   overflow: hidden;
-  border-left:solid 1px #0071bd ;
-  border-right:solid 1px #0071bd ;
+  border-left: solid 1px #0071bd;
+  border-right: solid 1px #0071bd;
 }
 
 *::-webkit-scrollbar-track {
@@ -93,7 +93,7 @@ body {
   width: 100vw;
   user-select: none;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-  Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

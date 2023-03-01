@@ -15,9 +15,9 @@ const router = createRouter({
       path: "/ergotech",
       name: "ergotech",
       components: {
-        default: ()=> import("@/views/HomeView.vue"),
-        rightSidebar: ()=> import("@/RightSidebar.vue"),
-        leftSidebar: ()=> import("@/MenuApp.vue")
+        default: () => import("@/views/HomeView.vue"),
+        rightSidebar: () => import("@/RightSidebar.vue"),
+        leftSidebar: () => import("@/MenuApp.vue")
       }
     },
     {

@@ -16,28 +16,29 @@ const resposta = ref()
 const main = loginInform()
 
 async function doLogin() {
-       resposta.value = await( fetch(
-            `http://192.168.200.73:8000/Login/verifyLogin/?`+ new URLSearchParams({
-                usuario:emailLogin.value,
-                senha:passwordLogin.value}), {
-                method: "GET",
-            },
-            ).then(response => {
-                const dados = response
-                
-                if(response.ok){
-                    loginSucess.value = true
-                    return response.json(); //then consume it again, the error happens    
-                }
-            },
-            )
-       )
+    resposta.value = await (fetch(
+        `http://192.168.200.73:8000/Login/verifyLogin/?` + new URLSearchParams({
+            usuario: emailLogin.value,
+            senha: passwordLogin.value
+        }), {
+        method: "GET",
+    },
+    ).then(response => {
+        const dados = response
 
-        if(loginSucess.value==true){
-            main.setDados(resposta.value)
-            router.push({ name: "ergotech" });
+        if (response.ok) {
+            loginSucess.value = true
+            return response.json(); //then consume it again, the error happens    
         }
-        
+    },
+    )
+    )
+
+    if (loginSucess.value == true) {
+        main.setDados(resposta.value)
+        router.push({ name: "ergotech" });
+    }
+
 }
 function doRegister() {
     if (emailReg.value === "" || passwordReg.value === "" || confirmReg.value === "") {
@@ -53,13 +54,13 @@ function doRegister() {
         <div class="container">
             <div class="row">
                 <div class="mx-auto">
-                    <div v-if="!registerActive" class="card login"  v-bind:class="{ error: emptyFields }">
+                    <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
                         <h1>Entrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailLogin" type="nome" class="form-control" placeholder="Usuario" required>
                             <input v-model="passwordLogin" type="password" class="form-control" placeholder="Senha"
                                 required>
-                            <input type="button" class="btn" value="Entrar" @click="doLogin" >
+                            <input type="button" class="btn" value="Entrar" @click="doLogin">
                             <p> Não tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça uma conta aqui </a>
@@ -68,14 +69,13 @@ function doRegister() {
                         </form>
                     </div>
 
-                    <div v-else class="card register"  v-bind:class="{ error: emptyFields }">
+                    <div v-else class="card register" v-bind:class="{ error: emptyFields }">
                         <h1>Registrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
                             <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
-                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha"
+                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha" required>
+                            <input v-model="confirmReg" type="password" class="form-control" placeholder="Confirme a senha"
                                 required>
-                            <input v-model="confirmReg" type="password" class="form-control"
-                                placeholder="Confirme a senha" required>
                             <input type="submit" class="btn" value="Registrar" @click="doRegister">
                             <p> Já tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">

@@ -5,8 +5,7 @@ import { loginInform } from "@/main";
 </script>
 
 <template>
-   <HomeVue class="homevue"/>
-
+   <HomeVue class="homevue" />
 </template>
 
 <style scoped>

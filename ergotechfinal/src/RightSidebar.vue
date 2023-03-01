@@ -14,29 +14,13 @@ const spacer = "."
       <button class="time-corp">
         <h3 class="time"> Tempo </h3>
       </button>
-      <input 
-        placeholder="Digite o tempo inical (s)" 
-        v-model="Tinicial"
-        class="input" 
-        type="text" 
-        style="width: 210px"
-      >
-      <input 
-        placeholder="Digite o tempo final (s)" 
-        v-model="Tfinal" 
-        class="input" 
-        type="text" 
-        style="width: 210px"
-      >
+      <input placeholder="Digite o tempo inical (s)" v-model="Tinicial" class="input" type="text" style="width: 210px">
+      <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
     <div class="buttons-flex">
-      <button 
-        class="submit-button" 
-        @click="atualizarImagens()"> Atualizar 
+      <button class="submit-button" @click="atualizarImagens()"> Atualizar
       </button>
-      <button 
-        class="submit-button" 
-        @click="atualizarImages()"> Relatório 
+      <button class="submit-button" @click="atualizarImages()"> Relatório
       </button>
     </div>
   </div>
@@ -342,7 +326,8 @@ select {
   align-items: stretch;
   user-select: none;
 }
-template{
+
+template {
   user-select: none;
 }
 </style>
