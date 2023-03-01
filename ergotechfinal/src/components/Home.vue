@@ -333,10 +333,11 @@ export default defineComponent({
 }
 
 .resize {
+  margin-top: 10px;
   display: flex;
   position: relative;
   width: 100%;
-  height: calc(100% - 170.35px);
+  height: calc(100% - 180.35px);
   border-radius: 20px;
   overflow: hidden;
   box-sizing: border-box;

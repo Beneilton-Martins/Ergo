@@ -90,7 +90,10 @@ function dropdownContent() {
 
 
 <style lang="scss" scoped>
-.icons-timeline { 
+.icons-timeline {
+    display: flex;
+
+    //estilo
     z-index: 1;
     height: 170.34px;
     background-color:#ffffff;
@@ -147,7 +150,9 @@ function dropdownContent() {
         float: none;
         user-select: none;
     }
-
+    h3 {
+        margin:10px 0px ;
+    }
     h4 {
         margin: 1px;
     }
