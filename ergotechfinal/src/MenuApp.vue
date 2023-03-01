@@ -79,11 +79,11 @@ function dropdownContent() {
     </div>
     <div class="icons-timeline">
         <div class="column-one">
-            <button class="buttons-icons">D</button>
-            <button class="buttons-icons">C</button>
-            <button class="buttons-icons">B</button>
-            <button class="buttons-icons">D</button>
-            <button class="buttons-icons">P</button>
+            <button class="buttons-icons">Deslocamento</button>
+            <button class="buttons-icons">Carga</button>
+            <button class="buttons-icons">Braços</button>
+            <button class="buttons-icons">Dorço</button>
+            <button class="buttons-icons">Pernas</button>
         </div>
     </div>
 </template>
@@ -103,7 +103,7 @@ function dropdownContent() {
 
     //estilo
     z-index: 1;
-    height: 170.34px;
+    height: 170.328px;
     background-color: #ffffff;
     border-bottom-left-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
