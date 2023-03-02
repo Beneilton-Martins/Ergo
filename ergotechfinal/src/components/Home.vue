@@ -11,7 +11,7 @@ import PernaButton2 from "./Buttons/PernaButton.vue"
 
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
-const frameTimes = 2
+const frameTimes = 1
 const imgsValue = 48
 /* const frameTimes2 = 15 */
 
@@ -296,7 +296,7 @@ export default defineComponent({
       <div class="column-two">
         <div class="columns">
           <div class="column">
-            <MovimentButton v-for="(i, idx) in images" :image="(idx + 1) * 15" />
+            <MovimentButton v-for="(i, idx) in images" :image="(idx + 1)" />
           </div>
         </div>
         <div class="columns">
