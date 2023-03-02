@@ -11,16 +11,14 @@ const spacer = "."
 <template>
   <div class="time-field">
     <div class="div-input">
-      <button class="time-corp">
-        <h3 class="time"> Tempo </h3>
-      </button>
+      <button class="time-corp">Tempo</button>
       <input placeholder="Digite o tempo inical (s)" v-model="Tinicial" class="input" type="text" style="width: 210px">
       <input placeholder="Digite o tempo final (s)" v-model="Tfinal" class="input" type="text" style="width: 210px">
     </div>
     <div class="buttons-flex">
-      <button class="submit-button" > Atualizar <!-- @click="atualizarImagens()" -->
+      <button class="submit-button"> Atualizar <!-- @click="atualizarImagens()" -->
       </button>
-      <button class="submit-button" > Relatório <!-- @click="atualizarImagens()" -->
+      <button class="submit-button"> Relatório <!-- @click="atualizarImagens()" -->
       </button>
     </div>
   </div>
@@ -113,17 +111,18 @@ const spacer = "."
 <style scoped>
 .time-corp {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  margin: 0px -100px;
-  margin-top: -7px;
+  padding: 2.5px 1px;
   background-color: #005994;
   border: none;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-transform: uppercase;
   user-select: none;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
 }
 
 .time {
@@ -162,7 +161,7 @@ const spacer = "."
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
   border-radius: 15px;
   border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px; 
+  border-top-left-radius: 0px;
   transition: 419ms;
   transform: translateY(0);
   display: flex;
@@ -197,7 +196,7 @@ h1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px; 
+  border-top-left-radius: 0px;
   margin-bottom: 0px;
   background-color: #005994;
   user-select: none;
@@ -224,7 +223,7 @@ div {
   height: auto;
   border-radius: 20px;
   border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px; 
+  border-top-left-radius: 0px;
   user-select: none;
 }
 
@@ -245,12 +244,12 @@ button:focus:not(:focus-visible):not(.focus-visible) {
 .time-field {
   display: flex;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-  padding-top: 7px;
   align-items: center;
   background-color: #ffff;
   overflow: hidden;
   user-select: none;
   margin-bottom: 0px;
+  align-items: stretch;
 }
 
 .buttons-flex {
@@ -260,6 +259,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   height: auto;
   padding-bottom: 10px;
   user-select: none;
+  justify-content:space-evenly;
 }
 
 .div-input {
@@ -279,12 +279,14 @@ button:focus:not(:focus-visible):not(.focus-visible) {
 
 .submit-button {
   /* Botoes relatorio e atualizar*/
-  margin-left: 10px;
-  margin-right: 10px;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
   color: black;
   user-select: none;
   font-weight: normal;
-  font-size: 18px;
+  padding-right: 15px;
+  padding-left: 15px;
   color: #ffff;
   background-color: #0071bd;
   border: solid #0071bd 1px;
@@ -298,6 +300,12 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   cursor: default;
   margin-bottom: 3px;
   margin-top: 3px;
+}
+
+.submit-button:hover {
+  padding-left: 10%;
+  padding-right: 10%;
+
 }
 
 .input[type=text],
@@ -335,5 +343,4 @@ select {
 
 template {
   user-select: none;
-}
-</style>
+}</style>

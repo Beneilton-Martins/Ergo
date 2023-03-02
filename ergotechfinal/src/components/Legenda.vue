@@ -87,8 +87,6 @@ h1 {
   background-color: #f8f8f8;
 }
 
-
-
 .dropdown-content {
   display: none;
   position: relative;

@@ -60,7 +60,7 @@ function doRegister() {
                             <input v-model="emailLogin" type="nome" class="form-control" placeholder="Usuario" required>
                             <input v-model="passwordLogin" type="password" class="form-control" placeholder="Senha"
                                 required>
-                            <input type="button" class="btn" value="Entrar" @click="doLogin">
+                            <input type="button" class="btn" value="Entrar" id="btn-login" @click="doLogin">
                             <p> Não tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça uma conta aqui </a>
@@ -72,11 +72,20 @@ function doRegister() {
                     <div v-else class="card register" v-bind:class="{ error: emptyFields }">
                         <h1>Registrar - Sesi/ErgoTech</h1>
                         <form class="form-group">
-                            <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
-                            <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha" required>
-                            <input v-model="confirmReg" type="password" class="form-control" placeholder="Confirme a senha"
-                                required>
-                            <input type="submit" class="btn" value="Registrar" @click="doRegister">
+                            <div>
+                                <input v-model="emailReg" type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div>
+                                <input v-model="passwordReg" type="password" class="form-control" placeholder="Senha"
+                                    required>
+                            </div>
+                            <div>
+                                <input v-model="confirmReg" type="password" class="form-control"
+                                    placeholder="Confirme a senha" required>
+                            </div>
+                            <div>
+                                <input type="submit" class="btn" value="Registrar" id="btn-register" @click="doRegister">
+                            </div>
                             <p> Já tem uma conta?
                                 <a href="#" @click="registerActive = !registerActive, emptyFields = false">
                                     Faça login aqui </a>
@@ -102,22 +111,60 @@ a {
     color: #000000;
 }
 
+a:hover {
+    background-color: #0071bd6f;
+    padding-right: 10px;
+}
+
 .card {
     padding: 50px;
 }
 
 .form-group {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
+    /* align-items: center; */
 
     input {
-        margin-bottom: 10px;
         display: flex;
         flex-wrap: wrap;
-        width: auto;
+        width: calc(100% - 10px);
 
     }
+}
+
+.form-control {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    border-style: none;
+    border-bottom: solid 1px;
+    outline: none;
+    padding-left: 1px;
+}
+.form-control:focus {
+    border-bottom: solid 1px #0071bd;
+    outline:#0071bd;
+    padding-left: 5px;
+}
+
+#btn-login {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    border-style: none;
+    margin-left: calc(100% - 70px);
+}
+#btn-register {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    border-style: none;
+    margin-left: calc(100% - 90px);
+}
+#btn-login:hover {
+    padding: 20px;
+}
+#btn-register:hover {
+    padding: 20px;
 }
 
 .login-page {

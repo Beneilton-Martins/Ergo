@@ -29,6 +29,15 @@
 
 .left-sidebar {
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 3;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.08);
 }
 
 .main-player {

@@ -45,56 +45,65 @@ function dropdownContent() {
 </script>
 
 <template>
-    <div class="menu-app">
-        <div class="sidebar">
-            <div class="p-3">
-                <button id="sidebar-no-header-title" class="header"> OWAS</button>
-                <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
-                <ul>
-                    <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
-                </ul>
-                <ul>
-                    <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
-                        <button class="btn-tasks" @click="dropdownContent">
-                            {{ Tarefas.nome }}
-                        </button>
-                        <ul>
-                            <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
-                                <div class="li-tasks-child" :style="`display: ${displayValue ? 'none' : 'show'}`"
-                                    v-if="Atividades.tarefa === Tarefas.idTarefa">
-                                    <ul>
-                                        <li>
-                                            <button>{{ Atividades.nome }}</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+    <div class="cointainer-menu">
+        <div class="menu-app">
+            <div class="sidebar">
+                <div class="p-3">
+                    <button id="sidebar-no-header-title" class="header">OWAS</button>
+                    <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
+                    <ul>
+                        <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
+                    </ul>
+                    <ul>
+                        <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
+                            <button class="btn-tasks" @click="dropdownContent">
+                                {{ Tarefas.nome }}
+                            </button>
+                            <ul>
+                                <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
+                                    <div class="li-tasks-child" :style="`display: ${displayValue ? 'none' : 'show'}`"
+                                        v-if="Atividades.tarefa === Tarefas.idTarefa">
+                                        <ul>
+                                            <li>
+                                                <button>{{ Atividades.nome }}</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="icons-timeline">
-        <div class="column-one">
-            <button class="buttons-icons" id="deslocamento">Deslocamento</button>
-            <button class="buttons-icons" id="carga">Carga</button>
-            <button class="buttons-icons" id="bracos">Braços</button>
-            <button class="buttons-icons" id="dorso">Dorço</button>
-            <button class="buttons-icons" id="pernas">Pernas</button>
+        <div class="icons-timeline">
+            <div class="column-one">
+                <button class="buttons-icons" id="deslocamento">Deslocamento</button>
+                <button class="buttons-icons" id="carga">Carga</button>
+                <button class="buttons-icons" id="bracos">Braços</button>
+                <button class="buttons-icons" id="dorso">Dorço</button>
+                <button class="buttons-icons" id="pernas">Pernas</button>
+            </div>
         </div>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
-.p-3{
+.container-menu {
+    display: flex;
+    height: 100%;
+}
+.p-3 {
     display: flex;
     flex-direction: column;
+    background-color: #00599400;
+    border-radius: 20px;
     .user-name {
         display: flex;
     }
 }
+
 .icons-timeline {
     display: grid;
 
@@ -107,7 +116,7 @@ function dropdownContent() {
         padding-bottom: 2px;
 
         .buttons-icons {
-            margin: 1px;
+            margin: 2px;
             margin-right: -30px;
             font-weight: 250;
             font-size: 15px;
@@ -115,7 +124,6 @@ function dropdownContent() {
             background-color: #0071bd;
             padding: 1px 20px;
             border: solid #0071bd 0px;
-            /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
             border-radius: 15px;
             border-bottom-left-radius: 0px;
             border-top-left-radius: 0px;
@@ -127,18 +135,15 @@ function dropdownContent() {
     }
 
     //estilo
-    z-index: 1;
+    z-index: 2;
     height: 170.328px;
-    background-color: #ffffff;
-    border-bottom-left-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px 0 rgba(0, 0, 0, 0.08);
+
 }
 
 .menu-app {
     z-index: 1;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    //background-color: #ffffff;
+   
     width: 100%;
     min-height: calc(100% - 170.35px);
     display: flex;
@@ -154,13 +159,13 @@ function dropdownContent() {
     .header {
         margin-left: 0px;
         margin-top: 0px;
-        font-weight:bold;
+        font-weight: bold;
         font-size: 15px;
         color: #ffff;
-        background-color: #0071bd;
+        background-color: #005994;
         padding: 10px 25px 10px 10px;
-        border: solid #0071bd 0px;
-        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */ 
+        border: solid #005994 0px;
+        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
         border-bottom-left-radius: 0px;
@@ -179,6 +184,7 @@ function dropdownContent() {
         justify-content: flex-start;
         flex-wrap: wrap;
         flex-direction: column;
+        border-radius: 20px;
 
     }
 
@@ -262,5 +268,4 @@ function dropdownContent() {
         margin: 1px;
     }
 
-}
-</style>
+}</style>
