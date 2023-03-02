@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import { loginInform } from "@/main"
-/* import { walkBlockDeclarations } from '@vue/compiler-core'; */
 
 const main = loginInform();
 
@@ -22,12 +21,10 @@ console.log("forte", displayValue)
 function dropdownContent() {
     if (displayValue.value === true) {
         displayComp.value = "block"
-        console.log("boolean", displayValue.value)
         displayValue.value = false
     } else {
         displayValue.value = true
         displayComp.value = "none"
-        console.log("boolean2", displayValue.value)
     }
 }
 // console.log("dadosFuncionario", dadosFuncionario)
@@ -51,39 +48,41 @@ function dropdownContent() {
     <div class="menu-app">
         <div class="sidebar">
             <div class="p-3">
-                <h3 id="sidebar-no-header-title" class="user-name">
+                <button id="sidebar-no-header-title" class="user-name">
                     {{ dadosFuncionario.nome }}
-                </h3>
+                </button>
                 <ul>
-                    <li id="empresa">{{ dadosEmpresa.nome }}</li>
+                    <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
                 </ul>
                 <ul>
                     <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
-                        <button @click="dropdownContent">{{ Tarefas.nome }}</button>
+                        <button class="btn-tasks" @click="dropdownContent">
+                            {{ Tarefas.nome }}
+                        </button>
                         <ul>
                             <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
                                 <div class="li-tasks-child" :style="`display: ${displayValue ? 'none' : 'show'}`"
                                     v-if="Atividades.tarefa === Tarefas.idTarefa">
                                     <ul>
-                                        <li>{{ Atividades.nome }}</li>
+                                        <li>
+                                            <button>{{ Atividades.nome }}</button>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
-
                     </li>
                 </ul>
             </div>
         </div>
-
     </div>
     <div class="icons-timeline">
         <div class="column-one">
-            <button class="buttons-icons">Deslocamento</button>
-            <button class="buttons-icons">Carga</button>
-            <button class="buttons-icons">Braços</button>
-            <button class="buttons-icons">Dorço</button>
-            <button class="buttons-icons">Pernas</button>
+            <button class="buttons-icons" id="deslocamento">Deslocamento</button>
+            <button class="buttons-icons" id="carga">Carga</button>
+            <button class="buttons-icons" id="bracos">Braços</button>
+            <button class="buttons-icons" id="dorso">Dorço</button>
+            <button class="buttons-icons" id="pernas">Pernas</button>
         </div>
     </div>
 </template>
@@ -97,11 +96,27 @@ function dropdownContent() {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-content: center;
+        align-content: flex-end;
         flex-wrap: wrap;
+        padding-bottom: 2px;
 
         .buttons-icons {
             margin: 1px;
+            margin-right: -30px;
+            font-weight: 250;
+            font-size: 15px;
+            color: #ffff;
+            background-color: #0071bd;
+            padding: 1px 20px;
+            border: solid #0071bd 1px;
+            /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+            border-radius: 15px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: default;
         }
     }
 
@@ -130,8 +145,23 @@ function dropdownContent() {
     border-top-right-radius: 0px;
     border-top-left-radius: 20px;
 
-    .p-3 {
-        margin-left: 10px;
+    .user-name {
+        margin: 1px;
+        margin-top: 10px;
+        font-weight:bold;
+        font-size: 15px;
+        color: #ffff;
+        background-color: #0071bd;
+        padding: 1px 20px 1px 5px;
+        border: solid #0071bd 1px;
+        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */ 
+        border-radius: 15px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: default;
     }
 
     .sidebar {
@@ -144,38 +174,72 @@ function dropdownContent() {
     }
 
     .user-name {
-        padding-left: 0px;
+        padding-left: 10px;
         text-align: start;
         user-select: none;
     }
 
     ul {
+        margin-left: 0px;
         padding-left: 0px;
+        margin-bottom: 5px;
+        margin-top: 5px;
         list-style: none;
         overflow: hidden;
         user-select: none;
 
-        li {
-            font-size: small;
-            margin-left: 0px;
 
-            .atividades {
-                margin-left: 5px;
-            }
+        li {
+            padding: 0px;
 
             .empresa {
-                margin-left: 0px;
+                padding-left: 10px;
+                margin: 1px;
+                font-weight: 250;
+                font-size: 15px;
+                color: #ffff;
+                background-color: #0071bd;
+                padding: 1px 20px 1px 5px;
+                border: solid #0071bd 1px;
+                /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+                border-radius: 15px;
+                border-bottom-left-radius: 0px;
+                border-top-left-radius: 0px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                cursor: default;
+
             }
         }
     }
 
+
     //dropdown css
     .li-tasks {
         margin-bottom: 5px;
+
+        .btn-tasks {
+            margin: 1px;
+            font-weight: 250;
+            font-size: 15px;
+            color: #ffff;
+            background-color: #0071bd;
+            padding: 1px 20px 1px 5px;
+            border: solid #0071bd 1px;
+            /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
+            border-radius: 15px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: default;
+        }
     }
 
     .li-tasks-child {
-        padding-left: 0;
+        padding-left: 5px;
         position: relative;
         float: none;
         user-select: none;

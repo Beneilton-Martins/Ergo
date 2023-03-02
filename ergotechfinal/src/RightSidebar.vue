@@ -159,8 +159,10 @@ const spacer = "."
   background-color: #0071bd;
   padding: 5px 30px;
   border: solid #0071bd 1px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
   border-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px; 
   transition: 419ms;
   transform: translateY(0);
   display: flex;
@@ -188,16 +190,18 @@ const spacer = "."
 }
 
 h1 {
-  text-align: center;
+  padding-left: 30px;
   padding-bottom: 5px;
   padding-top: 2px;
   color: rgb(255, 255, 255);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px; 
   margin-bottom: 0px;
   background-color: #005994;
   user-select: none;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .dropdown-content {
@@ -219,6 +223,8 @@ div {
   background-color: rgba(255, 255, 255, 0);
   height: auto;
   border-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px; 
   user-select: none;
 }
 
@@ -244,7 +250,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   background-color: #ffff;
   overflow: hidden;
   user-select: none;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .buttons-flex {

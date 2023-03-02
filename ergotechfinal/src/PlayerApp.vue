@@ -40,6 +40,7 @@
 }
 
 #menu-app {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -59,7 +60,8 @@
 
 /* Contém o viwerjs*/
 #player-app {
-  padding-right: 16.5px;
+  z-index: 1;
+  padding-right: 15px;
   padding-top: 5px;
   padding-left: 0px;
   padding-bottom: 5px;
@@ -84,7 +86,7 @@
   justify-content: space-between;
   padding-right: 10px;
   padding-top: 1px;
-  padding-bottom: 1px;
+  padding-bottom: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 0px;
