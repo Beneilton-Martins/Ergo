@@ -65,7 +65,7 @@ function dropdownContent() {
                                         v-if="Atividades.tarefa === Tarefas.idTarefa">
                                         <ul>
                                             <li>
-                                                <button>{{ Atividades.nome }}</button>
+                                                <button class="btn-task-childs">{{ Atividades.nome }}</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -235,6 +235,7 @@ function dropdownContent() {
         margin-bottom: 5px;
 
         .btn-tasks {
+            position: inherit;
             margin: 1px;
             font-weight: 250;
             font-size: 15px;
@@ -249,7 +250,8 @@ function dropdownContent() {
             display: flex;
             flex-direction: row;
             align-items: center;
-            cursor: default;
+            cursor: pointer;
+            width: calc(80%);
         }
     }
 
@@ -258,6 +260,10 @@ function dropdownContent() {
         position: relative;
         float: none;
         user-select: none;
+        
+        .btn-task-childs {
+            cursor: pointer;
+        }
     }
 
     h3 {

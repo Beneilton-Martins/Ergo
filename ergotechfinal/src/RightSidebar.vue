@@ -260,6 +260,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   padding-bottom: 10px;
   user-select: none;
   justify-content:space-evenly;
+  
 }
 
 .div-input {
@@ -300,6 +301,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   cursor: default;
   margin-bottom: 3px;
   margin-top: 3px;
+  cursor: pointer;
 }
 
 .submit-button:hover {

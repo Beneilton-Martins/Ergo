@@ -19,6 +19,7 @@
   --vt-c-text-light-2: rgba(255, 255, 255, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(255, 255, 255, 0.64);
+  --webkit-user-select: none;
 }
 
 :root {
@@ -33,6 +34,7 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+  --webkit-user-select: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,6 +66,8 @@
 }
 
 /* Chrome, Edge, e Safari , controle das scrollbars*/
+::-webkit-user-select: ;
+
 *::-webkit-scrollbar {
   width: 5px;
 
