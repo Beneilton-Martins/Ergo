@@ -11,7 +11,7 @@ import PernaButton2 from "./Buttons/PernaButton.vue"
 
 const sourceImages = ref([])
 const base = Math.floor(Math.random() * 60) + 10
-const frameTimes = 1
+const frameTimes = 2
 const imgsValue = 48
 /* const frameTimes2 = 15 */
 

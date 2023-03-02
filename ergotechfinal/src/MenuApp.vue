@@ -94,11 +94,13 @@ function dropdownContent() {
     display: flex;
     height: 100%;
 }
+
 .p-3 {
     display: flex;
     flex-direction: column;
     background-color: #00599400;
     border-radius: 20px;
+
     .user-name {
         display: flex;
     }
@@ -143,7 +145,7 @@ function dropdownContent() {
 .menu-app {
     z-index: 1;
     //background-color: #ffffff;
-   
+
     width: 100%;
     min-height: calc(100% - 170.35px);
     display: flex;
@@ -203,7 +205,6 @@ function dropdownContent() {
         overflow: hidden;
         user-select: none;
 
-
         li {
             padding: 0px;
 
@@ -224,6 +225,7 @@ function dropdownContent() {
                 flex-direction: row;
                 align-items: center;
                 cursor: default;
+                width: calc(85%);
 
             }
         }
@@ -241,7 +243,7 @@ function dropdownContent() {
             font-size: 15px;
             color: #ffff;
             background-color: #0071bd;
-            padding: 1px 20px 1px 5px;
+            padding: 1px 15px 1px 5px;
             border: solid #0071bd 1px;
             /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
             border-radius: 15px;
@@ -260,10 +262,21 @@ function dropdownContent() {
         position: relative;
         float: none;
         user-select: none;
-        
+
         .btn-task-childs {
             cursor: pointer;
+            border-style: none;
+            background-color: transparent;
+            padding: 5px;
+            padding-right: 10px;
         }
+    }
+
+    .btn-task-childs:hover {
+        background-color: rgba(0, 113, 189, 0.213);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding-right: 10px;
     }
 
     h3 {
