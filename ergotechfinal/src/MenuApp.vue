@@ -199,8 +199,8 @@ function dropdownContent() {
     ul {
         margin-left: 0px;
         padding-left: 0px;
-        margin-bottom: 5px;
-        margin-top: 5px;
+        margin-bottom: 0px;
+        margin-top: 0px;
         list-style: none;
         overflow: hidden;
         user-select: none;
@@ -234,7 +234,7 @@ function dropdownContent() {
 
     //dropdown css
     .li-tasks {
-        margin-bottom: 5px;
+        margin-bottom: 0px;
 
         .btn-tasks {
             position: inherit;
