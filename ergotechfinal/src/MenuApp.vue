@@ -48,9 +48,8 @@ function dropdownContent() {
     <div class="menu-app">
         <div class="sidebar">
             <div class="p-3">
-                <button id="sidebar-no-header-title" class="user-name">
-                    {{ dadosFuncionario.nome }}
-                </button>
+                <button id="sidebar-no-header-title" class="header"> OWAS</button>
+                <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
                 <ul>
                     <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
                 </ul>
@@ -89,6 +88,13 @@ function dropdownContent() {
 
 
 <style lang="scss" scoped>
+.p-3{
+    display: flex;
+    flex-direction: column;
+    .user-name {
+        display: flex;
+    }
+}
 .icons-timeline {
     display: grid;
 
@@ -108,7 +114,7 @@ function dropdownContent() {
             color: #ffff;
             background-color: #0071bd;
             padding: 1px 20px;
-            border: solid #0071bd 1px;
+            border: solid #0071bd 0px;
             /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
             border-radius: 15px;
             border-bottom-left-radius: 0px;
@@ -145,22 +151,25 @@ function dropdownContent() {
     border-top-right-radius: 0px;
     border-top-left-radius: 20px;
 
-    .user-name {
-        margin: 1px;
-        margin-top: 10px;
+    .header {
+        margin-left: 0px;
+        margin-top: 0px;
         font-weight:bold;
         font-size: 15px;
         color: #ffff;
         background-color: #0071bd;
-        padding: 1px 20px 1px 5px;
-        border: solid #0071bd 1px;
+        padding: 10px 25px 10px 10px;
+        border: solid #0071bd 0px;
         /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */ 
-        border-radius: 15px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
         border-bottom-left-radius: 0px;
-        border-top-left-radius: 0px;
+        border-top-left-radius: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
+        align-content: center;
+        justify-content: center;
         cursor: default;
     }
 
@@ -199,8 +208,8 @@ function dropdownContent() {
                 font-size: 15px;
                 color: #ffff;
                 background-color: #0071bd;
-                padding: 1px 20px 1px 5px;
-                border: solid #0071bd 1px;
+                padding: 5px 20px 5px 5px;
+                border: solid #0071bd 0px;
                 /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
                 border-radius: 15px;
                 border-bottom-left-radius: 0px;

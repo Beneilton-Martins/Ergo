@@ -20,7 +20,7 @@
 /* Contém as outras divs da aplicação*/
 .container {
   display: grid;
-  grid-template-columns: 16% 64.819% auto;
+  grid-template-columns: 17.181% 64.819% 18%;
   height: 100vh;
   width: 100vw;
   background: #eff8ff;
@@ -61,7 +61,7 @@
 /* Contém o viwerjs*/
 #player-app {
   z-index: 1;
-  padding-right: 15px;
+  padding-right: 16.5px;
   padding-top: 5px;
   padding-left: 0px;
   padding-bottom: 5px;
