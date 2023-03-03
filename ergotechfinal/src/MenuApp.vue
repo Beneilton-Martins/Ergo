@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { loginInform } from "@/main"
 
 const main = loginInform();
@@ -11,21 +10,6 @@ const dadosTarefa = main.dados[3]
 const dadosAtividade = main.dados[4]
 const dadosCaptura = main.dados[5]
 
-const displayValue = ref(true)
-const displayComp = ref("none")
-
-function dropdownContent() {
-
-    if (displayValue.value === true) {
-        displayComp.value = "block"
-        displayValue.value = false
-
-    } else {
-        displayValue.value = true
-        displayComp.value = "none"
-    }
-}
-
 function showChildrens(idname) {
     if (document.getElementById(idname).style.display == "none") {
         document.getElementById(idname).style.display = "inline";
@@ -33,12 +17,10 @@ function showChildrens(idname) {
         document.getElementById(idname).style.display = "none";
     }
 }
-
 </script>
 
 <template>
     <div class="cointainer-menu">
-
         <div class="menu-app">
             <div class="sidebar">
                 <div class="p-3">
@@ -50,7 +32,8 @@ function showChildrens(idname) {
                                 <button class="btn-tasks">{{ tarefas.nome }}</button>
                             </div>
                             <div v-show="false" :id="tarefas.nome">
-                                <li class="atividades" v-for="atividades in dadosAtividade">
+                                <li class="atividades" 
+                                    v-for="atividades in dadosAtividade">
                                     <div class="li-tasks-child" 
                                         v-if="atividades.tarefa === tarefas.idTarefa">
                                         <button class="btn-task-childs">{{ atividades.nome }}</button>
