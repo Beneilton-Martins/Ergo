@@ -11,80 +11,80 @@ const dadosTarefa = main.dados[3]
 const dadosAtividade = main.dados[4]
 const dadosCaptura = main.dados[5]
 
-
 const displayValue = ref(true)
 const displayComp = ref("none")
 
-console.log("forte", displayComp)
-console.log("forte", displayValue)
-
 function dropdownContent() {
+
     if (displayValue.value === true) {
         displayComp.value = "block"
         displayValue.value = false
+
     } else {
         displayValue.value = true
         displayComp.value = "none"
     }
 }
-// console.log("dadosFuncionario", dadosFuncionario)
-// console.log("main.dados[0]", main.dados[0])
-// console.log("main.dados[0][0]", main.dados[0][0].nome)
-// console.log("teste", dadosFuncionario==main.dados[0])
 
-// console.log("tipo", typeof(main.dados[0]))
-
-
-// console.log("departamento",dadosDepartamento)
-// console.log("Funcionario",dadosFuncionario)
-// console.log("Empresa",dadosEmpresa)
-// console.log("Tarefa",dadosTarefa)
-// console.log("Atividade",dadosAtividade)
-// console.log("Captura",dadosCaptura)
+function toggle(idname) {
+    if (document.getElementById(idname).style.display == "none") {
+        document.getElementById(idname).style.display = "inline";
+    } else {
+        document.getElementById(idname).style.display = "none";
+    }
+}
 
 </script>
 
 <template>
     <div class="cointainer-menu">
-        <div class="menu-app">
+    <div v-for="tarefas in dadosTarefa">
+        <span @click="toggle(tarefas.nome)" style="cursor: pointer;">+ {{ tarefas.nome }}</span>
+        <div v-show="false" :id="tarefas.nome">
+            <div v-for="atividades in dadosAtividade" style="margin-left: 20px;">
+                <span v-if="atividades.tarefa === tarefas.idTarefa"> - {{ atividades.nome }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="menu-app">
             <div class="sidebar">
-                <div class="p-3">
-                    <button id="sidebar-no-header-title" class="header">OWAS</button>
-                    <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
-                    <ul>
-                        <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
-                    </ul>
-                    <ul>
-                        <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
-                            <button class="btn-tasks" @click="dropdownContent">
-                                {{ Tarefas.nome }}
-                            </button>
-                            <ul>
-                                <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
-                                    <div class="li-tasks-child" :style="`display: ${displayValue ? 'none' : 'show'}`"
-                                        v-if="Atividades.tarefa === Tarefas.idTarefa">
-                                        <ul>
-                                            <li>
-                                                <button class="btn-task-childs">{{ Atividades.nome }}</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <div class="p-3">
+                        <button id="sidebar-no-header-title" class="header">OWAS</button>
+                        <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
+                        <ul>
+                            <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
+                        </ul>
+                        <ul>
+                            <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
+                                <button class="btn-tasks" @click="dropdownContent()">
+                                    {{ Tarefas.nome }}
+                                </button>
+                                <ul>
+                                    <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
+                                        <div class="li-tasks-child" v-if="Atividades.tarefa === Tarefas.idTarefa"
+                                            :style="`display: ${displayValue ? 'none' : 'show'}`">
+                                            <ul>
+                                                <li>
+                                                    <button class="btn-task-childs">{{ Atividades.nome }}</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="icons-timeline">
-            <div class="column-one">
-                <button class="buttons-icons" id="deslocamento">Deslocamento</button>
-                <button class="buttons-icons" id="carga">Carga</button>
-                <button class="buttons-icons" id="bracos">Braços</button>
-                <button class="buttons-icons" id="dorso">Dorço</button>
-                <button class="buttons-icons" id="pernas">Pernas</button>
-            </div>
-        </div>
+            <div class="icons-timeline">
+                <div class="column-one">
+                    <button class="buttons-icons" id="deslocamento">Deslocamento</button>
+                    <button class="buttons-icons" id="carga">Carga</button>
+                    <button class="buttons-icons" id="bracos">Braços</button>
+                    <button class="buttons-icons" id="dorso">Dorço</button>
+                    <button class="buttons-icons" id="pernas">Pernas</button>
+                </div>
+        </div> -->
     </div>
 </template>
 
@@ -287,4 +287,5 @@ function dropdownContent() {
         margin: 1px;
     }
 
-}</style>
+}
+</style>

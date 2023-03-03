@@ -2,8 +2,8 @@
 import SubtitleButtons from "./components/Buttons/SubtitleButtons.vue"
 import { ref } from "vue"
 
-let Tinicial = ref("1")
-let Tfinal = ref("50")
+let Tinicial = ref("")
+let Tfinal = ref("")
 
 const spacer = "."
 </script>
