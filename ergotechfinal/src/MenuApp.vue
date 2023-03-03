@@ -26,7 +26,7 @@ function dropdownContent() {
     }
 }
 
-function toggle(idname) {
+function showChildrens(idname) {
     if (document.getElementById(idname).style.display == "none") {
         document.getElementById(idname).style.display = "inline";
     } else {
@@ -38,53 +38,39 @@ function toggle(idname) {
 
 <template>
     <div class="cointainer-menu">
-    <div v-for="tarefas in dadosTarefa">
-        <span @click="toggle(tarefas.nome)" style="cursor: pointer;">+ {{ tarefas.nome }}</span>
-        <div v-show="false" :id="tarefas.nome">
-            <div v-for="atividades in dadosAtividade" style="margin-left: 20px;">
-                <span v-if="atividades.tarefa === tarefas.idTarefa"> - {{ atividades.nome }}</span>
+
+        <div class="menu-app">
+            <div class="sidebar">
+                <div class="p-3">
+                    <button id="sidebar-no-header-title" class="header">OWAS</button>
+                    <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
+                    <ul>
+                        <li v-for="tarefas in dadosTarefa">
+                            <div class="li-tasks" @click="showChildrens(tarefas.nome)">
+                                <button class="btn-tasks">{{ tarefas.nome }}</button>
+                            </div>
+                            <div v-show="false" :id="tarefas.nome">
+                                <li class="atividades" v-for="atividades in dadosAtividade">
+                                    <div class="li-tasks-child" 
+                                        v-if="atividades.tarefa === tarefas.idTarefa">
+                                        <button class="btn-task-childs">{{ atividades.nome }}</button>
+                                    </div>
+                                </li>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="menu-app">
-            <div class="sidebar">
-                    <div class="p-3">
-                        <button id="sidebar-no-header-title" class="header">OWAS</button>
-                        <h3 class="user-name">{{ dadosFuncionario.nome }}</h3>
-                        <ul>
-                            <li><button class="empresa">{{ dadosEmpresa.nome }}</button></li>
-                        </ul>
-                        <ul>
-                            <li v-for="Tarefas in dadosTarefa" :key="Tarefas.idTarefa" class="li-tasks">
-                                <button class="btn-tasks" @click="dropdownContent()">
-                                    {{ Tarefas.nome }}
-                                </button>
-                                <ul>
-                                    <li class="atividades" v-for="Atividades in dadosAtividade" :key="Atividades.idAtividade">
-                                        <div class="li-tasks-child" v-if="Atividades.tarefa === Tarefas.idTarefa"
-                                            :style="`display: ${displayValue ? 'none' : 'show'}`">
-                                            <ul>
-                                                <li>
-                                                    <button class="btn-task-childs">{{ Atividades.nome }}</button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="icons-timeline">
+            <div class="column-one">
+                <button class="buttons-icons" id="deslocamento">Deslocamento</button>
+                <button class="buttons-icons" id="carga">Carga</button>
+                <button class="buttons-icons" id="bracos">Braços</button>
+                <button class="buttons-icons" id="dorso">Dorço</button>
+                <button class="buttons-icons" id="pernas">Pernas</button>
             </div>
-            <div class="icons-timeline">
-                <div class="column-one">
-                    <button class="buttons-icons" id="deslocamento">Deslocamento</button>
-                    <button class="buttons-icons" id="carga">Carga</button>
-                    <button class="buttons-icons" id="bracos">Braços</button>
-                    <button class="buttons-icons" id="dorso">Dorço</button>
-                    <button class="buttons-icons" id="pernas">Pernas</button>
-                </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
