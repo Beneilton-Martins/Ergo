@@ -32,28 +32,26 @@ function showChildrens(idname) {
                                 <button class="btn-tasks">{{ tarefas.nome }}</button>
                             </div>
                             <div v-show="false" :id="tarefas.nome">
-                                <li class="atividades" 
-                                    v-for="atividades in dadosAtividade">
-                                    <div class="li-tasks-child" 
-                                        v-if="atividades.tarefa === tarefas.idTarefa">
-                                        <button class="btn-task-childs">{{ atividades.nome }}</button>
-                                    </div>
-                                </li>
+                        <li class="atividades" v-for="atividades in dadosAtividade">
+                            <div class="li-tasks-child" v-if="atividades.tarefa === tarefas.idTarefa">
+                                <button class="btn-task-childs">- {{ atividades.nome }}</button>
                             </div>
                         </li>
-                    </ul>
                 </div>
+                </li>
+                </ul>
             </div>
         </div>
-        <div class="icons-timeline">
-            <div class="column-one">
-                <button class="buttons-icons" id="deslocamento">Deslocamento</button>
-                <button class="buttons-icons" id="carga">Carga</button>
-                <button class="buttons-icons" id="bracos">Braços</button>
-                <button class="buttons-icons" id="dorso">Dorço</button>
-                <button class="buttons-icons" id="pernas">Pernas</button>
-            </div>
+    </div>
+    <div class="icons-timeline">
+        <div class="column-one">
+            <button class="buttons-icons" id="deslocamento">Deslocamento</button>
+            <button class="buttons-icons" id="carga">Carga</button>
+            <button class="buttons-icons" id="bracos">Braços</button>
+            <button class="buttons-icons" id="dorso">Dorço</button>
+            <button class="buttons-icons" id="pernas">Pernas</button>
         </div>
+    </div>
     </div>
 </template>
 
@@ -156,7 +154,6 @@ function showChildrens(idname) {
         flex-wrap: wrap;
         flex-direction: column;
         border-radius: 20px;
-
     }
 
     .user-name {
@@ -200,14 +197,13 @@ function showChildrens(idname) {
         }
     }
 
-
     //dropdown css
     .li-tasks {
         margin-bottom: 0px;
 
         .btn-tasks {
             position: inherit;
-            margin: 1px;
+            margin-bottom: 2px;
             font-weight: 250;
             font-size: 15px;
             color: #ffff;
@@ -222,26 +218,56 @@ function showChildrens(idname) {
             flex-direction: row;
             align-items: center;
             cursor: pointer;
-            width: calc(80%);
+            width: calc(85%);
         }
     }
 
-    .li-tasks-child {
-        padding-left: 5px;
-        position: relative;
-        float: none;
-        user-select: none;
+    .btn-tasks:hover {
+        position: inherit;
+        margin-bottom: 2px;
+        font-weight: 250;
+        font-size: 15px;
+        color: #ffff;
+        background-color: #0071bd;
+        padding: 1px 15px 1px 5px;
+        border: solid #0071bd 1px;
+        border-radius: 15px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        width: calc(86%);
+    }
 
+    .li-tasks-child {
+        padding-left: 0px;
+        position: relative;
+        user-select: none;
+        float: none;
         .btn-task-childs {
+            display: flex;
             cursor: pointer;
             border-style: none;
             background-color: transparent;
-            padding: 5px;
-            padding-right: 10px;
+            margin-top: 2px;
+            margin-bottom: 5px;
+            padding: 2.5px;
+            padding-left: 10px;
+            width: calc(80%);
+
         }
     }
 
     .btn-task-childs:hover {
+        background-color: rgba(0, 113, 189, 0.213);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding-right: 10px;
+    }
+
+    .btn-task-childs:focus {
         background-color: rgba(0, 113, 189, 0.213);
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
