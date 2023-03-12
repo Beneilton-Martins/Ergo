@@ -32,26 +32,26 @@ function showChildrens(idname) {
                                 <button class="btn-tasks">{{ tarefas.nome }}</button>
                             </div>
                             <div v-show="false" :id="tarefas.nome">
-                                <li class="atividades" v-for="atividades in dadosAtividade">
-                                    <div class="li-tasks-child" v-if="atividades.tarefa === tarefas.idTarefa">
-                                        <button class="btn-task-childs">- {{ atividades.nome }}</button>
-                                    </div>
-                                </li>
+                        <li class="atividades" v-for="atividades in dadosAtividade">
+                            <div class="li-tasks-child" v-if="atividades.tarefa === tarefas.idTarefa">
+                                <button class="btn-task-childs">- {{ atividades.nome }}</button>
                             </div>
                         </li>
-                    </ul>
                 </div>
+                </li>
+                </ul>
             </div>
         </div>
-        <div class="icons-timeline">
-            <div class="column-one">
-                <button class="buttons-icons" id="deslocamento">Deslocamento</button>
-                <button class="buttons-icons" id="carga">Carga</button>
-                <button class="buttons-icons" id="bracos">Braços</button>
-                <button class="buttons-icons" id="dorso">Dorço</button>
-                <button class="buttons-icons" id="pernas">Pernas</button>
-            </div>
+    </div>
+    <div class="icons-timeline">
+        <div class="column-one">
+            <button class="buttons-icons" id="deslocamento">Deslocamento</button>
+            <button class="buttons-icons" id="carga">Carga</button>
+            <button class="buttons-icons" id="bracos">Braços</button>
+            <button class="buttons-icons" id="dorso">Dorço</button>
+            <button class="buttons-icons" id="pernas">Pernas</button>
         </div>
+    </div>
     </div>
 </template>
 
@@ -106,7 +106,6 @@ function showChildrens(idname) {
     //estilo
     z-index: 2;
     height: 170.328px;
-
 }
 
 .menu-app {
@@ -283,5 +282,4 @@ function showChildrens(idname) {
         margin: 1px;
     }
 
-}
-</style>
+}</style>

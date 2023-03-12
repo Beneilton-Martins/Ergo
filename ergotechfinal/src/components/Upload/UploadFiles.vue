@@ -70,7 +70,6 @@ label {
 		display: block;
 	}
 	input[type=file]:not(:focus-visible) {
-		// Visually Hidden Styles taken from Bootstrap 5
 		position: absolute !important;
 		width: 1px !important;
 		height: 1px !important;
@@ -89,7 +88,6 @@ html {
 	height: 100%;
 	width: 100%;
 	background-color: #b6d6f5;
-	/* Overlapping Stripes Background, based off https://codepen.io/MinzCode/pen/Exgpqpe */
 	--color1: rgba(55, 165, 255, 0.35);
 	--color2: rgba(96, 181, 250, 0.35);
 	--rotation: 135deg;

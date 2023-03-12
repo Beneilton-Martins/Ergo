@@ -6,6 +6,7 @@ let Tinicial = ref("")
 let Tfinal = ref("")
 
 const spacer = "."
+
 </script>
 
 <template>
@@ -291,7 +292,6 @@ button:focus:not(:focus-visible):not(.focus-visible) {
   color: #ffff;
   background-color: #0071bd;
   border: solid #0071bd 1px;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08); */
   border-radius: 10px;
   transition: 419ms;
   transform: translateY(0);
@@ -307,7 +307,6 @@ button:focus:not(:focus-visible):not(.focus-visible) {
 .submit-button:hover {
   padding-left: 10%;
   padding-right: 10%;
-
 }
 
 .input[type=text],
@@ -345,4 +344,6 @@ select {
 
 template {
   user-select: none;
-}</style>
+}
+
+</style>
